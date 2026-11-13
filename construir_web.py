@@ -19,6 +19,49 @@ CURSO = "2026-27"
 
 ASIGNATURAS = [
     {
+        "id": "eso1",
+        "corto": "Mat. · 1º ESO",
+        "carpeta": "1eso-matematicas",
+        "origen": "1º ESO Matemáticas",
+        "nivel": "1º ESO",
+        "nombre": "Matemáticas",
+        "color": "ink",
+        "completo": {
+            "html": "Apuntes/apuntes-1eso-curso-completo.html",
+            "pdf_sin": "Apuntes/Apuntes 1ESO Mat - curso completo (sin soluciones).pdf",
+            "pdf_con": "Apuntes/Apuntes 1ESO Mat - curso completo (con soluciones).pdf",
+        },
+        "partes": [
+            {"titulo": "UP1 · Los ladrillos para construir los números", "slug": "up1", "html": "Apuntes/apuntes-1eso-up1.html",
+             "pdf_sin": "Apuntes/Apuntes 1ESO Mat - UP1 Los ladrillos para construir los números (sin soluciones).pdf",
+             "pdf_con": "Apuntes/Apuntes 1ESO Mat - UP1 Los ladrillos para construir los números (con soluciones).pdf",
+             "temas": [("t1", "Potencias y raíces"), ("t2", "Divisibilidad")]},
+            {"titulo": "UP2 · Situaciones proporcionales", "slug": "up2", "html": "Apuntes/apuntes-1eso-up2.html",
+             "pdf_sin": "Apuntes/Apuntes 1ESO Mat - UP2 Situaciones proporcionales (sin soluciones).pdf",
+             "pdf_con": "Apuntes/Apuntes 1ESO Mat - UP2 Situaciones proporcionales (con soluciones).pdf",
+             "temas": [("t3", "Estadística"), ("t4", "Fracciones y decimales"), ("t5", "Proporcionalidad y porcentajes")]},
+            {"titulo": "UP3 · Álgebra y enteros", "slug": "up3", "html": "Apuntes/apuntes-1eso-up3.html",
+             "pdf_sin": "Apuntes/Apuntes 1ESO Mat - UP3 Álgebra y enteros (sin soluciones).pdf",
+             "pdf_con": "Apuntes/Apuntes 1ESO Mat - UP3 Álgebra y enteros (con soluciones).pdf",
+             "temas": [("t6", "Números enteros"), ("t7", "Álgebra"), ("t8", "Funciones")]},
+            {"titulo": "UP4 · Geometría", "slug": "up4", "html": "Apuntes/apuntes-1eso-up4.html",
+             "pdf_sin": "Apuntes/Apuntes 1ESO Mat - UP4 Geometría (sin soluciones).pdf",
+             "pdf_con": "Apuntes/Apuntes 1ESO Mat - UP4 Geometría (con soluciones).pdf",
+             "temas": [("t9", "Rectas y ángulos"), ("t10", "Figuras planas"), ("t11", "Perímetros y áreas")]},
+        ],
+        "extras": [
+            {"titulo": "Colección de ejercicios por tema", "slug": "coleccion",
+             "html": "Colección de ejercicios/coleccion-ejercicios-1eso.html",
+             "pdf_sin": "Colección de ejercicios/Colección ejercicios 1ESO Mat (sin soluciones).pdf",
+             "pdf_con": "Colección de ejercicios/Colección ejercicios 1ESO Mat (con soluciones).pdf"},
+        ] + [
+            {"titulo": f"Cuadernillo UP{k}", "slug": f"cuadernillo-up{k}",
+             "html": f"Cuadernillos/cuadernillo-UP{k}-1eso.html",
+             "pdf_sin": f"Cuadernillos/Cuadernillo UP{k} 1ESO Mat (sin soluciones).pdf",
+             "pdf_con": f"Cuadernillos/Cuadernillo UP{k} 1ESO Mat (con soluciones).pdf"} for k in range(1, 5)
+        ],
+    },
+    {
         "id": "eso4",
         "corto": "Mat. B · 4º ESO",
         "carpeta": "4eso-matematicas-b",
@@ -86,7 +129,14 @@ ASIGNATURAS = [
              "temas": [("t9", "Límites y continuidad"), ("t10", "Derivadas"), ("t11", "Aplicaciones de las derivadas"),
                        ("t12", "Integrales indefinidas"), ("t13", "Integral definida y áreas")]},
         ],
-        "extras": [],
+        "extras": [
+            {"titulo": f"Ejercicios del libro · {u}", "slug": f"libro-up{k}",
+             "html": f"Ejercicios del libro/ejercicios-libro-2bach-matII-up{k}.html",
+             "pdf_sin": f"Ejercicios del libro/Ejercicios del libro 2Bach Mat II - {u} (sin soluciones).pdf",
+             "pdf_con": f"Ejercicios del libro/Ejercicios del libro 2Bach Mat II - {u} (con soluciones).pdf"}
+            for k, u in enumerate(["UP1 Números y álgebra", "UP2 Geometría", "UP3 Estadística y probabilidad",
+                                   "UP4 Análisis"], 1)
+        ],
     },
     {
         "id": "ccss2",
@@ -235,7 +285,7 @@ PORTADA = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Apuntes de Matemáticas</title>
-<meta name="description" content="Apuntes de Matemáticas B (4º ESO), Matemáticas II y Matemáticas Aplicadas a las CCSS II (2º Bachillerato): teoría, ejemplos y ejercicios resueltos.">
+<meta name="description" content="Apuntes de Matemáticas (1º ESO), Matemáticas B (4º ESO), Matemáticas II y Matemáticas Aplicadas a las CCSS II (2º Bachillerato): teoría, ejemplos y ejercicios resueltos.">
 {fuentes}
 <style>
 @font-face{{font-family:"BarFix";src:local("Arial"),local("Helvetica"),local("Roboto"),local("DejaVu Sans");unicode-range:U+007C}}
@@ -262,7 +312,7 @@ body{{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-body)
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}}
 a{{color:inherit}}
 a:focus-visible,input:focus-visible{{outline:3px dashed var(--red);outline-offset:3px}}
-.c-violet{{--acc:var(--violet)}} .c-red{{--acc:var(--red)}} .c-green{{--acc:var(--green)}}
+.c-violet{{--acc:var(--violet)}} .c-red{{--acc:var(--red)}} .c-green{{--acc:var(--green)}} .c-ink{{--acc:var(--ink)}}
 
 .tabs{{position:sticky;top:0;z-index:5;background:var(--desk);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding-block:10px 8px;max-width:940px;margin:0 auto}}
 .tabs a{{font-family:var(--f-head);font-weight:700;font-size:16px;text-decoration:none;color:var(--acc,var(--ink));background:var(--paper);
@@ -338,6 +388,7 @@ p{{margin:8px 0;max-width:68ch}}
   <h1>Apuntes de Matemáticas</h1>
   <p>Teoría, ejemplos y ejercicios resueltos, <span class="hl">ordenados como los vemos en clase</span>. Cada tema se puede leer en la web (las soluciones se despliegan al pulsar) o descargar en PDF para imprimir, con o sin soluciones.</p>
   <ul class="indice">
+    <li class="c-ink"><a href="#eso1">Matemáticas<small>1º ESO</small></a></li>
     <li class="c-violet"><a href="#eso4">Matemáticas B<small>4º ESO</small></a></li>
     <li class="c-red"><a href="#mat2">Matemáticas II<small>2º Bachillerato</small></a></li>
     <li class="c-green"><a href="#ccss2">Matemáticas Aplicadas a las CCSS II<small>2º Bachillerato</small></a></li>
