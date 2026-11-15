@@ -130,6 +130,11 @@ ASIGNATURAS = [
                        ("t12", "Integrales indefinidas"), ("t13", "Integral definida y áreas")]},
         ],
         "extras": [
+            {"titulo": "Ejercicios del libro · todas las UP, por temas", "slug": "libro",
+             "html": "Apuntes/ejercicios-libro-2bach-matII.html",
+             "pdf_sin": "Apuntes/Ejercicios del libro 2Bach Mat II (sin soluciones).pdf",
+             "pdf_con": "Apuntes/Ejercicios del libro 2Bach Mat II (con soluciones).pdf"},
+        ] + [
             {"titulo": f"Ejercicios del libro · {u}", "slug": f"libro-up{k}",
              "html": f"Ejercicios del libro/ejercicios-libro-2bach-matII-up{k}.html",
              "pdf_sin": f"Ejercicios del libro/Ejercicios del libro 2Bach Mat II - {u} (sin soluciones).pdf",
