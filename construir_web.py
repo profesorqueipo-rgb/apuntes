@@ -165,7 +165,7 @@ ASIGNATURAS = [
             {"titulo": "2ª evaluación", "slug": "2eval", "html": "Apuntes/apuntes-2bach-ccssII-2eval.html",
              "pdf_sin": "Apuntes/Apuntes 2Bach CCSS II - 2ª evaluación (sin soluciones).pdf",
              "pdf_con": "Apuntes/Apuntes 2Bach CCSS II - 2ª evaluación (con soluciones).pdf",
-             "temas": [("t5", "Probabilidad"), ("t6", "Distribuciones binomial y normal"),
+             "temas": [("tc", "Combinatoria"), ("t5", "Probabilidad"), ("t6", "Distribuciones binomial y normal"),
                        ("t7", "Inferencia estadística")]},
             {"titulo": "3ª evaluación", "slug": "3eval", "html": "Apuntes/apuntes-2bach-ccssII-3eval.html",
              "pdf_sin": "Apuntes/Apuntes 2Bach CCSS II - 3ª evaluación (sin soluciones).pdf",

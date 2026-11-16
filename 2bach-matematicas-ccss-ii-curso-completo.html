@@ -251,6 +251,15 @@ svg .tl2{font-size:12px;fill:var(--red)}
 .pau{font-family:var(--f-note);font-size:21px;color:var(--pencil)}
 </style>
 
+<style>
+svg .tn2{font-size:15px;fill:var(--ink);font-weight:700}
+svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
+.tart{flex:1 1 300px;display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--f-head);color:var(--ink)}
+.tr-row{display:flex;gap:14px;align-items:baseline;position:relative}
+.tr-row span{min-width:22px;text-align:center}
+.tr-row em{position:absolute;left:100%;margin-left:14px;font-family:var(--f-note);font-style:normal;font-size:18px;color:var(--red);white-space:nowrap}
+.tr-row:first-child span{color:var(--red)}
+</style>
 <nav class="tabs" aria-label="Evaluaciones">
   <a href="#inicio">Índice</a>
   <a href="#e1">1ª evaluación</a>
@@ -285,7 +294,7 @@ html .toc.c3{grid-template-columns:repeat(3,1fr)!important}
 
   <nav class="toc ev3 c3" aria-label="Índice del curso">
     <a href="#e1"><b>1ª evaluación</b><ul><li>1 · Matrices</li><li>2 · Determinantes</li><li>3 · Sistemas de ecuaciones</li><li>4 · Programación lineal</li></ul></a>
-    <a href="#e2"><b>2ª evaluación</b><ul><li>5 · Probabilidad</li><li>6 · Binomial y normal</li><li>7 · Inferencia estadística</li></ul></a>
+    <a href="#e2"><b>2ª evaluación</b><ul><li>Combinatoria</li><li>5 · Probabilidad</li><li>6 · Binomial y normal</li><li>7 · Inferencia estadística</li></ul></a>
     <a href="#e3"><b>3ª evaluación</b><ul><li>8 · Límites y continuidad</li><li>9 · Derivadas</li><li>10 · Integrales</li></ul></a>
   </nav>
 
@@ -754,9 +763,150 @@ html .toc.c3{grid-template-columns:repeat(3,1fr)!important}
   <div class="plan">
     <h3 class="r">2ª evaluación: 32 sesiones</h3>
     <div class="bar" aria-label="Sesiones por tema"><div class="off" style="flex:4">PL · 4</div><div class="" style="flex:12;color:var(--violet)">T5 · 12</div><div class="" style="flex:4;color:var(--red)">T6 · 4</div><div class="" style="flex:12;color:var(--green)">T7 · 12</div></div>
-    <p class="legend">Las 4 primeras sesiones terminan la programación lineal: está en el tema 4.</p>
+    <p class="legend">Las 4 primeras sesiones terminan la programación lineal: está en el tema 4. La combinatoria es un tema complementario que se trabaja al empezar el tema 5.</p>
   </div>
-  <nav class="toc c3" aria-label="Índice de temas"><a href="#t5"><b>5 · Probabilidad</b><span>sucesos, tablas de contingencia, condicionada, independencia, árboles, Bayes</span></a><a href="#t6"><b>6 · Binomial y normal</b><span>variables aleatorias, B(n, p), N(μ, σ), tabla, aproximación</span></a><a href="#t7"><b>7 · Inferencia</b><span>muestreo, distribuciones muestrales, intervalos de confianza, tamaño</span></a></nav>
+  <nav class="toc" aria-label="Índice de temas"><a href="#tc"><b>Combinatoria</b><span>factorial, permutaciones, variaciones, combinaciones, Tartaglia, Newton, con repetición</span></a><a href="#t5"><b>5 · Probabilidad</b><span>sucesos, tablas de contingencia, condicionada, independencia, árboles, Bayes</span></a><a href="#t6"><b>6 · Binomial y normal</b><span>variables aleatorias, B(n, p), N(μ, σ), tabla, aproximación</span></a><a href="#t7"><b>7 · Inferencia</b><span>muestreo, distribuciones muestrales, intervalos de confianza, tamaño</span></a></nav>
+</section>
+
+<section class="sheet" id="tc" data-folio="Combinatoria">
+  <span class="date">antes de la probabilidad</span>
+  <span class="kicker">Tema complementario · UP2</span>
+  <h2 class="vio">Combinatoria</h2>
+  <p class="lead">La combinatoria es la parte de las matemáticas que estudia las distintas <span class="hl">maneras de hacer agrupaciones</span> con los elementos de un conjunto: formarlas y, sobre todo, <b>contarlas</b>. En probabilidad sirve para contar casos favorables y posibles en la regla de Laplace.</p>
+
+  <h3 class="v">Principio de multiplicación</h3>
+  <div class="row">
+    <div style="flex:1 1 280px">
+      <p>Si una elección se hace en varios pasos y hay a opciones en el primero, b en el segundo, c en el tercero…, el número total de resultados es <span class="m big">a · b · c · …</span></p>
+      <p>Ejemplo: ¿de cuántas formas se pueden ordenar las letras de <b>COSA</b>? Para la 1ª letra hay 4 opciones, para la 2ª quedan 3, luego 2 y por último 1:</p>
+      <p><span class="m">4 · 3 · 2 · 1 = </span> <span class="res">24</span> <span class="note">el árbol lo muestra</span></p>
+    </div>
+    <figure class="fig"><svg viewBox="0 0 330 190" width="330" role="img" aria-label="Diagrama de árbol de las ordenaciones de COSA"><path d="M14 92 L70 25" class="tr"/><text x="80" y="30" class="tn" text-anchor="middle">C</text><path d="M14 92 L70 70" class="tr"/><text x="80" y="75" class="tn" text-anchor="middle">O</text><path d="M14 92 L70 115" class="tr"/><text x="80" y="120" class="tn" text-anchor="middle">S</text><path d="M14 92 L70 160" class="tr"/><text x="80" y="165" class="tn" text-anchor="middle">A</text><path d="M92 25 L150 10" class="tr"/><text x="160" y="15" class="tn2" text-anchor="middle">O</text><path d="M92 25 L150 25" class="tr"/><text x="160" y="30" class="tn2" text-anchor="middle">S</text><path d="M92 25 L150 40" class="tr"/><text x="160" y="45" class="tn2" text-anchor="middle">A</text><path d="M172 10 L230 4" class="tr"/><text x="240" y="9" class="tn2" text-anchor="middle">S</text><path d="M172 10 L230 16" class="tr"/><text x="240" y="21" class="tn2" text-anchor="middle">A</text><path d="M252 4 L296 4" class="tr"/><text x="306" y="9" class="tn2" text-anchor="middle">A</text><path d="M252 16 L296 16" class="tr"/><text x="306" y="21" class="tn2" text-anchor="middle">S</text><text x="80" y="186" class="tp" text-anchor="middle" style="font-size:17px">4</text><text x="160" y="186" class="tp" text-anchor="middle" style="font-size:17px">· 3</text><text x="240" y="186" class="tp" text-anchor="middle" style="font-size:17px">· 2</text><text x="306" y="186" class="tp" text-anchor="middle" style="font-size:17px">· 1</text></svg><figcaption>solo se ha dibujado la rama C → O; las demás son iguales</figcaption></figure>
+  </div>
+
+  <h3 class="r">Factorial de un número</h3>
+  <div class="row">
+    <div class="box red"><span class="t">Factorial</span><span class="m big">m! = m·(m − 1)·(m − 2)·…·2·1</span><br>
+      <span class="m">5! = 5·4·3·2·1 = 120</span> &nbsp; <span class="m">1! = 1</span> &nbsp; <b><span class="m">0! = 1</span></b></div>
+    <div class="postit"><b>Truco para simplificar</b>Un factorial «contiene» a todos los menores:<br><span class="m">7! = 7·6·5!</span> &nbsp; <span class="m">n! = n·(n − 1)!</span></div>
+  </div>
+  <p><span class="m"><span class="f"><i>7!</i><i>5!</i></span> = <span class="f"><i>7·6·<s>5!</s></i><i><s>5!</s></i></span> = 42</span> &nbsp; <span class="m"><span class="f"><i>9!</i><i>5!·4!</i></span> = <span class="f"><i>9·8·7·6</i><i>4·3·2·1</i></span> = 126</span> &nbsp; <span class="m"><span class="f"><i>m!</i><i>(m − 1)!</i></span> = m</span> &nbsp; <span class="m"><span class="f"><i>(m + 1)!</i><i>(m − 1)!</i></span> = (m + 1)·m</span></p>
+  <div class="warn"><span class="ojo"><span>¡OJO!</span></span><p><span class="m">4·x! ≠ (4x)!</span>: el factorial solo afecta a lo que tiene justo delante. Por ejemplo, <span class="m">2·3! = 12</span>, pero <span class="m">6! = 720</span>.</p></div>
+
+  <h3 class="g keepnext">¿Qué tipo de agrupación es? Tres preguntas</h3>
+  <div class="row">
+    <ol class="steps" style="flex:1 1 260px"><li>¿Intervienen <b>todos</b> los elementos?</li><li>¿Importa el <b>orden</b>?</li><li>¿Se pueden <b>repetir</b>?</li></ol>
+    <div class="postit o"><b>Una pista</b>Si cambiar el orden da un resultado distinto (un podio, una contraseña, una cola), importa el orden. Si solo cuenta quién está (un equipo, una comisión, una mano de cartas), no importa.</div>
+  </div>
+  <div class="wrap"><table class="tb">
+    <tr><th>Tipo</th><th>¿Todos?</th><th>¿Orden?</th><th>¿Repetir?</th><th>Fórmula</th></tr>
+    <tr><td><b>Permutaciones</b></td><td><b class="grn">sí</b></td><td><b class="grn">sí</b></td><td><b class="red">no</b></td><td><span class="m">P<sub>m</sub> = m!</span></td></tr>
+    <tr><td><b>Variaciones</b></td><td><b class="red">no</b></td><td><b class="grn">sí</b></td><td><b class="red">no</b></td><td><span class="m">V<sub>m,n</sub> = <span class="f"><i>m!</i><i>(m − n)!</i></span></span></td></tr>
+    <tr><td><b>Combinaciones</b></td><td><b class="red">no</b></td><td><b class="red">no</b></td><td><b class="red">no</b></td><td><span class="m">C<sub>m,n</sub> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span></span></td></tr>
+    <tr><td>Permutaciones con repetición</td><td><b class="grn">sí</b></td><td><b class="grn">sí</b></td><td><b class="grn">sí</b></td><td><span class="m">P<sub>m</sub><sup>a,b,…</sup> = <span class="f"><i>m!</i><i>a!·b!·…</i></span></span></td></tr>
+    <tr><td>Variaciones con repetición</td><td><b class="red">no</b></td><td><b class="grn">sí</b></td><td><b class="grn">sí</b></td><td><span class="m">VR<sub>m</sub><sup>n</sup> = m<sup>n</sup></span></td></tr>
+    <tr><td>Combinaciones con repetición</td><td><b class="red">no</b></td><td><b class="red">no</b></td><td><b class="grn">sí</b></td><td><span class="m">CR<sub>m</sub><sup>n</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m + n − 1</i><i>n</i></span></span></td></tr>
+  </table></div>
+  <p class="note">m = número de elementos que hay · n = número de elementos que se toman en cada grupo</p>
+
+  <h3 class="v">Sin repetición</h3>
+  <div class="row">
+    <div class="box vio"><span class="t">Permutaciones · <span class="nt">P<sub>m</sub></span></span>Ordenaciones de los m elementos, usándolos todos.<br>
+      <span class="m big">P<sub>m</sub> = m!</span><br>Ejemplo: 6 personas en una fila: <span class="m">P<sub>6</sub> = 720</span></div>
+    <div class="box red"><span class="t">Variaciones · <span class="nt">V<sub>m,n</sub></span></span>Grupos <b>ordenados</b> de n elementos elegidos entre m.<br>
+      <span class="m big">V<sub>m,n</sub> = <span class="f"><i>m!</i><i>(m − n)!</i></span> = m·(m − 1)·…</span> <span class="note">(n factores)</span><br>
+      Ejemplo: oro y plata entre 7: <span class="m">V<sub>7,2</sub> = 7·6 = 42</span></div>
+  </div>
+  <div class="row">
+    <div class="box grn"><span class="t">Combinaciones · <span class="nt">C<sub>m,n</sub></span></span>Grupos de n elementos elegidos entre m en los que <b>no importa el orden</b>.<br>
+      <span class="m big">C<sub>m,n</sub> = <span class="f"><i>V<sub>m,n</sub></i><i>P<sub>n</sub></i></span> = <span class="f"><i>m!</i><i>n!·(m − n)!</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span></span><br>
+      Ejemplo: 3 personas de 5 para una comisión: <span class="m">C<sub>5,3</sub> = <span class="f"><i>5·4·3</i><i>3·2·1</i></span> = 10</span></div>
+    <div class="postit"><b>¿Por qué se divide entre P<sub>n</sub>?</b>Cada grupo de n elementos aparece en las variaciones ordenado de n! maneras. Si el orden no importa, todas esas maneras son el mismo grupo.</div>
+  </div>
+
+  <h3 class="r">Números combinatorios</h3>
+  <div class="row">
+    <div class="box ink"><span class="t">Número combinatorio</span><span class="m"><span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span> = <span class="f"><i>m!</i><i>n!·(m − n)!</i></span></span>, con m ≥ n. Se lee «m sobre n».</div>
+  </div>
+    <ul class="pen">
+      <li><span class="m"><span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>0</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>m</i></span> = 1</span></li>
+      <li><span class="m"><span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>m − n</i></span></span> &nbsp; <span class="note">ejemplo:</span> <span class="m"><span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>9</i><i>2</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>9</i><i>7</i></span> = 36</span></li>
+      <li><span class="m"><span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m − 1</i><i>n − 1</i></span> + <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m − 1</i><i>n</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span></span></li>
+    </ul>
+  <div class="row">
+    <div style="flex:1 1 240px">
+      <p><b>Triángulo de Tartaglia</b> (o de Pascal): la fila m contiene <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>0</i></span>, <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>1</i></span>, …, <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>m</i></span>.</p>
+      <ul class="pen">
+        <li>Los extremos valen 1.</li>
+        <li>Los elementos simétricos son iguales.</li>
+        <li>Cada número (salvo los extremos) es la suma de los dos que tiene encima.</li>
+        <li>La fila m suma 2<sup>m</sup>.</li>
+      </ul>
+    </div>
+    <div class="tart"><div class="tr-row"><span>1</span><em>= 2<sup>0</sup></em></div><div class="tr-row"><span>1</span><span>1</span><em>= 2<sup>1</sup></em></div><div class="tr-row"><span>1</span><span>2</span><span>1</span><em>= 2<sup>2</sup></em></div><div class="tr-row"><span>1</span><span>3</span><span>3</span><span>1</span><em>= 2<sup>3</sup></em></div><div class="tr-row"><span>1</span><span>4</span><span>6</span><span>4</span><span>1</span><em>= 2<sup>4</sup></em></div><div class="tr-row"><span>1</span><span>5</span><span>10</span><span>10</span><span>5</span><span>1</span><em>= 2<sup>5</sup></em></div><div class="tr-row"><span>1</span><span>6</span><span>15</span><span>20</span><span>15</span><span>6</span><span>1</span><em>= 2<sup>6</sup></em></div></div>
+  </div>
+  <div class="box grn"><span class="t">Binomio de Newton</span>
+    <span class="m">(a + b)<sup>n</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>n</i><i>0</i></span>a<sup>n</sup> + <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>n</i><i>1</i></span>a<sup>n−1</sup>b + <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>n</i><i>2</i></span>a<sup>n−2</sup>b<sup>2</sup> + … + <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>n</i><i>n</i></span>b<sup>n</sup></span><br>
+    Los coeficientes son la fila n del triángulo: <span class="m">(a + b)<sup>3</sup> = a<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup> + b<sup>3</sup></span><br>
+    <span class="note">si es (a − b)<sup>n</sup>, los signos se alternan: + − + − …</span></div>
+
+  <h3 class="g">Con repetición</h3>
+  <div class="row">
+    <div class="box vio"><span class="t">Permutaciones con repetición</span>Ordenaciones de m elementos entre los que uno se repite a veces, otro b veces…<br>
+      <span class="m big">P<sub>m</sub><sup>a,b,…</sup> = <span class="f"><i>m!</i><i>a!·b!·…</i></span></span><br>
+      Con las cifras 1, 1, 1, 5, 5, 8: <span class="m">P<sub>6</sub><sup>3,2</sup> = <span class="f"><i>6!</i><i>3!·2!</i></span> = 60</span> números</div>
+    <div class="box red"><span class="t">Variaciones con repetición</span>Grupos <b>ordenados</b> de n elementos que se pueden repetir, elegidos entre m.<br>
+      <span class="m big">VR<sub>m</sub><sup>n</sup> = m<sup>n</sup></span> <span class="note">puede ser n &gt; m</span><br>
+      Números de 6 cifras con solo 1, 5 y 8: <span class="m">VR<sub>3</sub><sup>6</sup> = 3<sup>6</sup> = 729</span></div>
+  </div>
+  <div class="row">
+    <div class="box grn"><span class="t">Combinaciones con repetición</span>Muestras <b>no ordenadas</b> de n elementos, no necesariamente distintos, de un conjunto de m.<br>
+      <span class="m big">CR<sub>m</sub><sup>n</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m + n − 1</i><i>n</i></span></span> <span class="note">puede ser n &gt; m</span><br>
+      Tres bolas de helado de 5 sabores (se pueden repetir): <span class="m">CR<sub>5</sub><sup>3</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>7</i><i>3</i></span> = 35</span></div>
+    <div class="box ink"><span class="t">Permutaciones circulares</span>Ordenaciones alrededor de una mesa redonda: lo que importa es quién tiene a cada lado, no la silla.<br>
+      <span class="m big">PC<sub>m</sub> = (m − 1)!</span><br>4 personas: <span class="m">PC<sub>4</sub> = 3! = 6</span></div>
+  </div>
+  <div class="postit" style="max-width:560px"><b>Para la probabilidad</b>Con la regla de Laplace, los casos favorables y posibles se cuentan con estas fórmulas. Ejemplo: al elegir al azar 3 personas de un grupo de 5 chicas y 4 chicos, P(las tres son chicas) = <span class="f"><i>C<sub>5,3</sub></i><i>C<sub>9,3</sub></i></span> = <span class="f"><i>10</i><i>84</i></span> ≈ 0,119.</div>
+
+  <h3 class="r keepnext">Ejercicios · Combinatoria</h3>
+  <div class="ejs">
+    <div class="ej"><div class="ej-h"><span class="num">1</span><span class="lvl">★</span><span class="q">Simplifica o escribe como cociente de factoriales.</span><label class="done"><input type="checkbox" id="ccss2-tc-1"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))"><span>a) <span class="f"><i>8!</i><i>6!</i></span></span><span>b) <span class="f"><i>10!</i><i>7!·3!</i></span></span><span>c) <span class="f"><i>n!</i><i>(n − 2)!</i></span></span><span>d) 9·8·7 como cociente de factoriales</span></div><details><summary>Ver solución</summary><div class="sol">a) 8·7 = <span class="res">56</span> &nbsp; b) <span class="f"><i>10·9·8</i><i>3·2·1</i></span> = <span class="res">120</span> &nbsp; c) <span class="res">n·(n − 1)</span> &nbsp; d) <span class="res"><span class="f"><i>9!</i><i>6!</i></span></span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">2</span><span class="lvl">★</span><span class="q">Calcula.</span><label class="done"><input type="checkbox" id="ccss2-tc-2"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))"><span>a) V<sub>7,3</sub></span><span>b) C<sub>8,3</sub></span><span>c) P<sub>5</sub></span><span>d) VR<sub>4</sub><sup>3</sup></span><span>e) CR<sub>4</sub><sup>2</sup></span><span>f) P<sub>7</sub><sup>3,2,2</sup></span></div><details><summary>Ver solución</summary><div class="sol">a) 7·6·5 = <span class="res">210</span> &nbsp; b) <span class="f"><i>8·7·6</i><i>3·2·1</i></span> = <span class="res">56</span> &nbsp; c) <span class="res">120</span><br>
+        d) 4<sup>3</sup> = <span class="res">64</span> &nbsp; e) <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>5</i><i>2</i></span> = <span class="res">10</span> &nbsp; f) <span class="f"><i>7!</i><i>3!·2!·2!</i></span> = <span class="f"><i>5040</i><i>24</i></span> = <span class="res">210</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">3</span><span class="lvl">★</span><span class="q">Identifica el tipo de agrupación y calcula.</span><label class="done"><input type="checkbox" id="ccss2-tc-3"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))"><span>a) ¿De cuántas formas se puede dar el oro, la plata y el bronce entre 8 finalistas?</span><span>b) ¿Cuántas delegaciones de 3 personas, todas con el mismo cargo, se pueden elegir en una clase de 25?</span><span>c) ¿De cuántas formas se pueden ordenar 6 libros en una balda?</span><span>d) ¿Cuántos PIN de 4 cifras hay?</span><span>e) ¿Cuántas copas de 3 bolas se pueden pedir con 5 sabores, si se pueden repetir?</span></div><details><summary>Ver solución</summary><div class="sol">a) no todos, sí orden, no repetición: V<sub>8,3</sub> = 8·7·6 = <span class="res">336</span><br>
+        b) no importa el orden: C<sub>25,3</sub> = <span class="res">2300</span> &nbsp; c) P<sub>6</sub> = <span class="res">720</span><br>
+        d) sí orden, se repiten: VR<sub>10</sub><sup>4</sup> = <span class="res">10 000</span> &nbsp; e) no orden, se repiten: CR<sub>5</sub><sup>3</sup> = <span class="res">35</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">4</span><span class="lvl">★★</span><span class="q">Resuelve las ecuaciones.</span><label class="done"><input type="checkbox" id="ccss2-tc-4"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"><span>a) V<sub>x,2</sub> = 7x</span><span>b) V<sub>x,2</sub> − V<sub>x−2,2</sub> = 62</span><span>c) <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>x</i><i>2</i></span> = 28</span></div><details><summary>Ver solución</summary><div class="sol">a) x(x − 1) = 7x → x − 1 = 7 → <span class="res">x = 8</span><br>
+        b) x(x − 1) − (x − 2)(x − 3) = 62 → x<sup>2</sup> − x − x<sup>2</sup> + 5x − 6 = 62 → 4x = 68 → <span class="res">x = 17</span><br>
+        c) x(x − 1)/2 = 28 → x<sup>2</sup> − x − 56 = 0 → x = 8 (x = −7 no vale) → <span class="res">x = 8</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">5</span><span class="lvl">★★</span><span class="q">¿Cuántas palabras distintas (tengan sentido o no) se pueden formar con todas las letras de cada palabra?</span><label class="done"><input type="checkbox" id="ccss2-tc-5"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))"><span>a) CASA</span><span>b) PAPAYA</span><span>c) MATEMATICAS</span></div><details><summary>Ver solución</summary><div class="sol">a) <span class="f"><i>4!</i><i>2!</i></span> = <span class="res">12</span> &nbsp; b) P (2), A (3), Y (1): <span class="f"><i>6!</i><i>3!·2!</i></span> = <span class="res">60</span><br>
+        c) 11 letras, con A 3 veces, M y T 2 veces: <span class="f"><i>11!</i><i>3!·2!·2!</i></span> = <span class="res">1 663 200</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">6</span><span class="lvl">★★</span><span class="q">¿Cuántos números de 4 cifras se pueden formar con las cifras del 1 al 9…</span><label class="done"><input type="checkbox" id="ccss2-tc-6"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"><span>a) si se pueden repetir?</span><span>b) si no se pueden repetir?</span><span>c) sin repetir y acabados en 1?</span><span>d) sin repetir y pares?</span></div><details><summary>Ver solución</summary><div class="sol">a) VR<sub>9</sub><sup>4</sup> = <span class="res">6561</span> &nbsp; b) V<sub>9,4</sub> = 9·8·7·6 = <span class="res">3024</span><br>
+        c) la última cifra está fijada: V<sub>8,3</sub> = <span class="res">336</span> &nbsp; d) la última puede ser 2, 4, 6 u 8: 4·V<sub>8,3</sub> = <span class="res">1344</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">7</span><span class="lvl">★★</span><span class="q">Cuatro chicas y cinco chicos se colocan en una fila.</span><label class="done"><input type="checkbox" id="ccss2-tc-7"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))"><span>a) ¿De cuántas formas, si las chicas ocupan los lugares pares?</span><span>b) ¿Y si las cuatro chicas tienen que estar juntas?</span></div><details><summary>Ver solución</summary><div class="sol">a) las chicas se ordenan en los 4 lugares pares y los chicos en los 5 impares: 4!·5! = <span class="res">2880</span><br>
+        b) el bloque de chicas cuenta como un elemento: 6 «elementos» → 6!, y dentro del bloque 4!: 6!·4! = <span class="res">17 280</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">8</span><span class="lvl">★★</span><span class="q">En una clase hay 12 chicas y 10 chicos. Se elige una comisión de 4 personas.</span><label class="done"><input type="checkbox" id="ccss2-tc-8"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"><span>a) ¿Cuántas comisiones distintas hay?</span><span>b) ¿Cuántas tienen 2 chicas y 2 chicos?</span><span>c) ¿Cuántas tienen al menos una chica?</span></div><details><summary>Ver solución</summary><div class="sol">a) C<sub>22,4</sub> = <span class="res">7315</span> &nbsp; b) C<sub>12,2</sub>·C<sub>10,2</sub> = 66·45 = <span class="res">2970</span><br>
+        c) por el contrario: todas menos las que solo tienen chicos: 7315 − C<sub>10,4</sub> = 7315 − 210 = <span class="res">7105</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">9</span><span class="lvl">★★</span><span class="q">Binomio de Newton.</span><label class="done"><input type="checkbox" id="ccss2-tc-9"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"><span>a) Desarrolla (x + 2)<sup>4</sup>.</span><span>b) Desarrolla (2a − b)<sup>3</sup>.</span><span>c) Halla el coeficiente de x<sup>3</sup> en (x + 3)<sup>5</sup>.</span></div><details><summary>Ver solución</summary><div class="sol">a) fila 4: 1 4 6 4 1 → <span class="res">x<sup>4</sup> + 8x<sup>3</sup> + 24x<sup>2</sup> + 32x + 16</span><br>
+        b) <span class="res">8a<sup>3</sup> − 12a<sup>2</sup>b + 6ab<sup>2</sup> − b<sup>3</sup></span><br>
+        c) el término con x<sup>3</sup> es <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>5</i><i>2</i></span>x<sup>3</sup>·3<sup>2</sup> = 10·9x<sup>3</sup> → <span class="res">90</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★</span><span class="q">Seis amigos se sientan alrededor de una mesa redonda.</span><label class="done"><input type="checkbox" id="ccss2-tc-10"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"><span>a) ¿De cuántas formas distintas pueden sentarse?</span><span>b) ¿Y si dos de ellos quieren estar juntos?</span></div><details><summary>Ver solución</summary><div class="sol">a) PC<sub>6</sub> = 5! = <span class="res">120</span><br>
+        b) la pareja es un bloque: PC<sub>5</sub> = 4!, y dentro del bloque 2 órdenes: 2·4! = <span class="res">48</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★★</span><span class="q">Una persona va desde A hasta B por las calles de un barrio cuadriculado, moviéndose siempre hacia la derecha (D) o hacia arriba (A). Hay que avanzar 5 manzanas a la derecha y 3 hacia arriba.
+        <figure class="fig"><svg viewBox="0 0 220 150" width="220" role="img" aria-label="Cuadrícula de 5 por 3"><path d="M20 125 V23" class="gridl"/><path d="M54 125 V23" class="gridl"/><path d="M88 125 V23" class="gridl"/><path d="M122 125 V23" class="gridl"/><path d="M156 125 V23" class="gridl"/><path d="M190 125 V23" class="gridl"/><path d="M20 125 H190" class="gridl"/><path d="M20 91 H190" class="gridl"/><path d="M20 57 H190" class="gridl"/><path d="M20 23 H190" class="gridl"/><path d="M20 125 L88 125 L88 91 L156 91 L156 23 L190 23" class="cl" style="stroke:var(--red)"/><circle cx="20" cy="125" r="5" class="vx"/><circle cx="190" cy="23" r="5" class="vx"/><text x="14" y="143" class="al">A</text><text x="194" y="15" class="al">B</text></svg><figcaption>un camino: DD A DD AA D</figcaption></figure></span><label class="done"><input type="checkbox" id="ccss2-tc-11"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"><span>a) ¿Cuántos caminos distintos hay?</span><span>b) ¿Cuántos empiezan con dos movimientos hacia la derecha?</span></div><details><summary>Ver solución</summary><div class="sol">a) cada camino es una ordenación de D D D D D A A A: P<sub>8</sub><sup>5,3</sup> = <span class="f"><i>8!</i><i>5!·3!</i></span> = <span class="res">56</span><br>
+        b) quedan 3 D y 3 A por ordenar: P<sub>6</sub><sup>3,3</sup> = <span class="res">20</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★★</span><span class="q">Se reparten 3 regalos entre 5 amigos. ¿De cuántas formas, si…</span><label class="done"><input type="checkbox" id="ccss2-tc-12"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))"><span>a) los regalos son distintos y cada amigo recibe como mucho uno?</span><span>b) los regalos son distintos y alguien puede recibir varios?</span><span>c) los regalos son iguales y cada amigo recibe como mucho uno?</span><span>d) los regalos son iguales y alguien puede recibir varios?</span></div><details><summary>Ver solución</summary><div class="sol">a) importa quién recibe cada regalo, sin repetir: V<sub>5,3</sub> = <span class="res">60</span><br>
+        b) cada regalo puede ir a cualquiera de los 5: VR<sub>5</sub><sup>3</sup> = <span class="res">125</span><br>
+        c) solo importa a quién le toca: C<sub>5,3</sub> = <span class="res">10</span> &nbsp; d) CR<sub>5</sub><sup>3</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>7</i><i>3</i></span> = <span class="res">35</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">13</span><span class="lvl">★★★</span><span class="tag">tipo PAU</span><span class="q">Un móvil genera al azar un PIN de 4 cifras (del 0 al 9, se pueden repetir).</span><label class="done"><input type="checkbox" id="ccss2-tc-13"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"><span>a) ¿Qué probabilidad hay de que tenga las cuatro cifras distintas?</span><span>b) ¿Y de que tenga alguna cifra repetida?</span><span>c) ¿Y de que sea capicúa (como 3773)?</span></div><details><summary>Ver solución</summary><div class="sol">Casos posibles: VR<sub>10</sub><sup>4</sup> = 10 000.<br>
+        a) V<sub>10,4</sub> = 5040 → <span class="f"><i>5040</i><i>10 000</i></span> = <span class="res">0,504</span> &nbsp; b) 1 − 0,504 = <span class="res">0,496</span><br>
+        c) basta elegir las dos primeras cifras (las otras se repiten): 10<sup>2</sup> = 100 → <span class="res">0,01</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">14</span><span class="lvl">★★★</span><span class="tag">tipo PAU</span><span class="q">Para un proyecto se eligen al azar 3 personas de un grupo de 5 chicas y 4 chicos.</span><label class="done"><input type="checkbox" id="ccss2-tc-14"> hecho</label></div><div class="items" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"><span>a) ¿Qué probabilidad hay de que salgan 2 chicas y 1 chico?</span><span>b) ¿Y de que haya al menos un chico?</span><span>c) Si sabemos que hay al menos un chico, ¿qué probabilidad hay de que salgan 2 chicas y 1 chico?</span></div><details><summary>Ver solución</summary><div class="sol">Casos posibles: C<sub>9,3</sub> = 84.<br>
+        a) <span class="f"><i>C<sub>5,2</sub>·C<sub>4,1</sub></i><i>84</i></span> = <span class="f"><i>40</i><i>84</i></span> = <span class="f"><i>10</i><i>21</i></span> ≈ <span class="res">0,4762</span><br>
+        b) 1 − <span class="f"><i>C<sub>5,3</sub></i><i>84</i></span> = 1 − <span class="f"><i>10</i><i>84</i></span> = <span class="f"><i>37</i><i>42</i></span> ≈ <span class="res">0,881</span><br>
+        c) <span class="f"><i>40/84</i><i>74/84</i></span> = <span class="f"><i>40</i><i>74</i></span> = <span class="f"><i>20</i><i>37</i></span> ≈ <span class="res">0,5405</span></div></details></div>
+  </div>
+  <p class="endnote">fin de combinatoria ✓ · sigue en el tema 5, probabilidad</p>
 </section>
 
 <section class="sheet" id="t5" data-folio="Tema 5 · Probabilidad">
