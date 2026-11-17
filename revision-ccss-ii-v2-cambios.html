@@ -1,0 +1,95 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CCSS II · versión 2 · cambios</title>
+<style>
+:root{--bg:#fbfcf8;--ink:#24429c;--txt:#1f2430;--muted:#5a5f68;--line:#d5e4ee;--green:#1d8655;--red:#cf3535}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1b2130;--ink:#9fc2ff;--txt:#e4e8f0;--muted:#aeb6c4;--line:#303c54;--green:#79dba6;--red:#ff8d88}}
+:root[data-theme="dark"]{--bg:#1b2130;--ink:#9fc2ff;--txt:#e4e8f0;--muted:#aeb6c4;--line:#303c54;--green:#79dba6;--red:#ff8d88}
+body{background:var(--bg);color:var(--txt);font:17px/1.55 system-ui,-apple-system,sans-serif;margin:0;padding:24px 16px 60px}
+main{max-width:760px;margin:0 auto}
+h1{color:var(--ink);font-size:28px;line-height:1.2} h2{color:var(--ink);font-size:21px;margin-top:34px;border-bottom:2px solid var(--line);padding-bottom:4px}
+p.t{margin-top:22px} b{color:var(--ink)} code{font-size:.9em;color:var(--muted)}
+ul{padding-left:22px} li{margin:4px 0}
+table{border-collapse:collapse;margin:14px 0;width:100%} td,th{border:1px solid var(--line);padding:6px 10px;text-align:left} th{color:var(--ink)}
+nav a{display:inline-block;margin:0 14px 8px 0;color:var(--green);font-weight:600}
+</style></head><body><main>
+<nav><a href="revision-ccss-ii-v2.html">Abrir la versión 2 (web)</a><a href="revision-ccss-ii-v2-soluciones.pdf">PDF con soluciones</a><a href="revision-ccss-ii-v2.pdf">PDF sin soluciones</a></nav>
+<h1>Apuntes de CCSS II: de la versión 1 a la versión 2</h1>
+<p><b>Qué es:</b> una propuesta para comparar. Es el volumen del curso completo de la versión 1 con lo que he añadido tras revisar las 61 pizarras (209 páginas) del curso 2025-26 y las primeras de 2026-27. <b>No se ha tocado nada de la versión 1</b> (carpeta <code>Apuntes/</code>).</p>
+<p><b>Cómo se ve lo nuevo:</b> cada bloque añadido lleva una barra verde a la izquierda y una etiqueta «nuevo · pizarra dd/mm» con la fecha de la pizarra en la que se basa. Los ejercicios nuevos llevan la barra y la etiqueta «nuevo», y siguen la numeración de cada tema.</p>
+<table><tr><th></th><th>v1</th><th>v2</th></tr><tr><td>Páginas (con soluciones)</td><td>79</td><td>103</td></tr><tr><td>Páginas (sin soluciones)</td><td>62</td><td>85</td></tr><tr><td>Bloques de teoría y ejemplos nuevos</td><td>–</td><td>37</td></tr><tr><td>Ejercicios nuevos</td><td>–</td><td>38</td></tr></table>
+<p>Todas las soluciones nuevas están comprobadas con el ordenador. Los ejemplos con un enunciado propio (no de libro ni de PAU) tienen números nuevos.</p>
+<h2>Lo que añade, tema a tema</h2>
+<p class='t'><b>Tema 1 · Matrices</b>: no hay cambios. Las pizarras no aportaban nada que no estuviera ya.</p>
+<p class='t'><b>Tema 2 · Determinantes</b></p>
+<ul>
+<li>Orden 4 «haciendo ceros primero» con pivote −1 (F1 + 3F3, F2 + 2F3) y la notación de clase A_ij = (−1)^(i+j)·M_ij.</li>
+<li>|kA| en orden 2 (|3A| = 3²·|A|), ¡OJO! |A + B| ≠ |A| + |B|, y una nota con los símbolos de la pizarra (∃, ∀, ⇒, ⇔…).</li>
+<li>3 ejercicios: |kA| y propiedades, |A + B| y un orden 4 haciendo ceros.</li>
+</ul>
+<p class='t'><b>Tema 3 · Sistemas</b></p>
+<ul>
+<li>Esquema para clasificar un sistema y elegir el método (SCD: Gauss, Cramer o A⁻¹B; SCI: Gauss con λ; SI). Escribir siempre las dimensiones de A y A*.</li>
+<li><b>Soluciones particulares</b> de un SCI (λ = 0, λ = −3…) y el truco de <b>reescalar el parámetro</b> para quitar fracciones, (−2λ, λ, 3λ).</li>
+<li>3 ejercicios: un 2×2 con parámetro y soluciones particulares, una discusión con k (resuelta por Gauss y por Cramer) y un problema tipo PAU con porcentajes (inversión al m % y al 4 %).</li>
+</ul>
+<p class='t'><b>Tema 4 · Programación lineal</b></p>
+<ul>
+<li>Sección nueva: <b>Repaso de inecuaciones con una incógnita</b>: 1er grado (el signo se gira), polinómicas con tabla de signos, racionales («los denominadores NO se quitan. Nunca», con el ejemplo de lo que se pierde si se quitan) y sistemas de inecuaciones (intersección).</li>
+<li>Ejemplo de región con dibujo, con <b>cada vértice escrito como un sistema con nombre</b> (A, B, C), y cómo comprobar si un punto está en la región.</li>
+<li>«En clase, en 4 pasos» y ¡OJO! con los dos errores típicos: <b>beneficio = venta − compra</b> y <b>unidades iguales</b> (min/h, g/kg).</li>
+<li>4 ejercicios: inecuaciones, frutería (beneficio por kg), papelería (lotes, con tabla) y escuela de música (unidades).</li>
+</ul>
+<p class='t'><b>Tema 5 · Probabilidad</b></p>
+<ul>
+<li>Tabla de propiedades de ∪ y ∩. <b>Frecuencias</b> absoluta y relativa y la <b>ley de los grandes números</b>.</li>
+<li>Técnica de <b>escribir las probabilidades dentro de cada zona del diagrama de Venn</b>, y P(A ∪ B) = P(A) + P(B − A).</li>
+<li><b>Del árbol a la tabla</b> («el 30 % del 40 % = 12 %») y una guía para traducir el enunciado (o, y, no, solo, uno solo, ninguno, «entre los que…»).</li>
+<li>Con o sin reemplazamiento → independientes o dependientes, y la curiosidad de que P(2ª azul) no cambia.</li>
+<li>Método en tres pasos: definir los sucesos, organizar los datos y escribir qué teorema se usa.</li>
+<li>4 ejercicios: zonas de Venn, caramelos sin reemplazamiento, «o / y / no» y un total que se saca de la condicionada.</li>
+</ul>
+<p class='t'><b>Tema 6 · Binomial y normal</b></p>
+<ul>
+<li>Ejemplo completo con una <b>tabla x_i · p_i y x_i² · p_i</b>, «halla k» y la <b>función de distribución F(x)</b>. <b>Modelo de Bernoulli</b>.</li>
+<li><b>Regla 68 − 95 − 99,7</b>, P(Z &gt; −k) = P(Z &lt; k), P(−k &lt; Z &lt; k) = 2P(Z &lt; k) − 1 y la búsqueda inversa simétrica.</li>
+<li>Tabla completa de la <b>corrección de Yates</b>, incluido <b>P(X = a)</b>, la condición n ≥ 30 de clase y escribir el paso encima de cada «=».</li>
+<li>4 ejercicios: halla k y F(x), simetría, regla 68-95-99,7, y binomial exacta frente a normal.</li>
+</ul>
+<p class='t'><b>Tema 7 · Inferencia</b></p>
+<ul>
+<li>Ejemplo de muestreo en una clase de 40 (sistemático con arranque, estratificado con redondeo) y la tabla <b>parámetro / estadístico</b>.</li>
+<li><b>Distribución de la suma</b> ΣX ~ N(nμ, σ√n), con el ejemplo del ascensor.</li>
+<li><b>Nivel de significación</b> α, γ + α = 1, el <b>atajo F(z) = (1 + γ)/2</b> con niveles poco habituales (94 %, 92 %, 85 %) y el <b>intervalo característico</b>.</li>
+<li>Intervalo al revés <b>planteado como sistema</b> y la fórmula <b>γ = 2F(z) − 1</b>.</li>
+<li>4 ejercicios.</li>
+</ul>
+<p class='t'><b>Tema 8 · Límites y continuidad</b></p>
+<ul>
+<li>Sección nueva: <b>Funciones: repaso</b>: definición y prueba de la recta vertical, <b>tabla de dominios</b>, <b>composición</b> (las «máquinas»), <b>función inversa</b>, <b>simetría par/impar y periodicidad</b>, y el <b>valor absoluto como función a trozos</b>.</li>
+<li>Potencias con ∞ y <b>las siete indeterminaciones</b> (con el aviso de que 0^∞ = 0 no es indeterminación).</li>
+<li><b>Por qué funciona la regla de los grados</b> (dividir entre la mayor potencia), <b>∞/∞ con raíces</b>, ¡OJO! con √x² = −x en −∞, el coeficiente principal al factorizar, <b>1^∞ deducido con el número e</b>, y un ejemplo de 0·∞.</li>
+<li>Conservación del signo, <b>Darboux</b>, <b>bisección</b> con Bolzano, <b>posición de la curva respecto de la asíntota</b> y que la curva puede cortar la asíntota horizontal u oblicua.</li>
+<li>8 ejercicios.</li>
+</ul>
+<p class='t'><b>Tema 9 · Derivadas</b></p>
+<ul>
+<li><b>TVM</b> (pendiente de la secante), <b>derivada por la definición calculada</b> (x² + 3 en 3) y |x| no derivable.</li>
+<li><b>Recta normal</b>, con un ejemplo.</li>
+<li>4 ejercicios: TVM y definición en contexto, definición de 1/(x² − 2), tangente y normal, y derivabilidad a trozos.</li>
+</ul>
+<p class='t'><b>Tema 10 · Integrales</b></p>
+<ul>
+<li>Cómo se lee ∫…dx y por qué se suma C. <b>Cambio de variable con u y du</b>. «Multiplica y divide por lo que falta». ∫a^f·f' dx. Primitiva con coeficientes.</li>
+<li>Para saber más: <b>integración por partes</b> con la regla ALPES (está marcado como ampliación porque no suele caer en la PAU de CCSS).</li>
+<li>4 ejercicios.</li>
+</ul>
+<p class='t'><b>Combinatoria</b>: no hay cambios, porque ya se hizo a partir de las pizarras.</p>
+<h2>Lo que he dejado fuera a propósito</h2>
+<ul>
+<li>La <b>definición formal de límite (ε-δ)</b> y los límites infinitos con «∀K ∃δ». Están en las pizarras del 23-25/02, pero me parecen demasiado para estos apuntes. Si la quieres, puede ir en un recuadro de «para saber más».</li>
+<li>Dos despistes de las pizarras: 0^∞ apuntado como indeterminación (03/03) y ∫2xy dx = 2yx² + C (27/04; lo correcto es x²y + C).</li>
+<li>Los enunciados copiados de libros (Lorente, Anaya), de las fichas de marielmates o de exámenes PAU. He usado las mismas ideas, pero con enunciados y números propios.</li>
+</ul>
+<h2>Si apruebas la versión 2</h2>
+<p>Hay que actualizar los volúmenes por evaluación (1ª, 2ª y 3ª) para que coincidan, quitar las etiquetas «nuevo» si no las quieres en la versión para el alumnado, y subirlo a la web.</p>
+</main></body></html>
