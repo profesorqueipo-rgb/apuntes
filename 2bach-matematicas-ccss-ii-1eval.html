@@ -291,7 +291,7 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <a href="#t1"><b>1 · Matrices</b><span>tipos, operaciones, potencias, rango, inversa, ecuaciones matriciales</span></a>
     <a href="#t2"><b>2 · Determinantes</b><span>Sarrus, adjuntos, propiedades, inversa, rango</span></a>
     <a href="#t3"><b>3 · Sistemas</b><span>Gauss, Cramer, Rouché-Frobenius, discusión con parámetro</span></a>
-    <a href="#t4"><b>4 · Programación lineal</b><span>región factible, vértices, optimización</span></a>
+    <a href="#t4"><b>4 · Programación lineal</b><span>inecuaciones, región factible, vértices, optimización</span></a>
   </nav>
 
   <div class="row pz" style="margin-top:22px">
@@ -484,6 +484,13 @@ svg .tl2{font-size:12px;fill:var(--red)}
   <p>Ejemplo de orden 4: la fila 3 solo tiene un elemento distinto de 0 (<span class="m">a<sub>33</sub> = 1</span>, signo +):<br>
   <span class="m"><span class="mx d " style="grid-template-columns:repeat(4,auto)"><i>1</i><i>0</i><i>2</i><i>1</i><i>2</i><i>1</i><i>0</i><i>3</i><i>0</i><i>0</i><i>1</i><i>0</i><i>1</i><i>2</i><i>3</i><i>1</i></span> = 1·<span class="mx d " style="grid-template-columns:repeat(3,auto)"><i>1</i><i>0</i><i>1</i><i>2</i><i>1</i><i>3</i><i>1</i><i>2</i><i>1</i></span> = </span> <span class="res">−2</span></p>
 
+  <div>
+  <p><b>Orden 4 (o más): primero, hacer ceros.</b> Si ninguna línea tiene ceros, se fabrican con las propiedades (sumar a una fila otra multiplicada por un número no cambia |A|). Conviene elegir como <span class="hl">pivote un 1 o un −1</span>.</p>
+  <p><span class="m"><span class="mx d" style="grid-template-columns:repeat(4,auto)"><i>3</i><i>2</i><i>1</i><i>4</i><i>2</i><i>1</i><i>0</i><i>3</i><i>−1</i><i>0</i><i>2</i><i>1</i><i>0</i><i>1</i><i>3</i><i>1</i></span><span class='arr'>F<sub>1</sub> + 3F<sub>3</sub><br>F<sub>2</sub> + 2F<sub>3</sub></span><span class="mx d" style="grid-template-columns:repeat(4,auto)"><i>0</i><i>2</i><i>7</i><i>7</i><i>0</i><i>1</i><i>4</i><i>5</i><i>−1</i><i>0</i><i>2</i><i>1</i><i>0</i><i>1</i><i>3</i><i>1</i></span></span></p>
+  <p>Ahora la columna 1 solo tiene el −1 en la posición (3, 1), con signo (−1)<sup>3+1</sup> = +:</p>
+  <p><span class="m">|A| = (−1)·(−1)<sup>3+1</sup>·<span class="mx d" style="grid-template-columns:repeat(3,auto)"><i>2</i><i>7</i><i>7</i><i>1</i><i>4</i><i>5</i><i>1</i><i>3</i><i>1</i></span> = (−1)·(−1) = <span class="res">1</span></span></p>
+  <p class="note">En clase el menor se escribe M<sub>ij</sub>: A<sub>ij</sub> = (−1)<sup>i+j</sup>·M<sub>ij</sub>. Es lo mismo que α<sub>ij</sub>.</p></div>
+
   <h3 class="g">Propiedades</h3>
   <div class="wrap"><table class="tb props">
     <tr><th>Si…</th><th>entonces…</th></tr>
@@ -500,6 +507,13 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="warn"><span class="ojo"><span>¡OJO!</span></span><p><span class="m">|k·A| = k<sup>n</sup>·|A|</span> si A es de orden n: <b>k sale una vez por cada fila</b>. Si A es 3×3, <span class="m">|2A| = 8|A|</span>.</p></div>
     <div class="postit"><b>Hacer ceros</b><span class="m">F<sub>2</sub> → F<sub>2</sub> − 2F<sub>3</sub></span> <span class="grn">✓ no cambia |A|</span><br><span class="m">F<sub>2</sub> → 2F<sub>2</sub> − F<sub>1</sub></span> <span class="red">✗ multiplica |A| por 2</span><br>La fila que sustituyes no puede ir multiplicada.</div>
   </div>
+
+  <div>
+  <div class="row">
+    <div class="box red"><span class="t">|k·A| en orden 2</span>Si A es 2×2 y |A| = −10:<br><span class="m">|3A| = 3·3·|A| = 3<sup>2</sup>·(−10) = −90</span><br><span class="note">el 3 sale una vez por cada fila</span></div>
+    <div class="box red"><span class="t">¡OJO! con la suma</span><span class="m">|A·B| = |A|·|B|</span> ✓<br><span class="m">|A + B| ≠ |A| + |B|</span> ✗<br><span class="note">con A = B = I<sub>2</sub>: |2I| = 4, pero |I| + |I| = 2</span></div>
+    <div class="postit"><b>Símbolos de la pizarra</b>∃ existe · ∄ no existe · ∀ para todo · ∈ pertenece · ⇒ entonces · ⇔ si y solo si.<br><span class="m">|B| = 1 ∀x ∈ ℝ ⇒ ∃B<sup>−1</sup> ∀x ∈ ℝ</span></div>
+  </div></div>
 
   <h3 class="v">Inversa por adjuntos</h3>
   <div class="row">
@@ -539,6 +553,9 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★★</span><span class="q">Sea <span class="m">A = <span class="mx p " style="grid-template-columns:repeat(3,auto)"><i>k</i><i>1</i><i>0</i><i>0</i><i>k</i><i>1</i><i>1</i><i>0</i><i>k</i></span></span>.</span><label class="done"><input type="checkbox" id="ccss2-t2-10"> hecho</label></div><div class="items"><span>a) ¿Para qué valores de k es invertible?</span><span>b) Para k = 0, calcula A<sup>−1</sup> y resuelve <span class="m">A·X = <span class="mx p " style="grid-template-columns:repeat(1,auto)"><i>1</i><i>2</i><i>3</i></span></span>.</span></div><details><summary>Ver solución</summary><div class="sol">a) |A| = k<sup>3</sup> + 1 = 0 ⇔ k = −1. Invertible <span class="res">si k ≠ −1</span>.<br>
         b) k = 0: |A| = 1 y <span class="m">A<sup>−1</sup> = <span class="mx p " style="grid-template-columns:repeat(3,auto)"><i>0</i><i>0</i><i>1</i><i>1</i><i>0</i><i>0</i><i>0</i><i>1</i><i>0</i></span></span> <span class="note">(coincide con A<sup>t</sup>)</span><br>
         <span class="m">X = A<sup>−1</sup>·<span class="mx p " style="grid-template-columns:repeat(1,auto)"><i>1</i><i>2</i><i>3</i></span> = </span> <span class="res"><span class="mx p " style="grid-template-columns:repeat(1,auto)"><i>3</i><i>1</i><i>2</i></span></span></div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★</span><span class="q">Sabiendo que A es una matriz 2×2 con |A| = 4, calcula:</span><label class="done"><input type="checkbox" id="ccss2-t2-11"> hecho</label></div><div class="items"><span>a) |3A|</span><span>b) |−A|</span><span>c) |A<sup>2</sup>|</span><span>d) |2A<sup>−1</sup>|</span></div><details><summary>Ver solución</summary><div class="sol">a) 3<sup>2</sup>·4 = <span class="res">36</span> &nbsp; b) (−1)<sup>2</sup>·4 = <span class="res">4</span> &nbsp; c) |A|·|A| = <span class="res">16</span> &nbsp; d) 2<sup>2</sup>·<span class="f"><i>1</i><i>4</i></span> = <span class="res">1</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★</span><span class="q">Busca dos matrices A y B de orden 2 para las que |A + B| ≠ |A| + |B|. ¿Puede ocurrir que sí coincidan?</span><label class="done"><input type="checkbox" id="ccss2-t2-12"> hecho</label></div><details><summary>Ver solución</summary><div class="sol">Con A = B = I: |A + B| = |2I| = 4 y |A| + |B| = 1 + 1 = 2. Pueden coincidir por casualidad (con A = O: |O + B| = |B| = |O| + |B|), pero como no se cumple siempre <span class="res">no es una propiedad</span> y no se puede usar.</div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">13</span><span class="lvl">★★</span><span class="q">Calcula haciendo ceros primero (elige bien el pivote): <span class='m'><span class="mx d" style="grid-template-columns:repeat(4,auto)"><i>1</i><i>2</i><i>0</i><i>3</i><i>2</i><i>5</i><i>1</i><i>4</i><i>−1</i><i>0</i><i>2</i><i>1</i><i>3</i><i>1</i><i>0</i><i>2</i></span></span></span><label class="done"><input type="checkbox" id="ccss2-t2-13"> hecho</label></div><details><summary>Ver solución</summary><div class="sol">F<sub>2</sub> − 2F<sub>1</sub>, F<sub>3</sub> + F<sub>1</sub>, F<sub>4</sub> − 3F<sub>1</sub>: <span class='m'><span class="mx d" style="grid-template-columns:repeat(4,auto)"><i>1</i><i>2</i><i>0</i><i>3</i><i>0</i><i>1</i><i>1</i><i>−2</i><i>0</i><i>2</i><i>2</i><i>4</i><i>0</i><i>−5</i><i>0</i><i>−7</i></span></span> = 1·<span class='m'><span class="mx d" style="grid-template-columns:repeat(3,auto)"><i>1</i><i>1</i><i>−2</i><i>2</i><i>2</i><i>4</i><i>−5</i><i>0</i><i>−7</i></span></span><br>Por Sarrus: (−14 − 20 + 0) − (20 + 0 − 14) = −34 − 6 = <span class="res">−40</span></div></details></div>
   </div>
   <p class="endnote">fin del tema 2 ✓</p>
 </section>
@@ -593,6 +610,23 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="postit o"><b>Truco</b>Si A es cuadrada y |A| ≠ 0, ya es SCD: rg A = rg A* = n. Solo hay que estudiar rangos cuando |A| = 0.</div>
   </div>
 
+  <div>
+  <div class="row">
+    <div class="box grn"><span class="t">Clasificar y elegir el método</span>
+      Sistema <b class="grn">compatible</b> (tiene solución)<br>
+      &nbsp;→ <b class="grn">determinado</b> (SCD): Gauss, Cramer o X = A<sup>−1</sup>B<br>
+      &nbsp;→ <b class="vio">indeterminado</b> (SCI): Gauss con parámetro (λ)<br>
+      Sistema <b class="red">incompatible</b> (SI): ∄ solución</div>
+    <div class="postit o"><b>Escribe siempre</b>la dimensión debajo de A y de A* (por ejemplo 3×3 y 3×4) y el nº de incógnitas. Al orlar, subraya las columnas que usas.</div>
+  </div></div>
+<div>
+  <p><b>Soluciones de un SCI.</b> <span class="m"><span class="brace"><span>x + y + z = 1</span><span>y − z = 0</span><span>x + 2y = 1</span></span></span> &nbsp; rg A = rg A* = 2 &lt; 3 → <b class="vio">SCI</b>. 3 incógnitas y 2 ecuaciones útiles → <span class="hl">1 parámetro</span>.</p>
+  <p>z = λ → y = λ → x = 1 − 2λ &nbsp;⇒&nbsp; <span class="res">(x, y, z) = (1 − 2λ, λ, λ), λ ∈ ℝ</span></p>
+  <p>Cada valor de λ da una <b>solución particular</b>: λ = 0 → (1, 0, 0) · λ = −3 → (7, −3, −3). <span class="note">Compruébala sustituyendo en las tres ecuaciones.</span></p></div>
+<div>
+  <p><b>Truco: quitar fracciones del parámetro.</b> <span class="m"><span class="brace"><span>x − y + z = 0</span><span>2x + y + z = 0</span><span>x + 2y = 0</span></span></span> homogéneo con |A| = 0 → SCI.</p>
+  <p>x = λ → y = −<span class="f"><i>λ</i><i>2</i></span>, z = −<span class="f"><i>3λ</i><i>2</i></span>. Como λ es cualquier número, se puede cambiar por −2λ: <span class="res">(x, y, z) = (−2λ, λ, 3λ)</span>, y con λ = 1 sale la solución (−2, 1, 3).</p></div>
+
   <h3 class="v">Discutir un sistema con parámetro</h3>
   <ol class="steps"><li>Calcula |A| y halla los valores que lo anulan.</li><li>Para los demás valores: SCD.</li><li>Para cada valor crítico: sustituye y calcula rg A y rg A*.</li><li>Resuelve los casos que te pidan.</li></ol>
   <p>Ejemplo: <span class="m"><span class="brace"><span>x + y + az = 1</span><span>x + ay + z = 1</span><span>ax + y + z = 1</span></span></span> &nbsp; <span class="m">|A| = −a<sup>3</sup> + 3a − 2 = −(a − 1)<sup>2</sup>(a + 2)</span></p>
@@ -637,6 +671,9 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★★</span><span class="tag">tipo PAU</span><span class="q">Sean <span class="m">A = <span class="mx p " style="grid-template-columns:repeat(2,auto)"><i>1</i><i>m</i><i>m</i><i>4</i></span></span>, <span class="m">X = <span class="mx p " style="grid-template-columns:repeat(1,auto)"><i>x</i><i>y</i></span></span> y <span class="m">B = <span class="mx p " style="grid-template-columns:repeat(1,auto)"><i>2</i><i>4</i></span></span>.</span><label class="done"><input type="checkbox" id="ccss2-t3-10"> hecho</label></div><div class="items"><span>a) Plantea el sistema que resulta de A·X = B.</span><span>b) ¿Para qué valores de m no tiene solución? ¿Y para cuáles tiene infinitas?</span><span>c) Resuélvelo cuando tenga solución única.</span></div><details><summary>Ver solución</summary><div class="sol">a) <span class="m"><span class="brace"><span>x + my = 2</span><span>mx + 4y = 4</span></span></span><br>
         b) |A| = 4 − m<sup>2</sup> = 0 ⇔ m = ±2. m = 2: la 2ª ecuación es el doble de la 1ª → <b class="vio">SCI</b>, (2 − 2λ, λ). m = −2: −2x + 4y = 4 frente a −2x + 4y = −4 → <b class="red">SI</b>.<br>
         c) m ≠ ±2, por Cramer: x = (8 − 4m)/(4 − m<sup>2</sup>) = <span class="res">4/(2 + m)</span>, y = (4 − 2m)/(4 − m<sup>2</sup>) = <span class="res">2/(2 + m)</span></div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★</span><span class="q">El sistema <span class='m'><span class="brace"><span>x + y = 4</span><span>3x + my = 12</span></span></span> depende de m.</span><label class="done"><input type="checkbox" id="ccss2-t3-11"> hecho</label></div><div class="items"><span>a) Discútelo según los valores de m.</span><span>b) Para m = 3, da la solución general y tres soluciones particulares.</span><span>c) Para m = 1, resuélvelo.</span></div><details><summary>Ver solución</summary><div class="sol">a) |A| = m − 3. Si m ≠ 3 → |A| ≠ 0 → <span class="res">SCD</span>. Si m = 3, la 2ª ecuación es el triple de la 1ª: rg A = rg A* = 1 &lt; 2 → <span class="res">SCI</span>.<br>b) y = λ → x = 4 − λ: (4 − λ, λ). Por ejemplo λ = 0 → (4, 0); λ = 1 → (3, 1); λ = −2 → (6, −2).<br>c) x + y = 4, 3x + y = 12 → restando, 2x = 8 → <span class="res">x = 4, y = 0</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★</span><span class="q">Considera el sistema <span class='m'><span class="brace"><span>y + z = 1</span><span>(k − 1)x + y + z = k</span><span>x + (k − 1)y + z = 0</span></span></span></span><label class="done"><input type="checkbox" id="ccss2-t3-12"> hecho</label></div><div class="items"><span>a) Discútelo según los valores de k.</span><span>b) Resuélvelo para k = 1.</span><span>c) Resuélvelo por Cramer para k = 0.</span></div><details><summary>Ver solución</summary><div class="sol">a) |A| = k<sup>2</sup> − 3k + 2 = (k − 1)(k − 2).<br>• k ≠ 1 y k ≠ 2 → |A| ≠ 0 → rg A = rg A* = 3 → <b class='grn'>SCD</b>.<br>• k = 1: rg A = 2 y rg A* = 2 → <b class='vio'>SCI</b>. • k = 2: rg A = 2 y rg A* = 3 → <b class='red'>SI</b>.<br>b) k = 1: y + z = 1 y x + z = 0 (la 2ª ecuación coincide con la 1ª). z = λ → <span class="res">(−λ, 1 − λ, λ)</span><br>c) k = 0: |A| = 2. x = <span class="f"><i>|A<sub>x</sub>|</i><i>2</i></span> = <span class="f"><i>2</i><i>2</i></span> = 1, y = <span class="f"><i>2</i><i>2</i></span> = 1, z = <span class="f"><i>0</i><i>2</i></span> = 0 → <span class="res">(1, 1, 0)</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">13</span><span class="lvl">★★</span><span class="tag">tipo PAU</span><span class="q">Una persona invierte 20 000 € en dos fondos. El fondo A da un m % de beneficio al año y el fondo B, un 4 %. En total ha ganado 1000 €.</span><label class="done"><input type="checkbox" id="ccss2-t3-13"> hecho</label></div><div class="items"><span>a) Plantea un sistema (x = € en A, y = € en B). ¿Para qué valor de m es incompatible? Interprétalo.</span><span>b) Si m = 6, ¿cuánto invirtió en cada fondo?</span></div><details><summary>Ver solución</summary><div class="sol"><span class='m'><span class="brace"><span>x + y = 20 000</span><span><span class="f"><i>m</i><i>100</i></span>x + <span class="f"><i>4</i><i>100</i></span>y = 1000</span></span></span> &nbsp; (cada término es € de beneficio de un fondo)<br>a) |A| = <span class="f"><i>4</i><i>100</i></span> − <span class="f"><i>m</i><i>100</i></span> = 0 ⇔ m = 4. Con m = 4 todo rinde el 4 %: 0,04·20 000 = 800 € ≠ 1000 € → <span class="res">SI</span>: es imposible ganar 1000 €.<br>b) 0,06x + 0,04(20 000 − x) = 1000 → 0,02x = 200 → <span class="res">10 000 € en cada fondo</span></div></details></div>
   </div>
   <p class="endnote">fin del tema 3 ✓</p>
 </section>
@@ -646,6 +683,25 @@ svg .tl2{font-size:12px;fill:var(--red)}
   <span class="kicker">Tema 4</span>
   <h2>Programación lineal</h2>
   <p class="lead">Se trata de tomar <span class="hl">la mejor decisión posible</span> (máximo beneficio, mínimo coste) cuando los recursos están limitados. Las limitaciones son inecuaciones y lo que se quiere optimizar es una función lineal.</p>
+
+  <div>
+  <h3 class="g" style="margin-top:6px">Repaso: inecuaciones con una incógnita</h3>
+  <p>Se resuelven como las ecuaciones, con una diferencia: <span class="hl">si se multiplica o divide por un número negativo, el signo de la desigualdad se da la vuelta</span> (−3x ≤ 6 → x ≥ −2).</p>
+  <p><b>1<sup>er</sup> grado.</b> 2(x − 3) − 4x ≤ 3x − (1 − x) → −2x − 6 ≤ 4x − 1 → −6x ≤ 5 → <span class="res">x ≥ −<span class="f"><i>5</i><i>6</i></span></span> → [−<span class="f"><i>5</i><i>6</i></span>, +∞)</p>
+  <p><b>Grado 2 o más.</b> Todo a un lado, se factoriza (Ruffini) y se hace una <b>tabla de signos</b> con una fila por factor:</p>
+  <p>x<sup>3</sup> − x<sup>2</sup> − 4x + 4 ≥ 0 → (x + 2)(x − 1)(x − 2) ≥ 0</p>
+  <div class="wrap"><table class="sg"><tr><th></th><th>(−∞, −2)</th><th>(−2, 1)</th><th>(1, 2)</th><th>(2, +∞)</th></tr>
+    <tr><td>x + 2</td><td class="n">−</td><td class="p">+</td><td class="p">+</td><td class="p">+</td></tr>
+    <tr><td>x − 1</td><td class="n">−</td><td class="n">−</td><td class="p">+</td><td class="p">+</td></tr>
+    <tr><td>x − 2</td><td class="n">−</td><td class="n">−</td><td class="n">−</td><td class="p">+</td></tr>
+    <tr><td>producto</td><td class="n">−</td><td class="p">+</td><td class="n">−</td><td class="p">+</td></tr></table></div>
+  <p>Solución (con los extremos, porque es ≥): <span class="res">[−2, 1] ∪ [2, +∞)</span>. <span class="note">Con una parábola basta un dibujo: a &gt; 0 ∪, a &lt; 0 ∩.</span></p></div>
+<div>
+  <div class="warn"><span class="ojo"><span>¡OJO!</span></span><p><b>Con fracciones, los denominadores NO se quitan. Nunca.</b> No sabemos si lo que multiplicamos es positivo o negativo. Se pasa todo a un lado, se hace común denominador y tabla de signos.</p></div>
+  <p><span class="f"><i>x + 3</i><i>x − 1</i></span> ≤ 2 → <span class="f"><i>x + 3</i><i>x − 1</i></span> − 2 ≤ 0 → <span class="f"><i>5 − x</i><i>x − 1</i></span> ≤ 0 → <span class="res">(−∞, 1) ∪ [5, +∞)</span> <span class="note">(x = 1 nunca entra: anula el denominador)</span></p>
+  <p class="note">Si hubiéramos «pasado multiplicando» x − 1: x + 3 ≤ 2x − 2 → x ≥ 5, y perderíamos todo el trozo (−∞, 1).</p>
+  <p><b>Sistemas de inecuaciones.</b> Se resuelve cada una y se toma la <b>intersección</b> (dibuja las dos soluciones en dos rectas reales, una encima de otra):<br>
+  <span class="m"><span class="brace"><span>x − 4 ≤ 3x</span><span>x<sup>2</sup> + x − 6 &lt; 0</span></span></span> → x ≥ −2 &nbsp;y&nbsp; (x + 3)(x − 2) &lt; 0 → (−3, 2) &nbsp;⇒&nbsp; <span class="res">[−2, 2)</span></p></div>
 
   <h3 class="v">Inecuaciones con dos incógnitas</h3>
   <div class="row">
@@ -666,6 +722,20 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="box ink"><span class="t">Vértices</span>Esquinas de la región: se obtienen resolviendo el sistema de las dos rectas que se cortan en cada una.</div>
   </div>
 
+  <div>
+  <p><b>Ejemplo: región y vértices.</b> <span class="m"><span class="brace"><span>−x + y ≥ 0</span><span>2x + y ≤ 2</span><span>x ≥ 0, y ≥ 0</span></span></span> <span class="note">(x, y ≥ 0 significa x ≥ 0 e y ≥ 0)</span></p>
+  <div class="row">
+    <figure class="fig"><svg viewBox="0 0 230 205" width="230" role="img" aria-label="Región factible triangular"><polygon points="34.0,176.0 76.7,133.3 34.0,48.0" class="reg"/><path d="M14 176 H222 M215 172 L222 176 L215 180 M34 196 V6 M30 13 L34 6 L38 13" class="axis"/><path d="M98.0 173 V179" class="tick"/><text x="98.0" y="191" class="tl" text-anchor="middle">1</text><path d="M162.0 173 V179" class="tick"/><text x="162.0" y="191" class="tl" text-anchor="middle">2</text><path d="M226.0 173 V179" class="tick"/><text x="226.0" y="191" class="tl" text-anchor="middle">3</text><path d="M31 112.0 H37" class="tick"/><text x="28" y="116.0" class="tl" text-anchor="end">1</text><path d="M31 48.0 H37" class="tick"/><text x="28" y="52.0" class="tl" text-anchor="end">2</text><path d="M34 176 L194.0 16.0" class="cl" style="stroke:var(--red)"/><path d="M34 22.4 L110.8 201.6" class="cl" style="stroke:var(--green)"/><text x="162.0" y="32.0" class="vl" style="fill:var(--red)">y = x</text><text x="101.2" y="160.0" class="vl" style="fill:var(--green)">y = −2x + 2</text><circle cx="34.0" cy="176.0" r="4.2" class="vx"/><circle cx="76.7" cy="133.3" r="4.2" class="vx"/><circle cx="34.0" cy="48.0" r="4.2" class="vx"/><text x="41" y="170" class="tn">A</text><text x="84.7" y="131.3" class="tn">B</text><text x="42" y="52.0" class="tn">C</text></svg><figcaption>región factible: triángulo ABC</figcaption></figure>
+    <div style="flex:1 1 300px">
+      <p>Cada recta se escribe como «y = …» y se dibuja con una tabla de valores: y = x; y = −2x + 2 → (0, 2), (1, 0).</p>
+      <p>y = x pasa por el origen: se prueba otro punto, el (1, 0): −1 ≥ 0 es falso → el lado bueno es el de arriba.</p>
+      <p><b>Cada vértice es un sistema</b> (ponle nombre):<br>
+      A <span class="m"><span class="brace"><span>x = 0</span><span>y = x</span></span></span> → A(0, 0) &nbsp; B <span class="m"><span class="brace"><span>y = −2x + 2</span><span>y = x</span></span></span> → B(<span class="f"><i>2</i><i>3</i></span>, <span class="f"><i>2</i><i>3</i></span>)<br>
+      C <span class="m"><span class="brace"><span>y = −2x + 2</span><span>x = 0</span></span></span> → C(0, 2)</p>
+    </div>
+  </div>
+  <div class="postit"><b>¿Un punto está en la región?</b>Sustitúyelo en <u>todas</u> las restricciones. Basta que falle una para que no sea factible: (1, 1) cumple −1 + 1 ≥ 0, pero 2 + 1 = 3 &gt; 2 → no está.</div></div>
+
   <h3 class="g">Planteamiento de un problema</h3>
   <ol class="steps">
     <li><b>Variables</b>: x e y, con unidades (kg, unidades, horas…).</li>
@@ -676,6 +746,15 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <li>Evalúa f en los vértices y <span class="hl">responde en el contexto</span>.</li>
   </ol>
   <div class="box grn"><span class="t">Teorema fundamental</span>Si la región es acotada, el máximo y el mínimo de f se alcanzan en un <b>vértice</b>. Si se alcanzan en dos vértices a la vez, también en todos los puntos del lado que los une (<b>infinitas soluciones</b>).</div>
+
+  <div>
+  <div class="row">
+    <div class="box vio"><span class="t">En clase, en 4 pasos</span>
+      <ol class="steps"><li>Plantear: variables, restricciones y función objetivo.</li><li>Dibujar la región factible.</li><li>Calcular los vértices.</li><li>Evaluar la función objetivo en los vértices → máximo o mínimo. Responder con una frase.</li></ol></div>
+    <div class="box red"><span class="t">¡OJO! dos errores típicos</span>
+      <b>Beneficio = venta − compra.</b> Si compro a 0,60 €/kg y vendo a 0,90 €/kg, gano 0,30 € por kg.<br>
+      <b>Unidades iguales.</b> 30 min por sesión y 7,5 h disponibles → pasa todo a minutos: 30x + 60y ≤ 450, y simplifica: x + 2y ≤ 15. Igual con g y kg.</div>
+  </div></div>
 
   <h3 class="v keepnext">Ejemplo resuelto</h3>
   <p>Una pastelería hace tartas de queso (x) y de chocolate (y). Cada tarta de queso necesita 1 hora de horno y 1 kg de masa; cada tarta de chocolate, 2 horas de horno y 1 kg de masa. Dispone de 40 horas de horno y 30 kg de masa a la semana. Gana 12 € por tarta de queso y 18 € por tarta de chocolate. ¿Cuántas debe hacer de cada tipo?</p>
@@ -736,6 +815,10 @@ svg .tl2{font-size:12px;fill:var(--red)}
     <div class="ej"><div class="ej-h"><span class="num">8</span><span class="lvl">★★★</span><span class="q">Escribe un sistema de inecuaciones cuya región factible sea el pentágono de vértices (0, 0), (4, 0), (4, 2), (2, 4) y (0, 4). Después, halla el máximo de f(x, y) = 3x + 2y en esa región.</span><label class="done"><input type="checkbox" id="ccss2-t4-8"> hecho</label></div><details><summary>Ver solución</summary><div class="sol"><figure class="fig"><svg viewBox="0 0 210 200" width="210" role="img" aria-label="Región factible"><path d="M26.0 174.0 L140.7 174.0 L140.7 120.0 L83.3 66.0 L26.0 66.0 Z" class="reg"/><path d="M54.7 171.0 V177.0" class="tick"/><text x="54.7" y="189.0" class="tl" text-anchor="middle">1</text><path d="M83.3 171.0 V177.0" class="tick"/><text x="83.3" y="189.0" class="tl" text-anchor="middle">2</text><path d="M112.0 171.0 V177.0" class="tick"/><text x="112.0" y="189.0" class="tl" text-anchor="middle">3</text><path d="M140.7 171.0 V177.0" class="tick"/><text x="140.7" y="189.0" class="tl" text-anchor="middle">4</text><path d="M169.3 171.0 V177.0" class="tick"/><text x="169.3" y="189.0" class="tl" text-anchor="middle">5</text><path d="M198.0 171.0 V177.0" class="tick"/><text x="198.0" y="189.0" class="tl" text-anchor="middle">6</text><path d="M23.0 147.0 H29.0" class="tick"/><text x="20.0" y="151.0" class="tl" text-anchor="end">1</text><path d="M23.0 120.0 H29.0" class="tick"/><text x="20.0" y="124.0" class="tl" text-anchor="end">2</text><path d="M23.0 93.0 H29.0" class="tick"/><text x="20.0" y="97.0" class="tl" text-anchor="end">3</text><path d="M23.0 66.0 H29.0" class="tick"/><text x="20.0" y="70.0" class="tl" text-anchor="end">4</text><path d="M23.0 39.0 H29.0" class="tick"/><text x="20.0" y="43.0" class="tl" text-anchor="end">5</text><path d="M23.0 12.0 H29.0" class="tick"/><text x="20.0" y="16.0" class="tl" text-anchor="end">6</text><path d="M22.0 174.0 H206 M199 170.0 L206 174.0 L199 178.0 M26.0 178.0 V4 M22.0 11 L26.0 4 L30.0 11" class="axis"/><text x="202" y="167.0" class="al" text-anchor="end">x</text><text x="33.0" y="14" class="al">y</text><path d="M140.7 174.0 L140.7 12.0" class="cl" style="stroke:var(--red)"/><path d="M26.0 66.0 L198.0 66.0" class="cl" style="stroke:var(--green)"/><path d="M26.0 12.0 L198.0 174.0" class="cl" style="stroke:var(--violet)"/><circle cx="26.0" cy="174.0" r="4.2" class="vx"/><text x="32.0" y="168.0" class="vl">(0, 0)</text><circle cx="140.7" cy="174.0" r="4.2" class="vx"/><text x="146.7" y="168.0" class="vl">(4, 0)</text><circle cx="140.7" cy="120.0" r="4.2" class="vx"/><text x="146.7" y="114.0" class="vl">(4, 2)</text><circle cx="83.3" cy="66.0" r="4.2" class="vx"/><text x="89.3" y="60.0" class="vl">(2, 4)</text><circle cx="26.0" cy="66.0" r="4.2" class="vx"/><text x="32.0" y="60.0" class="vl">(0, 4)</text></svg></figure>
         Los lados están en x = 0, y = 0, x = 4, y = 4 y en la recta que pasa por (4, 2) y (2, 4), que es x + y = 6.<br>Sistema: <span class="m"><span class="brace"><span>x ≥ 0, y ≥ 0</span><span>x ≤ 4, y ≤ 4</span><span>x + y ≤ 6</span></span></span><br>
         f vale 0, 12, 16, 14 y 8 → máximo <span class="res">16 en (4, 2)</span>.</div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">9</span><span class="lvl">★</span><span class="q">Resuelve las inecuaciones.</span><label class="done"><input type="checkbox" id="ccss2-t4-9"> hecho</label></div><div class="items"><span>a) 3(x − 2) ≥ 5x + 4</span><span>b) x<sup>2</sup> − 5x + 4 &lt; 0</span><span>c) <span class="f"><i>2x − 1</i><i>x + 3</i></span> ≥ 1</span><span>d) <span class="brace"><span>2x + 1 &gt; x − 3</span><span>x<sup>2</sup> ≤ 9</span></span></span></div><details><summary>Ver solución</summary><div class="sol">a) 3x − 6 ≥ 5x + 4 → −2x ≥ 10 → <span class="res">x ≤ −5</span> (se gira el signo)<br>b) (x − 1)(x − 4) &lt; 0 → <span class="res">(1, 4)</span><br>c) <span class="f"><i>2x − 1</i><i>x + 3</i></span> − 1 ≥ 0 → <span class="f"><i>x − 4</i><i>x + 3</i></span> ≥ 0 → <span class="res">(−∞, −3) ∪ [4, +∞)</span><br>d) x &gt; −4 y −3 ≤ x ≤ 3 → <span class="res">[−3, 3]</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★</span><span class="tag">tipo PAU</span><span class="q">Una frutería dispone de 900 € para comprar peras y naranjas. Compra las peras a 0,80 €/kg y las vende a 1,20 €/kg; las naranjas, a 0,60 €/kg y las vende a 0,95 €/kg. En el almacén caben como mucho 1200 kg. ¿Cuántos kilos de cada fruta debe comprar para que el beneficio sea máximo?</span><label class="done"><input type="checkbox" id="ccss2-t4-10"> hecho</label></div><details><summary>Ver solución</summary><div class="sol">x = kg de peras, y = kg de naranjas. Beneficio por kg: 1,20 − 0,80 = 0,40 € y 0,95 − 0,60 = 0,35 €.<br>Máx. B = 0,4x + 0,35y con 0,8x + 0,6y ≤ 900, x + y ≤ 1200, x ≥ 0, y ≥ 0.<br>Vértices: (0, 0), (1125, 0), (900, 300) [de 0,8x + 0,6y = 900 y x + y = 1200], (0, 1200).<br>B: 0 · 450 · 465 · 420 → <span class="res">900 kg de peras y 300 kg de naranjas: 465 €</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★★</span><span class="q">Una papelería tiene 50 cuadernos y 120 bolígrafos. Prepara lotes A (1 cuaderno y 2 bolígrafos), que vende a 6 €, y lotes B (1 cuaderno y 4 bolígrafos), que vende a 9 €. Quiere hacer al menos 10 lotes A y 5 lotes B. ¿Cuántos lotes de cada tipo le conviene hacer?</span><label class="done"><input type="checkbox" id="ccss2-t4-11"> hecho</label></div><details><summary>Ver solución</summary><div class="sol"><div class='wrap'><table class='tb'><tr><th></th><th>A (x)</th><th>B (y)</th><th>hay</th></tr><tr><td>cuadernos</td><td>1</td><td>1</td><td>50</td></tr><tr><td>bolígrafos</td><td>2</td><td>4</td><td>120</td></tr><tr><td>€</td><td>6</td><td>9</td><td></td></tr></table></div>x + y ≤ 50, 2x + 4y ≤ 120 (→ x + 2y ≤ 60), x ≥ 10, y ≥ 5. Máx. f = 6x + 9y.<br>Vértices: (10, 5) → 105; (45, 5) → 315; (40, 10) → 330; (10, 25) → 285. <span class="res">40 lotes A y 10 lotes B: 330 €</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★★</span><span class="tag">tipo PAU</span><span class="q">Una escuela de música da clases individuales de 45 minutos (x) y clases en grupo de 90 minutos (y). Cada semana dispone como mucho de 13,5 horas, quiere dar al menos 2 clases en grupo y no menos individuales que en grupo. Cobra 20 € por clase individual y 50 € por clase en grupo.</span><label class="done"><input type="checkbox" id="ccss2-t4-12"> hecho</label></div><div class="items"><span>a) Plantea el problema (¡ojo con las unidades!) y dibuja la región factible.</span><span>b) ¿Cuántas clases de cada tipo maximizan los ingresos?</span><span>c) ¿Es factible dar 10 individuales y 5 en grupo?</span></div><details><summary>Ver solución</summary><div class="sol">a) 13,5 h = 810 min → 45x + 90y ≤ 810 → x + 2y ≤ 18; y ≥ 2; x ≥ y. Máx. I = 20x + 50y.<br>b) Vértices: (2, 2) → 140; (14, 2) → 380; (6, 6) → 420. <span class="res">6 individuales y 6 en grupo: 420 €</span><br>c) 10 + 10 = 20 &gt; 18 → no: harían falta 15 h.</div></details></div>
   </div>
   <p class="endnote">fin del tema 4 ✓ · fin de la UP1</p>
 </section>

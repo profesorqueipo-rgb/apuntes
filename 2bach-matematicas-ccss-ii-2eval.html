@@ -469,6 +469,16 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn"><path d="M28 52 A30 30 0 1 0 88 52 A30 30 0 1 0 28 52 Z M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs" fill-rule="evenodd"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="38" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A − B = A ∩ B̄ · <b>solo</b> A</figcaption></figure>
   </div>
 
+  <div>
+  <div class="wrap"><table class="tb props"><tr><th>Propiedad</th><th>Unión</th><th>Intersección</th></tr>
+    <tr><td>conmutativa</td><td>A ∪ B = B ∪ A</td><td>A ∩ B = B ∩ A</td></tr>
+    <tr><td>asociativa</td><td>(A ∪ B) ∪ C = A ∪ (B ∪ C)</td><td>(A ∩ B) ∩ C = A ∩ (B ∩ C)</td></tr>
+    <tr><td>idempotente</td><td>A ∪ A = A</td><td>A ∩ A = A</td></tr>
+    <tr><td>neutro</td><td>A ∪ ∅ = A</td><td>A ∩ E = A</td></tr>
+    <tr><td>contrario</td><td>A ∪ Ā = E</td><td>A ∩ Ā = ∅</td></tr>
+    <tr><td>simplificativa</td><td>A ∪ (A ∩ B) = A</td><td>A ∩ (A ∪ B) = A</td></tr>
+    <tr><td>distributiva</td><td>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</td><td>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</td></tr></table></div></div>
+
   <h3 class="r">Qué es la probabilidad</h3>
   <div class="row">
     <div class="box red"><span class="t">Regla de Laplace</span><span class="m big">P(A) = <span class="f"><i>casos favorables</i><i>casos posibles</i></span></span><br><span class="note">solo si todos los resultados son igual de probables</span></div>
@@ -482,6 +492,21 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <span class="m">0 ≤ P(A) ≤ 1</span> &nbsp;·&nbsp; <span class="m">P(Ā) = 1 − P(A)</span> &nbsp;·&nbsp; <span class="m">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span><br>
     <span class="m">P(A ∩ B̄) = P(A) − P(A ∩ B)</span> <span class="note">solo A</span> &nbsp;·&nbsp; <span class="m">P(Ā ∩ B̄) = 1 − P(A ∪ B)</span> <span class="note">ninguno</span></div>
 
+  <div>
+  <div class="row">
+    <div class="box ink"><span class="t">Frecuencias</span>Se repite un experimento n veces.<br>
+      Frecuencia absoluta f<sub>a</sub>(A): veces que ocurre A.<br>
+      Frecuencia relativa <span class="m">f<sub>r</sub>(A) = <span class="f"><i>f<sub>a</sub>(A)</i><i>n</i></span></span><br>
+      <span class="note">0 ≤ f<sub>r</sub> ≤ 1 · f<sub>r</sub>(E) = 1 · si A y B son incompatibles, f<sub>r</sub>(A ∪ B) = f<sub>r</sub>(A) + f<sub>r</sub>(B)</span></div>
+    <div class="postit"><b>Ley de los grandes números</b>Al repetir un experimento muchísimas veces, la frecuencia relativa de un suceso se estabiliza alrededor de un número: su probabilidad. Por eso la probabilidad tiene las mismas propiedades que las frecuencias.</div>
+  </div></div>
+<div>
+  <p><b>Técnica: escribe las probabilidades dentro de cada zona del diagrama de Venn.</b> Datos: P(Ā) = 0,4, P(A ∩ B̄) = 0,25, P(B) = 0,5.</p>
+  <ul class="pen"><li>P(A) = 0,6 → «solo A» = 0,25 → zona A ∩ B = 0,6 − 0,25 = 0,35</li>
+  <li>«solo B» = 0,5 − 0,35 = 0,15 → fuera de los dos: 1 − (0,25 + 0,35 + 0,15) = 0,25</li>
+  <li>Con las cuatro zonas se lee todo: P(A ∪ B) = 0,75 · P(Ā ∩ B̄) = 0,25 · P(Ā ∪ B̄) = 1 − 0,35 = 0,65</li></ul>
+  <p class="note">P(A ∪ B) = P(A) + P(B − A): lo de A más lo que B añade («solo B»).</p></div>
+
   <h3 class="g">Tablas de contingencia</h3>
   <p>Cuando hay dos características, se ordenan los datos en una tabla de doble entrada. Cada casilla es una intersección y los totales, las probabilidades de cada suceso.</p>
   <div class="row">
@@ -492,6 +517,16 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
       <tr><td>total</td><td>P(B)</td><td>P(B̄)</td><td class="red">1</td></tr></table></div>
     <div class="postit o"><b>Truco</b>Con tres datos (por ejemplo P(A), P(B) y P(A ∩ B)) se completa toda la tabla sumando y restando. Muchos problemas de la PAU se resuelven así.</div>
   </div>
+
+  <div>
+  <p><b>Del árbol a la tabla (y al revés).</b> El 40 % de la clientela de un gimnasio va por la mañana (M) y el resto por la tarde (T). Usa la piscina (P) el 30 % de los de mañana y el 50 % de los de tarde.</p>
+  <div class="row">
+    <p style="flex:1 1 260px">«el 30 % <b>del</b> 40 %» = 0,4·0,3 = 12 %<br>«el 50 % <b>del</b> 60 %» = 0,6·0,5 = 30 %<br>Cada rama del árbol es una casilla de la tabla.</p>
+    <div class="wrap"><table class="tb"><tr><th></th><th>P</th><th>P̄</th><th>total</th></tr>
+      <tr><td>M</td><td>12 %</td><td>28 %</td><td>40 %</td></tr><tr><td>T</td><td>30 %</td><td>30 %</td><td>60 %</td></tr>
+      <tr><td>total</td><td>42 %</td><td>58 %</td><td>100 %</td></tr></table></div>
+  </div>
+  <div class="postit o" style="max-width:560px"><b>Traduce el enunciado</b>«o» → ∪ · «y», «y además» → ∩ · «no» → contrario · «solo A» → A ∩ B̄ · «uno solo» → (A ∩ B̄) ∪ (Ā ∩ B) · «ninguno», «ni A ni B» → Ā ∩ B̄ · «<b>entre</b> los que…», «<b>de</b> los que…», «sabiendo que…» → condicionada.<br>Subraya esas palabras antes de empezar.</div></div>
 
   <h3 class="v">Probabilidad condicionada</h3>
   <div class="row">
@@ -505,6 +540,14 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <div class="warn"><span class="ojo"><span>¡OJO!</span></span><p><b>Incompatibles ≠ independientes.</b> Si A y B son incompatibles (y tienen probabilidad positiva), saber que ha pasado B hace que A sea imposible: son <b>dependientes</b>.</p></div>
   </div>
   <p>Para responder «¿hay relación entre A y B?» se compara <span class="m">P(A | B)</span> con <span class="m">P(A)</span>, o <span class="m">P(A ∩ B)</span> con <span class="m">P(A)·P(B)</span>. Si no coinciden, son dependientes.</p>
+
+  <div>
+  <div class="row">
+    <div class="box ink"><span class="t">Con o sin reemplazamiento</span>Urna con 7 bolas azules y 3 negras; se sacan dos.<br>
+      <b>Con</b> reemplazamiento: la urna vuelve a estar igual → <span class="f"><i>7</i><i>10</i></span> y <span class="f"><i>3</i><i>10</i></span> en cada extracción → <b class="grn">independientes</b>.<br>
+      <b>Sin</b> reemplazamiento: en la 2ª quedan 9 bolas y las probabilidades cambian → <b class="red">dependientes</b>.</div>
+    <div class="postit"><b>Curioso</b>Sin reemplazamiento, la probabilidad de que la 2ª bola sea azul también es <span class="f"><i>7</i><i>10</i></span>: <span class="f"><i>7</i><i>10</i></span>·<span class="f"><i>6</i><i>9</i></span> + <span class="f"><i>3</i><i>10</i></span>·<span class="f"><i>7</i><i>9</i></span> = <span class="f"><i>63</i><i>90</i></span> = <span class="f"><i>7</i><i>10</i></span>. Lo que cambia es la condicionada.</div>
+  </div></div>
 
   <h3 class="g keepnext">Árboles, probabilidad total y Bayes</h3>
   <div class="row">
@@ -522,6 +565,10 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     </div>
   </div>
   <div class="postit" style="max-width:560px"><b>Así cae en la PAU</b>En Asturias 2026 la pregunta 4 era de árbol y Bayes: ¿a qué grupo es más probable que pertenezca alguien que ha abandonado?, ¿hay relación entre abandono y grupo?, ¿hay argumentos probabilísticos para decir que un servicio influye? Hay que calcular <b>y</b> argumentar.</div>
+
+  <div>
+  <div class="box vio"><span class="t">Método para cualquier problema</span>
+    <ol class="steps"><li><b>Define los sucesos</b> con una letra y una frase: «D: el aparato es defectuoso».</li><li><b>Organiza los datos</b> en un árbol (si hay etapas o condicionadas) o en una tabla de contingencia (si hay dos características).</li><li>Escribe encima de cada fórmula qué usas: «Th. de la probabilidad total», «Th. de Bayes», «por el contrario».</li></ol></div></div>
 
   <h3 class="r keepnext">Ejercicios · Tema 5</h3>
   <div class="ejs">
@@ -556,6 +603,10 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
         <div class="wrap"><table class="tb"><tr><th></th><th>C</th><th>C̄</th><th>total</th></tr><tr><td>M</td><td>0,24</td><td>0,36</td><td>0,6</td></tr><tr><td>H</td><td>0,06</td><td>0,34</td><td>0,4</td></tr><tr><td>total</td><td>0,3</td><td>0,7</td><td>1</td></tr></table></div>
         b) 0,24/0,3 = <span class="res">0,8</span> &nbsp; c) 0,34/0,7 ≈ <span class="res">0,4857</span><br>
         d) P(C | M) = 0,4 ≠ P(C) = 0,3 → <span class="res">no son independientes</span></div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★</span><span class="q">Sabemos que P(Ā) = 0,3, P(A ∩ B̄) = 0,2 y P(B) = 0,6. Escribe la probabilidad de cada zona del diagrama de Venn y calcula:</span><label class="done"><input type="checkbox" id="ccss2-t5-11"> hecho</label></div><div class="items"><span>a) P(A ∩ B)</span><span>b) P(A ∪ B)</span><span>c) P(Ā ∩ B̄)</span><span>d) P(Ā ∪ B)</span><span>e) P(B | A)</span></div><details><summary>Ver solución</summary><div class="sol">P(A) = 0,7; zonas: solo A = 0,2, A ∩ B = 0,5, solo B = 0,1, ninguno = 0,2.<br>a) <span class="res">0,5</span> b) <span class="res">0,8</span> c) <span class="res">0,2</span> d) 1 − P(A ∩ B̄) = <span class="res">0,8</span> e) <span class="f"><i>0,5</i><i>0,7</i></span> = <span class="res"><span class="f"><i>5</i><i>7</i></span> ≈ 0,7143</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★</span><span class="q">En una bolsa hay 6 caramelos de fresa y 4 de limón. Se sacan dos, uno detrás de otro, sin devolverlos.</span><label class="done"><input type="checkbox" id="ccss2-t5-12"> hecho</label></div><div class="items"><span>a) Dibuja el árbol.</span><span>b) Probabilidad de que el 2º sea de fresa.</span><span>c) Probabilidad de que los dos sean de fresa.</span><span>d) Si el 2º ha sido de fresa, ¿qué probabilidad hay de que el 1º también lo fuera?</span></div><details><summary>Ver solución</summary><div class="sol">b) <span class="f"><i>6</i><i>10</i></span>·<span class="f"><i>5</i><i>9</i></span> + <span class="f"><i>4</i><i>10</i></span>·<span class="f"><i>6</i><i>9</i></span> = <span class="f"><i>54</i><i>90</i></span> = <span class="res">0,6</span> (igual que el 1º)<br>c) <span class="f"><i>6</i><i>10</i></span>·<span class="f"><i>5</i><i>9</i></span> = <span class="res"><span class="f"><i>1</i><i>3</i></span></span> &nbsp; d) Bayes: <span class="f"><i>1/3</i><i>0,6</i></span> = <span class="res"><span class="f"><i>5</i><i>9</i></span> ≈ 0,5556</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">13</span><span class="lvl">★★</span><span class="q">En un barrio, el 70 % de las personas lee prensa digital o escucha la radio, el 25 % hace las dos cosas y el 45 % no lee prensa digital.</span><label class="done"><input type="checkbox" id="ccss2-t5-13"> hecho</label></div><div class="items"><span>a) ¿Qué porcentaje escucha la radio?</span><span>b) ¿Y solo la radio?</span><span>c) ¿Qué porcentaje hace solo una de las dos cosas?</span><span>d) ¿Y ninguna?</span></div><details><summary>Ver solución</summary><div class="sol">P(D) = 0,55; P(D ∪ R) = P(D) + P(R) − P(D ∩ R) → 0,7 = 0,55 + P(R) − 0,25 → a) <span class="res">40 %</span><br>b) 0,4 − 0,25 = <span class="res">15 %</span> &nbsp; c) solo D = 0,30 → 0,30 + 0,15 = <span class="res">45 %</span> &nbsp; d) 1 − 0,7 = <span class="res">30 %</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">14</span><span class="lvl">★★★</span><span class="tag">tipo PAU</span><span class="q">En una encuesta, el 12 % cambió de móvil y de compañía telefónica el último año y el 45 % cambió de compañía pero no de móvil. Entre quienes cambiaron de móvil, el 30 % cambió también de compañía.</span><label class="done"><input type="checkbox" id="ccss2-t5-14"> hecho</label></div><div class="items"><span>a) ¿Qué porcentaje cambió de móvil?</span><span>b) Completa la tabla de contingencia.</span><span>c) Entre quienes no cambiaron de móvil, ¿qué porcentaje cambió de compañía?</span></div><details><summary>Ver solución</summary><div class="sol">a) P(C | M) = <span class="f"><i>P(C ∩ M)</i><i>P(M)</i></span> → 0,3 = <span class="f"><i>0,12</i><i>P(M)</i></span> → P(M) = <span class="res">40 %</span><br>b) M: 12 % y 28 %; M̄: 45 % y 15 %. Totales: C 57 %, C̄ 43 %.<br>c) P(C | M̄) = <span class="f"><i>0,45</i><i>0,6</i></span> = <span class="res">75 %</span></div></details></div>
   </div>
   <p class="endnote">fin del tema 5 ✓</p>
 </section>
@@ -574,6 +625,19 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
       <p><span class="m">μ = 0,3 + 0,8 + 0,6 = 1,7</span> &nbsp; <span class="m">σ<sup>2</sup> = 3,7 − 1,7<sup>2</sup> = 0,81</span> → <span class="res">σ = 0,9</span></p>
     </div>
   </div>
+
+  <div>
+  <p><b>Ejemplo completo.</b> Una variable toma los valores 1, 2, 3 y 4 con P(X = x) = k·x. ¿Cuánto vale k?</p>
+  <div class="wrap"><table class="tb"><tr><th>x<sub>i</sub></th><th>p<sub>i</sub></th><th>x<sub>i</sub>·p<sub>i</sub></th><th>x<sub>i</sub><sup>2</sup>·p<sub>i</sub></th><th>F(x<sub>i</sub>) = P(X ≤ x<sub>i</sub>)</th></tr>
+    <tr><td>1</td><td>0,1</td><td>0,1</td><td>0,1</td><td>0,1</td></tr><tr><td>2</td><td>0,2</td><td>0,4</td><td>0,8</td><td>0,3</td></tr>
+    <tr><td>3</td><td>0,3</td><td>0,9</td><td>2,7</td><td>0,6</td></tr><tr><td>4</td><td>0,4</td><td>1,6</td><td>6,4</td><td>1</td></tr>
+    <tr><td>Σ</td><td>1</td><td>3</td><td>10</td><td></td></tr></table></div>
+  <p>Las p<sub>i</sub> suman 1: k + 2k + 3k + 4k = 10k = 1 → k = 0,1. &nbsp; μ = 3 &nbsp; σ<sup>2</sup> = 10 − 3<sup>2</sup> = 1 → σ = 1</p></div>
+<div>
+  <div class="row">
+    <div class="box ink"><span class="t">Función de distribución</span><span class="m">F(x) = P(X ≤ x)</span>: va acumulando las probabilidades. Es una función escalonada que empieza en 0 y termina en 1 (última columna de la tabla).<br><span class="note">P(X ≤ 2) = F(2) = 0,3 · P(X &gt; 2) = 1 − F(2) = 0,7</span></div>
+    <div class="box vio"><span class="t">Modelo de Bernoulli</span>Un solo intento con dos resultados: éxito (1), con probabilidad p, o fracaso (0).<br><span class="m">μ = p &nbsp; σ<sup>2</sup> = p − p<sup>2</sup> = p·q</span><br><span class="note">La binomial es repetir n veces un Bernoulli: μ = np, σ<sup>2</sup> = npq.</span></div>
+  </div></div>
 
   <h3 class="v">Distribución binomial <span class="nt">B(n, p)</span></h3>
   <div class="row">
@@ -604,12 +668,38 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
   <span class="m">P(160 ≤ X ≤ 180) = P(−1,25 ≤ Z ≤ 1,25) = 0,8944 − (1 − 0,8944) = </span> <span class="res">0,7888</span></p>
   <p><b>Al revés</b> (dada la probabilidad, buscar el valor): se busca la probabilidad <b>dentro</b> de la tabla y se lee z. Si <span class="m">P(Z ≤ k) = 0,90</span> → <span class="m">k ≈ 1,28</span>; luego se destipifica: <span class="m">x = μ + k·σ</span>.</p>
 
+  <div>
+  <div class="row">
+    <div class="box grn"><span class="t">Regla 68 − 95 − 99,7</span>En cualquier N(μ, σ):<br>
+      P(μ − σ &lt; X &lt; μ + σ) ≈ 0,68<br>P(μ − 2σ &lt; X &lt; μ + 2σ) ≈ 0,95<br>P(μ − 3σ &lt; X &lt; μ + 3σ) ≈ 0,997<br>
+      <span class="note">Estaturas N(170, 8): el 68 % entre 162 y 178 cm; el 95 %, entre 154 y 186.</span></div>
+    <div class="box red"><span class="t">Más casos con la simetría</span>
+      P(Z &gt; −k) = P(Z &lt; k) &nbsp; <span class="note">P(Z &gt; −1,25) = 0,8944</span><br>
+      P(−k &lt; Z &lt; k) = 2·P(Z &lt; k) − 1<br>
+      P(X &lt; μ) = P(X &gt; μ) = 0,5 &nbsp;(sin tabla)<br>
+      P(Z = 1,2) = 0 &nbsp;(variable continua)</div>
+  </div>
+  <p><b>Al revés y simétrico.</b> P(−k &lt; Z &lt; k) = 0,90 → fuera quedan 0,10, la mitad a cada lado → P(Z &lt; k) = 0,95 → k = 1,64. <span class="note">En general, P(Z &lt; k) = (1 + p)/2.</span></p></div>
+
   <h3 class="r">Aproximación de la binomial por la normal</h3>
   <div class="row">
     <div class="box red"><span class="t">Si <span class="nt">n·p ≥ 5</span> y <span class="nt">n·q ≥ 5</span></span><span class="m">B(n, p) ≈ N(n·p, <span class='sq'><i>n·p·q</i></span>)</span></div>
     <div class="postit o"><b>Corrección de continuidad</b>Cada valor entero k pasa a ser el intervalo (k − 0,5, k + 0,5):<br><span class="m">P(X ≥ 70) ≈ P(X' ≥ 69,5)</span><br><span class="m">P(X ≤ 65) ≈ P(X' ≤ 65,5)</span><br><span class="m">P(X &gt; 40) = P(X ≥ 41) ≈ P(X' ≥ 40,5)</span></div>
   </div>
   <p class="note">Sin la aproximación, calcular P(X ≥ 70) en una B(200; 0,3) supondría sumar 131 términos.</p>
+
+  <div>
+  <div class="row">
+    <div class="box ink"><span class="t">Corrección de continuidad (de Yates): todos los casos</span>
+      <div class="wrap"><table class="tb"><tr><th>binomial X</th><th>normal X'</th></tr>
+      <tr><td>P(X = a)</td><td>P(a − 0,5 ≤ X' ≤ a + 0,5)</td></tr><tr><td>P(X ≤ a)</td><td>P(X' ≤ a + 0,5)</td></tr>
+      <tr><td>P(X &lt; a)</td><td>P(X' ≤ a − 0,5)</td></tr><tr><td>P(X ≥ a)</td><td>P(X' ≥ a − 0,5)</td></tr>
+      <tr><td>P(X &gt; a)</td><td>P(X' ≥ a + 0,5)</td></tr><tr><td>P(a ≤ X ≤ b)</td><td>P(a − 0,5 ≤ X' ≤ b + 0,5)</td></tr></table></div></div>
+    <div class="postit"><b>Cuándo aproximar</b>En clase: n ≥ 30, np &gt; 5 y nq &gt; 5. Entonces B(n, p) ≈ N(np, √npq).<br>Con la normal, un valor suelto sí tiene probabilidad: P(X = a) se convierte en un intervalo de anchura 1.</div>
+  </div>
+  <p><b>Escribe el paso encima de cada «=».</b> B(100; 0,5) ≈ N(50, 5):<br>
+  <span class="m">P(X = 50) <sub class="pen-grey">Yates</sub>= P(49,5 ≤ X' ≤ 50,5) <sub class="pen-grey">tipificar</sub>= P(−0,1 ≤ Z ≤ 0,1) <sub class="pen-grey">tabla</sub>= 2·0,5398 − 1 = 0,0796</span><br>
+  <span class="note">La binomial exacta da 0,0796: la aproximación es muy buena.</span></p></div>
 
   <h3 class="v keepnext">Tabla de la normal <span class="nt">N(0, 1): P(Z ≤ z)</span></h3>
   <p class="keepnext">Fila: unidades y primer decimal de z. Columna: segundo decimal. Ejemplo: P(Z ≤ 1,25) → fila 1,2, columna 0,05 → 0,8944.</p>
@@ -633,6 +723,10 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
         c) P(Y ≥ 45) ≈ P(Z ≥ 2,30) = 1 − 0,9893 = 0,0107: pasa en 1 de cada 100 días. Es muy poco probable si el 8 % sigue siendo cierto, así que <span class="res">es razonable sospechar que algo ha cambiado</span>.</div></details></div>
     <div class="ej"><div class="ej-h"><span class="num">7</span><span class="lvl">★★★</span><span class="q">Las notas de un examen siguen una distribución normal. El 15,87 % saca más de 8 y el 2,28 % saca menos de 2. Halla la media y la desviación típica.</span><label class="done"><input type="checkbox" id="ccss2-t6-7"> hecho</label></div><details><summary>Ver solución</summary><div class="sol">P(Z ≤ (8 − μ)/σ) = 0,8413 → (8 − μ)/σ = 1; P(Z ≤ (2 − μ)/σ) = 0,0228 → (2 − μ)/σ = −2.<br>
         8 − μ = σ y 2 − μ = −2σ → restando: 6 = 3σ → <span class="res">σ = 2, μ = 6</span></div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">8</span><span class="lvl">★</span><span class="q">Una variable aleatoria toma los valores 0, 1, 2 y 3 con probabilidades 0,2, k, 2k y 0,2.</span><label class="done"><input type="checkbox" id="ccss2-t6-8"> hecho</label></div><div class="items"><span>a) Halla k.</span><span>b) Calcula su función de distribución F(x).</span><span>c) Calcula la media y la desviación típica con una tabla de x<sub>i</sub>·p<sub>i</sub> y x<sub>i</sub><sup>2</sup>·p<sub>i</sub>.</span></div><details><summary>Ver solución</summary><div class="sol">a) 0,4 + 3k = 1 → <span class="res">k = 0,2</span> (probabilidades 0,2; 0,2; 0,4; 0,2)<br>b) F(0) = 0,2 · F(1) = 0,4 · F(2) = 0,8 · F(3) = 1<br>c) Σx<sub>i</sub>p<sub>i</sub> = 0 + 0,2 + 0,8 + 0,6 = <span class="res">μ = 1,6</span>; Σx<sub>i</sub><sup>2</sup>p<sub>i</sub> = 0,2 + 1,6 + 1,8 = 3,6 → σ<sup>2</sup> = 3,6 − 2,56 = 1,04 → <span class="res">σ ≈ 1,02</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">9</span><span class="lvl">★</span><span class="q">Calcula con la tabla de la N(0, 1).</span><label class="done"><input type="checkbox" id="ccss2-t6-9"> hecho</label></div><div class="items"><span>a) P(Z &gt; −0,84)</span><span>b) P(−1,5 &lt; Z &lt; 1,5)</span><span>c) k tal que P(−k &lt; Z &lt; k) = 0,95</span><span>d) k tal que P(Z &gt; k) = 0,0116</span></div><details><summary>Ver solución</summary><div class="sol">a) P(Z &lt; 0,84) = <span class="res">0,7995</span> &nbsp; b) 2·0,9332 − 1 = <span class="res">0,8664</span><br>c) P(Z &lt; k) = 1,95/2 = 0,975 → <span class="res">k = 1,96</span> &nbsp; d) P(Z ≤ k) = 0,9884 → <span class="res">k = 2,27</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★</span><span class="q">La duración de unas baterías sigue una distribución N(500, 40), en ciclos de carga. Sin usar la tabla, con la regla 68 − 95 − 99,7:</span><label class="done"><input type="checkbox" id="ccss2-t6-10"> hecho</label></div><div class="items"><span>a) ¿Entre qué valores está el 95 % central de las baterías?</span><span>b) ¿Qué porcentaje dura más de 540 ciclos?</span><span>c) ¿Y menos de 380?</span></div><details><summary>Ver solución</summary><div class="sol">a) μ ± 2σ → <span class="res">entre 420 y 580 ciclos</span><br>b) Fuera de μ ± σ queda el 32 %, la mitad por arriba → <span class="res">16 %</span><br>c) 380 = μ − 3σ → (100 − 99,7)/2 = <span class="res">0,15 %</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★★★</span><span class="q">En un servicio técnico, el 30 % de las averías se deben a un mal uso. Se revisan 30 averías.</span><label class="done"><input type="checkbox" id="ccss2-t6-11"> hecho</label></div><div class="items"><span>a) Calcula P(X = 5) con la binomial.</span><span>b) Calcula P(X ≥ 2) de forma exacta (por el contrario).</span><span>c) Calcula P(X ≥ 2) con la aproximación normal y compara.</span><span>d) Con la normal, calcula P(X = 9).</span></div><details><summary>Ver solución</summary><div class="sol">X ~ B(30; 0,3), μ = 9, σ = √6,3 ≈ 2,51 (np = 9 &gt; 5, nq = 21 &gt; 5).<br>a) C<sub>30,5</sub>·0,3<sup>5</sup>·0,7<sup>25</sup> ≈ <span class="res">0,0464</span><br>b) 1 − [P(0) + P(1)] = 1 − [0,7<sup>30</sup> + 30·0,3·0,7<sup>29</sup>] ≈ <span class="res">0,9997</span><br>c) P(X' ≥ 1,5) = P(Z ≥ −2,99) = 0,9986. Muy parecido: el error es del orden de una milésima.<br>d) P(8,5 ≤ X' ≤ 9,5) = P(−0,2 ≤ Z ≤ 0,2) = 2·0,5793 − 1 = <span class="res">0,1586</span> (exacta: 0,1573)</div></details></div>
   </div>
   <p class="endnote">fin del tema 6 ✓</p>
 </section>
@@ -653,11 +747,27 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
   </table></div>
   <p>Una muestra tiene que ser <b>representativa</b>: preguntar solo a quienes siguen una cuenta en redes, o solo por la mañana, introduce <span class="red">sesgos</span>.</p>
 
+  <div>
+  <p><b>Ejemplo en una clase de 40 (24 chicas y 16 chicos) con una muestra de 8:</b></p>
+  <ul class="pen"><li><b>Aleatorio simple</b>: se sortean 8 números del 1 al 40.</li>
+  <li><b>Sistemático</b>: k = 40/8 = 5. Se sortea el primero entre 1 y 5; si sale el 2: 2, 7, 12, 17, 22, 27, 32 y 37.</li>
+  <li><b>Estratificado proporcional</b>: las chicas son el 60 % → 0,6·8 = 4,8 ≈ 5 chicas; 0,4·8 = 3,2 ≈ 3 chicos. <span class="note">Se redondea y se comprueba que la suma sea 8.</span></li></ul>
+  <div class="wrap"><table class="tb"><tr><th></th><th>POBLACIÓN (parámetro)</th><th>MUESTRA (estadístico)</th></tr>
+    <tr><td>media</td><td>μ</td><td>x̄</td></tr><tr><td>desviación típica</td><td>σ</td><td>s</td></tr><tr><td>proporción</td><td>p</td><td>p̂</td></tr></table></div>
+  <p class="note">El parámetro es fijo y desconocido; el estadístico cambia de una muestra a otra y sirve para estimarlo: con un número (estimación puntual) o con un intervalo.</p></div>
+
   <h3 class="v">Distribución de la media muestral</h3>
   <div class="row">
     <div class="box vio"><span class="t">Si <span class="nt">X ~ N(μ, σ)</span>, o si <span class="nt">n ≥ 30</span></span><span class="m big">X̄ ~ N(μ, <span class="f"><i>σ</i><i><span class='sq'><i>n</i></span></i></span>)</span><br><span class="note">las medias de las muestras se agrupan alrededor de μ, y más cuanto mayor es n</span></div>
     <div class="postit o"><b>Teorema central del límite</b>Aunque la población no sea normal, si n ≥ 30 la media muestral es aproximadamente normal.</div>
   </div>
+  <div>
+  <div class="row">
+    <div class="box grn"><span class="t">La suma de la muestra</span><span class="m">Σ X = n·x̄ ~ N(n·μ, σ·√n)</span></div>
+    <p style="flex:1 1 300px">Un ascensor admite 800 kg. El peso de las personas sigue N(72, 12). Si suben 10: Σ X ~ N(720, 12√10) = N(720; 37,95).<br>
+    P(Σ X &gt; 800) = P(Z &gt; 2,11) = 1 − 0,9826 = <span class="res">0,0174</span></p>
+  </div></div>
+
   <h3 class="r">Distribución de la proporción muestral</h3>
   <div class="box red"><span class="t">Si <span class="nt">n</span> es grande (<span class="nt">n·p ≥ 5</span> y <span class="nt">n·q ≥ 5</span>)</span><span class="m big">p̂ ~ N(p, <span class="sq"><i>p·q / n</i></span>)</span><br><span class="note">p̂ = proporción en la muestra · p = proporción en la población</span></div>
 
@@ -684,6 +794,16 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
   <p><b>Ejemplo (media).</b> σ = 12, n = 36, x̄ = 75, al 95 %: <span class="m">E = 1,96·<span class="f"><i>12</i><i>6</i></span> = 3,92</span> → <span class="res">(71,08; 78,92)</span><br>
   <b>Ejemplo (proporción).</b> De 400 personas, 120 dicen que sí: p̂ = 0,3. Al 95 %: <span class="m">E = 1,96·<span class='sq'><i>0,3·0,7 / 400</i></span> ≈ 0,0449</span> → <span class="res">(0,2551; 0,3449)</span></p>
 
+  <div>
+  <div class="row">
+    <div class="box red"><span class="t">Confianza y significación</span>γ = nivel de confianza (1 − α) · α = nivel de significación<br><span class="m">γ + α = 1</span> &nbsp; <span class="note">95 % → α = 5 %, 2,5 % en cada cola</span><br>
+      <b>Atajo:</b> <span class="m">F(z<sub>α/2</sub>) = <span class="f"><i>1 + γ</i><i>2</i></span></span></div>
+    <div class="wrap"><table class="tb"><tr><th>γ</th><th>(1 + γ)/2</th><th>z<sub>α/2</sub></th></tr>
+      <tr><td>94 %</td><td>0,97</td><td>1,88</td></tr><tr><td>92 %</td><td>0,96</td><td>1,75</td></tr><tr><td>85 %</td><td>0,925</td><td>1,44</td></tr></table>
+      <p class="note">niveles «raros»: hay que buscar en la tabla</p></div>
+  </div>
+  <p><b>Intervalo característico</b> (para los valores de la población, no para la media): es el intervalo centrado en μ que contiene un porcentaje dado. Neumáticos N(48 000, 3000) km, al 80 %: z = 1,28 → x = μ ± z·σ → <span class="res">(44 160, 51 840)</span> km.</p></div>
+
   <h3 class="r">Cómo cambia el intervalo</h3>
   <div class="wrap"><table class="tb props">
     <tr><th>Si…</th><th>el error E (y la amplitud)…</th></tr>
@@ -702,6 +822,12 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <div class="box grn"><span class="t">Tomar decisiones</span>Si el valor que se afirma (por ejemplo, p = 0,5) queda <b>fuera</b> del intervalo, hay motivos para rechazarlo con esa confianza. Si queda <b>dentro</b>, no se puede descartar.</div>
     <div class="postit o"><b>Situación de aprendizaje · ¿Mayoría o solo lo parece?</b>Un medio publica que el 54 % apoya ampliar el carril bici. Con el intervalo de confianza, decidiréis si se puede titular «la mayoría apoya».</div>
   </div>
+
+  <div>
+  <p><b>Intervalo al revés como un sistema.</b> Con σ = 75 y n = 100 se obtuvo el intervalo (183,3; 212,7) para la media:</p>
+  <p><span class="m"><span class="brace"><span>x̄ − E = 183,3</span><span>x̄ + E = 212,7</span></span></span> sumando: 2x̄ = 396 → x̄ = 198; restando: 2E = 29,4 → E = 14,7</p>
+  <p>E = z·<span class="f"><i>σ</i><i>√n</i></span> → z = <span class="f"><i>14,7·10</i><i>75</i></span> = 1,96 → F(z) = 0,975 → <span class="m">γ = 2·F(z) − 1 = 0,95</span> → nivel del <span class="res">95 %</span></p>
+  <div class="postit"><b>La fórmula γ = 2F(z) − 1</b>Sale de F(z) = (1 + γ)/2. Sirve siempre que pidan «¿con qué nivel de confianza…?».</div></div>
 
   <h3 class="r keepnext">Ejercicios · Tema 7</h3>
   <div class="ejs">
@@ -726,6 +852,10 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
         (ii) ↔ <span class="res">(A)</span>: mismo centro y la mitad de error, 1,96·6/12 = 0,98 (n por 4 → E entre 2).<br>
         (iii) ↔ <span class="res">(B)</span>: el mismo error, 1,96, pero desplazado (x̄ = 21).</div></details></div>
     <div class="ej"><div class="ej-h"><span class="num">10</span><span class="lvl">★★</span><span class="q">El 40 % de los hogares de una región tiene mascota. Se toman muestras de 150 hogares.</span><label class="done"><input type="checkbox" id="ccss2-t7-10"> hecho</label></div><div class="items"><span>a) ¿Cómo se distribuye la proporción muestral?</span><span>b) ¿Qué probabilidad hay de que en una muestra la proporción supere el 45 %?</span></div><details><summary>Ver solución</summary><div class="sol">a) p̂ ~ N(0,4; √(0,4·0,6/150)) = <span class="res">N(0,4; 0,04)</span> &nbsp; b) P(Z &gt; 0,05/0,04) = P(Z &gt; 1,25) = <span class="res">0,1056</span></div></details></div>
+      <div class="ej"><div class="ej-h"><span class="num">11</span><span class="lvl">★</span><span class="q">Calcula z<sub>α/2</sub> para cada caso.</span><label class="done"><input type="checkbox" id="ccss2-t7-11"> hecho</label></div><div class="items"><span>a) confianza del 94 %</span><span>b) significación del 2 %</span><span>c) α = 0,08</span><span>d) confianza del 85 %</span></div><details><summary>Ver solución</summary><div class="sol">a) 0,97 → <span class="res">1,88</span> &nbsp; b) γ = 98 % → 0,99 → <span class="res">2,33</span> &nbsp; c) γ = 92 % → 0,96 → <span class="res">1,75</span> &nbsp; d) 0,925 → <span class="res">1,44</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">12</span><span class="lvl">★★</span><span class="q">La puntuación de un test sigue una distribución normal con σ = 15. Con una muestra de 100 personas se obtuvo el intervalo (97,9; 102,1) para la media.</span><label class="done"><input type="checkbox" id="ccss2-t7-12"> hecho</label></div><div class="items"><span>a) Halla la media muestral y el error.</span><span>b) ¿Con qué nivel de confianza se calculó?</span></div><details><summary>Ver solución</summary><div class="sol">a) x̄ = <span class="f"><i>97,9 + 102,1</i><i>2</i></span> = <span class="res">100</span>; E = <span class="f"><i>102,1 − 97,9</i><i>2</i></span> = <span class="res">2,1</span><br>b) z = <span class="f"><i>2,1·√100</i><i>15</i></span> = 1,4 → F(1,4) = 0,9192 → γ = 2·0,9192 − 1 = <span class="res">0,8384 → 83,84 %</span></div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">13</span><span class="lvl">★★</span><span class="q">El tiempo que tarda en hacerse un trámite online sigue una distribución N(12, 3) en minutos.</span><label class="done"><input type="checkbox" id="ccss2-t7-13"> hecho</label></div><div class="items"><span>a) Halla el intervalo característico del 95 % (para los tiempos individuales).</span><span>b) Se toman muestras de 25 personas. Halla el intervalo que contiene el 95 % de las medias muestrales.</span><span>c) Compara las dos amplitudes.</span></div><details><summary>Ver solución</summary><div class="sol">a) 12 ± 1,96·3 → <span class="res">(6,12; 17,88)</span><br>b) X̄ ~ N(12; 0,6) → 12 ± 1,96·0,6 → <span class="res">(10,82; 13,18)</span><br>c) La segunda es 5 veces más estrecha (√25 = 5): las medias varían mucho menos que los datos.</div></details></div>
+    <div class="ej"><div class="ej-h"><span class="num">14</span><span class="lvl">★★</span><span class="q">El peso de las naranjas de una finca sigue N(180, 20) en gramos. Se envasan en mallas de 16 naranjas.</span><label class="done"><input type="checkbox" id="ccss2-t7-14"> hecho</label></div><div class="items"><span>a) ¿Cómo se distribuye el peso total de una malla?</span><span>b) ¿Qué probabilidad hay de que una malla pese más de 3 kg?</span></div><details><summary>Ver solución</summary><div class="sol">a) Σ X ~ N(16·180, 20·√16) = <span class="res">N(2880, 80)</span> g<br>b) P(Σ X &gt; 3000) = P(Z &gt; 1,5) = 1 − 0,9332 = <span class="res">0,0668</span></div></details></div>
   </div>
   <p class="endnote">fin del tema 7 ✓ · fin de la UP2</p>
 </section>
