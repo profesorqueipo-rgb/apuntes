@@ -812,15 +812,15 @@ html .toc.c3{grid-template-columns:repeat(3,1fr)!important}
   <h3 class="v">Sin repetición</h3>
   <div class="row">
     <div class="box vio"><span class="t">Permutaciones · <span class="nt">P<sub>m</sub></span></span>Ordenaciones de los m elementos, usándolos todos.<br>
-      <span class="m big">P<sub>m</sub> = m!</span><br>Ejemplo: 6 personas en una fila: <span class="m">P<sub>6</sub> = 720</span></div>
+      <span class="m big">P<sub>m</sub> = m!</span><br><b>Ejemplo.</b> ¿De cuántas formas se pueden colocar 6 personas en una fila? Están todas y el orden importa: <span class="m">P<sub>6</sub> = 6! = 720</span></div>
     <div class="box red"><span class="t">Variaciones · <span class="nt">V<sub>m,n</sub></span></span>Grupos <b>ordenados</b> de n elementos elegidos entre m.<br>
       <span class="m big">V<sub>m,n</sub> = <span class="f"><i>m!</i><i>(m − n)!</i></span> = m·(m − 1)·…</span> <span class="note">(n factores)</span><br>
-      Ejemplo: oro y plata entre 7: <span class="m">V<sub>7,2</sub> = 7·6 = 42</span></div>
+      <b>Ejemplo.</b> En una carrera corren 7 atletas. ¿De cuántas formas se pueden repartir las medallas de oro y de plata? Se eligen 2 de los 7 y el orden importa (no es lo mismo ganar el oro que la plata): <span class="m">V<sub>7,2</sub> = 7·6 = 42</span></div>
   </div>
   <div class="row">
     <div class="box grn"><span class="t">Combinaciones · <span class="nt">C<sub>m,n</sub></span></span>Grupos de n elementos elegidos entre m en los que <b>no importa el orden</b>.<br>
       <span class="m big">C<sub>m,n</sub> = <span class="f"><i>V<sub>m,n</sub></i><i>P<sub>n</sub></i></span> = <span class="f"><i>m!</i><i>n!·(m − n)!</i></span> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m</i><i>n</i></span></span><br>
-      Ejemplo: 3 personas de 5 para una comisión: <span class="m">C<sub>5,3</sub> = <span class="f"><i>5·4·3</i><i>3·2·1</i></span> = 10</span></div>
+      <b>Ejemplo.</b> En un grupo de 5 personas, ¿cuántas comisiones distintas de 3 se pueden formar? En una comisión solo cuenta quién está, no en qué orden se elige: <span class="m">C<sub>5,3</sub> = <span class="f"><i>5·4·3</i><i>3·2·1</i></span> = 10</span></div>
     <div class="postit"><b>¿Por qué se divide entre P<sub>n</sub>?</b>Cada grupo de n elementos aparece en las variaciones ordenado de n! maneras. Si el orden no importa, todas esas maneras son el mismo grupo.</div>
   </div>
 
@@ -854,19 +854,19 @@ html .toc.c3{grid-template-columns:repeat(3,1fr)!important}
   <div class="row">
     <div class="box vio"><span class="t">Permutaciones con repetición</span>Ordenaciones de m elementos entre los que uno se repite a veces, otro b veces…<br>
       <span class="m big">P<sub>m</sub><sup>a,b,…</sup> = <span class="f"><i>m!</i><i>a!·b!·…</i></span></span><br>
-      Con las cifras 1, 1, 1, 5, 5, 8: <span class="m">P<sub>6</sub><sup>3,2</sup> = <span class="f"><i>6!</i><i>3!·2!</i></span> = 60</span> números</div>
+      <b>Ejemplo.</b> ¿Cuántos números de seis cifras se pueden escribir colocando en fila las cifras 1, 1, 1, 5, 5 y 8? Se usan todas, el orden importa, el 1 está repetido 3 veces y el 5, 2 veces: <span class="m">P<sub>6</sub><sup>3,2</sup> = <span class="f"><i>6!</i><i>3!·2!</i></span> = 60</span> números</div>
     <div class="box red"><span class="t">Variaciones con repetición</span>Grupos <b>ordenados</b> de n elementos que se pueden repetir, elegidos entre m.<br>
       <span class="m big">VR<sub>m</sub><sup>n</sup> = m<sup>n</sup></span> <span class="note">puede ser n &gt; m</span><br>
-      Números de 6 cifras con solo 1, 5 y 8: <span class="m">VR<sub>3</sub><sup>6</sup> = 3<sup>6</sup> = 729</span></div>
+      <b>Ejemplo.</b> ¿Cuántos números de 6 cifras se pueden formar usando solo las cifras 1, 5 y 8, repitiéndolas las veces que se quiera? Para cada una de las 6 posiciones hay 3 opciones: <span class="m">VR<sub>3</sub><sup>6</sup> = 3<sup>6</sup> = 729</span></div>
   </div>
   <div class="row">
     <div class="box grn"><span class="t">Combinaciones con repetición</span>Muestras <b>no ordenadas</b> de n elementos, no necesariamente distintos, de un conjunto de m.<br>
       <span class="m big">CR<sub>m</sub><sup>n</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>m + n − 1</i><i>n</i></span></span> <span class="note">puede ser n &gt; m</span><br>
-      Tres bolas de helado de 5 sabores (se pueden repetir): <span class="m">CR<sub>5</sub><sup>3</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>7</i><i>3</i></span> = 35</span></div>
+      <b>Ejemplo.</b> Una heladería tiene 5 sabores. ¿Cuántas copas distintas de 3 bolas se pueden pedir? Se puede repetir sabor (fresa, fresa y limón) y no importa en qué orden se ponen las bolas: <span class="m">CR<sub>5</sub><sup>3</sup> = <span class="mx p" style="grid-template-columns:repeat(1,auto)"><i>7</i><i>3</i></span> = 35</span></div>
     <div class="box ink"><span class="t">Permutaciones circulares</span>Ordenaciones alrededor de una mesa redonda: lo que importa es quién tiene a cada lado, no la silla.<br>
-      <span class="m big">PC<sub>m</sub> = (m − 1)!</span><br>4 personas: <span class="m">PC<sub>4</sub> = 3! = 6</span></div>
+      <span class="m big">PC<sub>m</sub> = (m − 1)!</span><br><b>Ejemplo.</b> ¿De cuántas formas se pueden sentar 4 personas alrededor de una mesa redonda? Se fija a una persona y se ordenan las otras 3: <span class="m">PC<sub>4</sub> = 3! = 6</span></div>
   </div>
-  <div class="postit" style="max-width:560px"><b>Para la probabilidad</b>Con la regla de Laplace, los casos favorables y posibles se cuentan con estas fórmulas. Ejemplo: al elegir al azar 3 personas de un grupo de 5 chicas y 4 chicos, P(las tres son chicas) = <span class="f"><i>C<sub>5,3</sub></i><i>C<sub>9,3</sub></i></span> = <span class="f"><i>10</i><i>84</i></span> ≈ 0,119.</div>
+  <div class="postit" style="max-width:560px"><b>Para la probabilidad</b>Con la regla de Laplace, los casos favorables y posibles se cuentan con estas fórmulas. <br><b>Ejemplo.</b> En un grupo hay 6 chicas y 4 chicos. Se eligen al azar 2 personas para representar al grupo. ¿Qué probabilidad hay de que las dos sean chicas?<br>Casos posibles: parejas elegidas entre las 10 personas → C<sub>10,2</sub> = 45.<br>Casos favorables: parejas elegidas entre las 6 chicas → C<sub>6,2</sub> = 15.<br>P(las dos son chicas) = <span class="f"><i>15</i><i>45</i></span> = <span class="f"><i>1</i><i>3</i></span> ≈ 0,333.</div>
 
   <h3 class="r keepnext">Ejercicios · Combinatoria</h3>
   <div class="ejs">
