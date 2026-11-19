@@ -186,7 +186,7 @@ VOLVER_A = '<a class="volver-portada" href="index.html">↩ todos los apuntes</a
 
 
 # ---------- licencia ----------
-AUTOR = "Prof. Queipo"
+AUTOR = "Guillermo Queipo G."
 CC_URL = "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es"
 LIC_CSS = ("<style>.licencia{max-width:900px;margin:22px auto 8px;padding:0 16px;font:13px/1.45 system-ui,-apple-system,sans-serif;"
            "color:var(--pencil,#5a5f68);text-align:center}.licencia a{color:inherit}</style>")
