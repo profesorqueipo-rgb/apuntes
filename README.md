@@ -20,3 +20,9 @@ python3 construir_web.py
 ```
 
 Después, sube los cambios al repositorio (GitHub Pages publica la rama `main`, carpeta raíz).
+
+## Licencia
+
+Los apuntes tienen licencia [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es) (© Prof. Queipo): se pueden compartir y adaptar citando al autor, sin uso comercial y con la misma licencia. No la tienen los enunciados de la PAU (Universidad de Oviedo) ni los recortes de libros (`2bach-matematicas-ii-libro*`, de «Unas matemáticas para todos»), que conservan sus derechos. Detalles en [LICENSE](LICENSE).
+
+Cada PDF lleva el pie de licencia; si se vuelve a generar alguno, `construir_web.py` se lo pone al copiarlo.

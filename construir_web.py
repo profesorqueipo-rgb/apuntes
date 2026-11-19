@@ -185,8 +185,34 @@ VOLVER_CSS = (
 VOLVER_A = '<a class="volver-portada" href="index.html">↩ todos los apuntes</a>'
 
 
-def preparar_pagina(origen: Path, destino: Path):
-    """Copia una página de apuntes añadiéndole cabecera HTML y enlace a la portada."""
+# ---------- licencia ----------
+AUTOR = "Prof. Queipo"
+CC_URL = "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es"
+LIC_CSS = ("<style>.licencia{max-width:900px;margin:22px auto 8px;padding:0 16px;font:13px/1.45 system-ui,-apple-system,sans-serif;"
+           "color:var(--pencil,#5a5f68);text-align:center}.licencia a{color:inherit}</style>")
+LIC = {
+    "propio": (f'<p class="licencia">© {AUTOR} · Apuntes con licencia <a rel="license" href="{CC_URL}">Creative Commons BY-NC-SA 4.0</a>: '
+               'puedes compartirlos y adaptarlos citando al autor, sin uso comercial y con la misma licencia. '
+               'No cubre los enunciados de la PAU (Universidad de Oviedo) ni los recortes de libros, que conservan sus derechos.</p>'),
+    "libro": (f'<p class="licencia">Recopilación: {AUTOR}. Los enunciados y las soluciones son recortes del libro «Unas matemáticas para todos»: '
+              'sus derechos son de su autor y no tienen licencia Creative Commons.</p>'),
+}
+try:  # sello de licencia en los PDF (herramienta local; si no está, los PDF se copian tal cual)
+    import sys as _sys
+    _sys.path.insert(0, str(Path.home() / "GitHub" / "herramientas-apuntes"))
+    import licencia as _lic
+except Exception:
+    _lic = None
+
+
+def tipo_de(path) -> str:
+    n = Path(path).name.lower()
+    return "libro" if ("libro" in n) else "propio"
+
+
+def preparar_pagina(origen: Path, destino: Path, tipo: str = None):
+    """Copia una página de apuntes añadiéndole cabecera HTML, enlace a la portada y pie de licencia."""
+    tipo = tipo or tipo_de(destino)
     s = origen.read_text(encoding="utf-8")
     if '<nav class="tabs"' in s:
         s = re.sub(r'(<nav class="tabs".*?)(</nav>)', lambda m: m.group(1) + VOLVER_A + "\n" + m.group(2),
@@ -194,19 +220,24 @@ def preparar_pagina(origen: Path, destino: Path):
         extra_top = ""
     else:
         extra_top = VOLVER_A.replace('class="volver-portada"', 'class="volver-portada volver-suelto"')
+    pie = LIC_CSS + LIC[tipo]
     if s.lstrip().lower().startswith("<!doctype"):
         s = s.replace("<body>", "<body>\n" + VOLVER_CSS + extra_top, 1)
+        s = s.replace("</body>", pie + "\n</body>", 1) if "</body>" in s else s + pie
     else:
         s = ("<!doctype html>\n<html lang=\"es\">\n<head>\n<meta charset=\"utf-8\">\n"
              "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">\n"
-             "</head>\n<body>\n" + VOLVER_CSS + extra_top + "\n" + s + "\n</body>\n</html>\n")
+             "</head>\n<body>\n" + VOLVER_CSS + extra_top + "\n" + s + "\n" + pie + "\n</body>\n</html>\n")
     destino.write_text(s, encoding="utf-8")
 
 
 def copiar_pdf(origen: Path, destino: Path):
     if not origen.exists():
         raise FileNotFoundError(origen)
-    shutil.copy2(origen, destino)
+    if _lic:
+        _lic.stamp(str(origen), str(destino), tipo=tipo_de(destino))
+    else:
+        shutil.copy2(origen, destino)
 
 
 def e(t):
@@ -278,7 +309,7 @@ def construir():
 </section>''')
 
     pagina = PORTADA.format(
-        fuentes=fuentes, curso=CURSO, pestanas="\n  ".join(pestanas), tarjetas="\n".join(tarjetas))
+        autor=AUTOR, cc=CC_URL, fuentes=fuentes, curso=CURSO, pestanas="\n  ".join(pestanas), tarjetas="\n".join(tarjetas))
     (WEB / "index.html").write_text(pagina, encoding="utf-8")
     (WEB / ".nojekyll").write_text("", encoding="utf-8")
     print("Web generada en", WEB)
@@ -378,6 +409,7 @@ p{{margin:8px 0;max-width:68ch}}
 .extras li{{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}}
 .extra-tit{{font-family:var(--f-head);font-weight:700;font-size:19px;text-decoration:none}}
 .pie{{max-width:900px;margin:26px auto 0;text-align:center;font-family:var(--f-note);font-size:21px;color:var(--pencil)}}
+.licencia-portada{{max-width:900px;margin:14px auto 0;padding:0 16px;text-align:center;font:13px/1.45 system-ui,-apple-system,sans-serif;color:var(--pencil)}} .licencia-portada a{{color:inherit}}
 @media print{{.tabs,.buscador{{display:none}}body{{background:#fff}}.sheet{{box-shadow:none;break-inside:avoid}}}}
 </style>
 </head>
@@ -406,6 +438,7 @@ p{{margin:8px 0;max-width:68ch}}
 {tarjetas}
 <p class="sin-resultados" id="sinRes" hidden>No encuentro ningún tema con ese nombre.</p>
 <p class="pie">Si encuentras una errata, avísame en clase ✎</p>
+<p class="licencia-portada">© {autor} · Estos apuntes tienen licencia <a rel="license" href="{cc}">Creative Commons BY-NC-SA 4.0</a>: puedes compartirlos y adaptarlos citando al autor, sin uso comercial y con la misma licencia. No cubre los enunciados de la PAU (Universidad de Oviedo) ni los recortes de libros (los «Ejercicios del libro» de Matemáticas II son de «Unas matemáticas para todos»), que conservan sus derechos. Matemáticas II se basa también en «Unas matemáticas para todos» y en «Matemáticas II» del Departamento de Matemáticas del IES Llanera.</p>
 
 <script>
 (function(){{
