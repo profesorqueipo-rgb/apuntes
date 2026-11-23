@@ -284,7 +284,7 @@ svg .ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
         <text x="214" y="100" class="t-red" font-size="17">E</text>
         <text x="124" y="124" class="t-red" font-size="15">DE ∥ BC</text>
       </svg>
-      <figcaption>ADE y ABC son semejantes</figcaption>
+      <figcaption><span class="m nw">ADE y ABC</span> son semejantes</figcaption>
     </figure>
     <div style="flex:1 1 260px">
       <p>Si una recta paralela a un lado corta a los otros dos, forma un triángulo <b>semejante</b> al grande:</p>
@@ -314,7 +314,7 @@ svg .ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
         <text x="46" y="94" class="t-ink" font-size="18">c</text>
         <text x="212" y="92" class="t-ink" font-size="18">b</text>
       </svg>
-      <figcaption>a = m + n es la hipotenusa · m, n = proyecciones</figcaption>
+      <figcaption><span class="m nw">a = m + n</span> es la hipotenusa · <span class="m nw">m, n =</span> proyecciones</figcaption>
     </figure>
     <div style="flex:1 1 240px">
       <div class="box red"><span class="t">Teorema de la altura</span><span class="m big">h<sup>2</sup> = m · n</span></div>
@@ -323,6 +323,7 @@ svg .ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
     </div>
   </div>
 
+<!--tl3:e4-homotecias:before--><h3 class="v">Homotecias</h3><div class="row"><div class="box vio" style="flex:1 1 300px"><span class="t">Homotecia de centro O y razón k</span>Lleva cada punto P a un punto P′ <b>alineado con O</b> y con <span class="m"><span class="res">OP′ = k · OP</span></span> (k ≠ 0).<br>• k &gt; 1: amplía; 0 &lt; k &lt; 1: reduce; k &lt; 0: la figura queda al otro lado de O, «dada la vuelta».<br>• Conserva los <b>ángulos</b> y el <b>paralelismo</b>; multiplica las longitudes por |k|, las áreas por k<sup>2</sup> y los volúmenes por |k|<sup>3</sup>.<br>• La figura homotética es <b>semejante</b> a la original, con razón |k|.</div><div class="box ink" style="flex:1 1 240px"><span class="t">Composición de transformaciones</span>Se pueden encadenar: primero una homotecia y después un giro o una traslación. El resultado sigue siendo una figura semejante.<br>Dos homotecias del mismo centro, de razones k<sub>1</sub> y k<sub>2</sub>, equivalen a una de razón k<sub>1</sub>·k<sub>2</sub>.</div></div><div class="row"><figure class="fig" style="max-width:320px"><svg viewBox="0 0 190 125" width="280" role="img" aria-label="Homotecia de centro O y razón 2"><path d="M20 110 L100 70" style="stroke:var(--pencil);stroke-dasharray:3 3;fill:none"/><path d="M20 110 L160 80" style="stroke:var(--pencil);stroke-dasharray:3 3;fill:none"/><path d="M20 110 L130 30" style="stroke:var(--pencil);stroke-dasharray:3 3;fill:none"/><path d="M60 90 L90 95 L75 70 Z" style="fill:var(--violet);fill-opacity:.18;stroke:var(--violet);stroke-width:2"/><path d="M100 70 L160 80 L130 30 Z" style="fill:var(--red);fill-opacity:.12;stroke:var(--red);stroke-width:2"/><circle cx="20" cy="110" r="3" style="fill:var(--ink)"/><text x="8" y="122" style="font-size:12px;fill:var(--ink)">O</text><text x="52" y="100" style="font-size:11px;fill:var(--violet)">A</text><text x="92" y="105" style="font-size:11px;fill:var(--violet)">B</text><text x="70" y="66" style="font-size:11px;fill:var(--violet)">C</text><text x="92" y="66" style="font-size:11px;fill:var(--red)">A′</text><text x="163" y="88" style="font-size:11px;fill:var(--red)">B′</text><text x="134" y="28" style="font-size:11px;fill:var(--red)">C′</text></svg><figcaption>centro <span class="m nw">O y</span> razón <span class="m nw">k = 2: OA′ = 2·OA</span></figcaption></figure></div><!--/tl3:e4-homotecias-->
   <h3 class="g">Ejercicios</h3>
   <div class="ejs">
     <div class="ej"><div class="ej-h"><span class="num">1</span><span class="lvl">★</span><span class="q">Un triángulo tiene un lado de 48 cm. ¿Cuánto mide el lado homólogo de un triángulo semejante si la razón de semejanza es k = 5? ¿Y si es k = 1/5?</span><label class="done"><input type="checkbox" id="ck-t21a-1"> hecho</label></div>
@@ -646,6 +647,7 @@ svg .ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
     <div class="box grn"><span class="t">Punto medio de AB</span><span class="m big">M = (<span class="f"><i>a<sub>1</sub> + b<sub>1</sub></i><i>2</i></span> , <span class="f"><i>a<sub>2</sub> + b<sub>2</sub></i><i>2</i></span>)</span></div>
   </div>
 
+<!--tl3:e4-vectores:before--><div class="row"><div class="box grn" style="flex:1 1 100%"><span class="t">Más herramientas con vectores</span><b>Argumento</b>: el ángulo α que forma <span class="m">v = <span class="m">(a, b)</span></span> con el eje OX: tg α = b/a, mirando en qué cuadrante está. <span class="m">(−1, 3)</span> está en el 2º cuadrante: tg α = −3 → α ≈ 108,43°.<br><b>Vector unitario</b> (módulo 1) en la dirección de v: <span class="m"><span class="res"><span class="f"><i>v</i><i>|v|</i></span></span></span>. Para <span class="m">(−1, 3)</span>: |v| = <span class="sq"><i>10</i></span> → <span class="m">(<span class="f"><i>−1</i><i><span class="sq"><i>10</i></span></i></span>, <span class="f"><i>3</i><i><span class="sq"><i>10</i></span></i></span>)</span>.<br><b>Puntos alineados</b>: A, B y C lo están si <span class="m">AB</span> y <span class="m">AC</span> son proporcionales. <span class="m">A(1, 1)</span>, <span class="m">B(3, 2)</span>, <span class="m">C(7, 4)</span>: <span class="m">(2, 1)</span> y <span class="m">(6, 3)</span> → sí.<br><b>Dividir un segmento en n partes iguales</b>: los puntos son <span class="m">A + <span class="f"><i>k</i><i>n</i></span>·AB</span>. <span class="m">A(1, 2)</span>, <span class="m">B(7, −1)</span>, en 3 partes: AB = <span class="m">(6, −3)</span> → <span class="m"><span class="res"><span class="m">(3, 1)</span></span></span> y <span class="m"><span class="res"><span class="m">(5, 0)</span></span></span>. El punto medio es el caso n = 2.</div></div><!--/tl3:e4-vectores-->
   <h3 class="r">Producto escalar</h3>
   <div class="row">
     <div class="box red"><span class="m big"><span class="vc">u</span> · <span class="vc">v</span> = u<sub>1</sub>v<sub>1</sub> + u<sub>2</sub>v<sub>2</sub></span><br><span class="m big"><span class="vc">u</span> · <span class="vc">v</span> = |<span class="vc">u</span>| · |<span class="vc">v</span>| · cos α</span><br><span class="note">el resultado es un NÚMERO, no un vector</span></div>
