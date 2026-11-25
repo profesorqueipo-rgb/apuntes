@@ -260,6 +260,9 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
 <style>
 .tartc .tr-row span{min-width:44px}
 </style>
+<style>
+.dtab td{text-align:left}
+</style>
 <nav class="tabs" aria-label="Temas">
   <a href="#portada">Índice</a>
   <a href="#tc">Combinatoria</a>
@@ -468,47 +471,69 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
   <span class="kicker">Tema 5</span>
   <h2 class="vio">Probabilidad</h2>
   <p class="lead">La probabilidad mide la <span class="hl">incertidumbre</span>: lo que no sabemos con seguridad, pero sí podemos cuantificar. Y se actualiza cuando aparece información nueva.</p>
-
-  <h3 class="v">Sucesos</h3>
+  <h3 class="v">Experimentos deterministas y aleatorios</h3>
+<div>
   <div class="row">
-    <ul class="pen" style="flex:1 1 300px">
-      <li><b>Experimento aleatorio</b>: no se puede predecir el resultado (lanzar un dado, elegir a una persona al azar).</li>
-      <li><b>Espacio muestral E</b>: todos los resultados posibles. <b>Suceso</b>: cualquier subconjunto de E.</li>
-      <li><b>Incompatibles</b>: no pueden ocurrir a la vez, <span class="m">A ∩ B = ∅</span>.</li>
-    </ul>
-    <div class="postit"><b>Leyes de De Morgan</b><span class="m"><span class='ov'>A ∪ B</span> = Ā ∩ B̄</span><br><span class="m"><span class='ov'>A ∩ B</span> = Ā ∪ B̄</span><br><span class="note" style="font-size:19px">«ni A ni B» = no (A o B)</span></div>
+    <div class="box ink" style="flex:1 1 280px"><span class="t">Determinista</span>Se sabe el resultado <b>antes</b> de hacerlo: si se repite en las mismas condiciones, sale siempre lo mismo.<br><span class="note">soltar una piedra (cae) · calentar agua a 100 °C a nivel del mar (hierve) · elevar 3 al cuadrado</span></div>
+    <div class="box vio" style="flex:1 1 280px"><span class="t">Aleatorio</span>No se conoce el resultado hasta hacerlo: repitiéndolo en las mismas condiciones, puede salir cada vez una cosa distinta.<br><span class="note">lanzar un dado · lanzar una moneda · sacar una carta · elegir a una persona al azar</span></div>
+  </div>
+  <p>La probabilidad estudia los experimentos <b>aleatorios</b>: no sabemos qué va a salir, pero sí qué puede salir y con qué frecuencia.</p></div>
+  <h3 class="r">Espacio muestral y sucesos</h3>
+<div>
+  <ul class="pen">
+    <li><b>Espacio muestral E</b> (o Ω): el conjunto de todos los resultados posibles. Dado: <span class="m">E = {1, 2, 3, 4, 5, 6}</span>.</li>
+    <li><b>Suceso elemental</b>: cada uno de los resultados, cada elemento de E: {1}, {2}…</li>
+    <li><b>Suceso</b> (o suceso aleatorio): cualquier subconjunto de E. Ocurre o no según lo que salga: «sacar par» = {2, 4, 6}.</li>
+    <li><b>Espacio de sucesos S</b>: el conjunto de <b>todos</b> los sucesos, es decir, de todos los subconjuntos de E.</li>
+  </ul>
+  <div class="row">
+    <p style="flex:1 1 300px"><b>Ejemplo.</b> Lanzar una moneda: <span class="m">E = {c, x}</span> y<br><span class="m">S = { ∅, {c}, {x}, {c, x} }</span>: 4 sucesos.</p>
+    <div class="postit"><b>¿Cuántos sucesos hay?</b>Si E tiene n resultados, para formar un suceso cada resultado «entra o no entra»: 2·2·…·2 = 2<sup>n</sup> sucesos. Con el dado, 2<sup>6</sup> = 64. Es la suma de la fila n del triángulo de Tartaglia.</div>
+  </div></div>
+  <h3 class="g">Tipos de sucesos</h3>
+<div>
+  <div class="wrap"><table class="tb types dtab"><tr><th>Suceso</th><th>Qué es</th><th>Con el dado</th></tr>
+    <tr><td><b>elemental</b></td><td>un solo resultado</td><td>«sacar un 3» = {3}</td></tr>
+    <tr><td><b>compuesto</b></td><td>dos o más resultados</td><td>«sacar 3 o 5» = {3, 5}</td></tr>
+    <tr><td><b>seguro</b></td><td>ocurre siempre: es el propio E</td><td>«sacar menos de 7» = E</td></tr>
+    <tr><td><b>imposible</b></td><td>no ocurre nunca: ∅</td><td>«sacar un 7» = ∅</td></tr>
+    <tr><td><b>contrario</b> de A, Ā</td><td>ocurre cuando <b>no</b> ocurre A</td><td>A = «par» = {2, 4, 6} → Ā = {1, 3, 5}</td></tr></table></div></div>
+  <h3 class="v keepnext">Operaciones con sucesos</h3>
+<div>
+  <p>Con el dado, sean <span class="m">A = «par» = {2, 4, 6}</span> y <span class="m">B = «mayor que 3» = {4, 5, 6}</span>.</p>
+  <div class="wrap"><table class="tb dtab"><tr><th>Operación</th><th>Se lee</th><th>Qué contiene</th><th>Ejemplo</th></tr>
+    <tr><td><b>unión</b> A ∪ B</td><td>A <b>o</b> B</td><td>lo que está en A, en B o en los dos</td><td>{2, 4, 5, 6}</td></tr>
+    <tr><td><b>intersección</b> A ∩ B</td><td>A <b>y</b> B</td><td>lo que está en A y en B a la vez</td><td>{4, 6}</td></tr>
+    <tr><td><b>diferencia</b> A − B = A ∩ B̄<br><span class="note">también A \ B</span></td><td><b>solo</b> A</td><td>lo de A que no está en B</td><td>{2}</td></tr>
+    <tr><td><b>diferencia</b> B − A = B ∩ Ā</td><td><b>solo</b> B</td><td>lo de B que no está en A</td><td>{5}</td></tr>
+    <tr><td><b>contrario</b> Ā</td><td><b>no</b> A</td><td>lo de E que no está en A</td><td>{1, 3, 5}</td></tr></table></div></div>
+<div>
+  <div class="row figs4">
+    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: A ∪ B · A o B"><circle cx="58" cy="52" r="30" class="vs"/><circle cx="92" cy="52" r="30" class="vs"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" style="fill:var(--paper)"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A ∪ B · A o B</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: A ∩ B · A y B"><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A ∩ B · A y B</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: A − B · solo A"><circle cx="58" cy="52" r="30" class="vs"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" style="fill:var(--paper)"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A − B · solo A</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: B − A · solo B"><circle cx="92" cy="52" r="30" class="vs"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" style="fill:var(--paper)"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>B − A · solo B</figcaption></figure>
   </div>
   <div class="row figs4">
-    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn"><circle cx="58" cy="52" r="30" class="vs"/><circle cx="92" cy="52" r="30" class="vs"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" style="fill:var(--paper)"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="38" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A ∪ B · A <b>o</b> B</figcaption></figure>
-    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn"><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="38" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A ∩ B · A <b>y</b> B</figcaption></figure>
-    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn"><path d="M6 6 H144 V94 H6 Z M28 52 A30 30 0 1 0 88 52 A30 30 0 1 0 28 52 Z" class="vs" fill-rule="evenodd"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="38" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>Ā · <b>no</b> A</figcaption></figure>
-    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn"><path d="M28 52 A30 30 0 1 0 88 52 A30 30 0 1 0 28 52 Z M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" class="vs" fill-rule="evenodd"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="38" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>A − B = A ∩ B̄ · <b>solo</b> A</figcaption></figure>
-  </div>
-
-  <div>
-  <div class="wrap"><table class="tb props"><tr><th>Propiedad</th><th>Unión</th><th>Intersección</th></tr>
+    <figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: B̄ · no B"><rect x="6" y="6" width="138" height="88" class="vs"/><circle cx="92" cy="52" r="30" style="fill:var(--paper)"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>B̄ · no B</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: <span class='ov'>A ∩ B</span> · no los dos a la vez"><rect x="6" y="6" width="138" height="88" class="vs"/><path d="M75 27.28 A30 30 0 0 1 75 76.72 A30 30 0 0 1 75 27.28 Z" style="fill:var(--paper)"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption><span class='ov'>A ∩ B</span> · no los dos a la vez</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: <span class='ov'>A ∪ B</span> · ninguno"><rect x="6" y="6" width="138" height="88" class="vs"/><circle cx="58" cy="52" r="30" style="fill:var(--paper)"/><circle cx="92" cy="52" r="30" style="fill:var(--paper)"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="58" cy="52" r="30" class="vc"/><circle cx="92" cy="52" r="30" class="vc"/><text x="36" y="30" class="al">A</text><text x="106" y="30" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption><span class='ov'>A ∪ B</span> · ninguno</figcaption></figure><figure class="fig"><svg viewBox="0 0 150 100" width="150" role="img" aria-label="Diagrama de Venn: incompatibles<br><span class="m">A ∩ B = ∅</span>"><circle cx="44" cy="52" r="24" class="vs"/><circle cx="106" cy="52" r="24" class="vs"/><rect x="6" y="6" width="138" height="88" class="vbox"/><circle cx="44" cy="52" r="24" class="vc"/><circle cx="106" cy="52" r="24" class="vc"/><text x="38" y="26" class="al">A</text><text x="100" y="26" class="al">B</text><text x="12" y="20" class="tl">E</text></svg><figcaption>incompatibles<br><span class="m">A ∩ B = ∅</span></figcaption></figure>
+  </div></div>
+<div>
+  <div class="row">
+    <div class="box red"><span class="t">Sucesos incompatibles</span>No pueden ocurrir a la vez: <span class="m">A ∩ B = ∅</span>.<br>«sacar par» y «sacar 1 o 3» son incompatibles.<br><span class="note">Un suceso y su contrario son siempre incompatibles: A ∩ Ā = ∅.</span></div>
+    <div class="postit o"><b>Al revés no</b>«par» y «mayor que 3» <b>no</b> son incompatibles: los dos ocurren si sale un 4 o un 6.</div>
+  </div></div>
+  <h3 class="r">Propiedades de la unión y la intersección</h3>
+<div class="wrap"><table class="tb props"><tr><th>Propiedad</th><th>Unión</th><th>Intersección</th></tr>
     <tr><td>conmutativa</td><td>A ∪ B = B ∪ A</td><td>A ∩ B = B ∩ A</td></tr>
     <tr><td>asociativa</td><td>(A ∪ B) ∪ C = A ∪ (B ∪ C)</td><td>(A ∩ B) ∩ C = A ∩ (B ∩ C)</td></tr>
     <tr><td>idempotente</td><td>A ∪ A = A</td><td>A ∩ A = A</td></tr>
     <tr><td>neutro</td><td>A ∪ ∅ = A</td><td>A ∩ E = A</td></tr>
     <tr><td>contrario</td><td>A ∪ Ā = E</td><td>A ∩ Ā = ∅</td></tr>
     <tr><td>simplificativa</td><td>A ∪ (A ∩ B) = A</td><td>A ∩ (A ∪ B) = A</td></tr>
-    <tr><td>distributiva</td><td>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</td><td>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</td></tr></table></div></div>
-
-  <h3 class="r">Qué es la probabilidad</h3>
+    <tr><td>distributiva</td><td>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</td><td>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</td></tr></table></div>
+<div>
   <div class="row">
-    <div class="box red"><span class="t">Regla de Laplace</span><span class="m big">P(A) = <span class="f"><i>casos favorables</i><i>casos posibles</i></span></span><br><span class="note">solo si todos los resultados son igual de probables</span></div>
-    <ul class="pen" style="flex:1 1 260px">
-      <li><b>Clásica</b>: la de Laplace.</li>
-      <li><b>Frecuentista</b>: la frecuencia relativa cuando se repite el experimento muchas veces.</li>
-      <li><b>Subjetiva</b>: grado de confianza de una persona (apuestas, expertos).</li>
-    </ul>
-  </div>
-  <div class="box ink"><span class="t">Propiedades</span>
-    <span class="m">0 ≤ P(A) ≤ 1</span> &nbsp;·&nbsp; <span class="m">P(Ā) = 1 − P(A)</span> &nbsp;·&nbsp; <span class="m">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span><br>
-    <span class="m">P(A ∩ B̄) = P(A) − P(A ∩ B)</span> <span class="note">solo A</span> &nbsp;·&nbsp; <span class="m">P(Ā ∩ B̄) = 1 − P(A ∪ B)</span> <span class="note">ninguno</span></div>
-
-  <div>
+    <div class="box vio"><span class="t">Leyes de De Morgan</span><span class="m"><span class='ov'>A ∪ B</span> = Ā ∩ B̄</span> &nbsp; «ni A ni B»<br><span class="m"><span class='ov'>A ∩ B</span> = Ā ∪ B̄</span> &nbsp; «no los dos a la vez»<br><span class="note">al negar, ∪ pasa a ∩ y ∩ pasa a ∪</span></div>
+    <p style="flex:1 1 280px"><b>Compruébalo con el dado.</b> <span class='ov'>A ∪ B</span> = {1, 3} y Ā ∩ B̄ = {1, 3, 5} ∩ {1, 2, 3} = {1, 3} ✓<br><span class='ov'>A ∩ B</span> = {1, 2, 3, 5} y Ā ∪ B̄ = {1, 3, 5} ∪ {1, 2, 3} = {1, 2, 3, 5} ✓<br><span class="note">En los dibujos de arriba se ve lo mismo.</span></p>
+  </div></div>
+  <h3 class="g">Frecuencias y ley de los grandes números</h3>
   <div class="row">
     <div class="box ink"><span class="t">Frecuencias</span>Se repite un experimento n veces.<br>
       Frecuencia absoluta f<sub>a</sub>(A): veces que ocurre A.<br>
@@ -517,6 +542,36 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <div class="postit"><b>Ley de los grandes números</b>Al repetir un experimento muchísimas veces, la frecuencia relativa de un suceso se estabiliza alrededor de un número: su probabilidad. Por eso la probabilidad tiene las mismas propiedades que las frecuencias.</div>
   </div></div>
 <div>
+  <div class="row">
+    <figure class="fig"><svg viewBox="0 0 350 184" width="350" role="img" aria-label="Frecuencia relativa de cara al lanzar una moneda"><path d="M40 150 H345 M40 150 V10" class="axis"/><path d="M100.0 150 V154" class="tick"/><text x="100.0" y="166" class="tl" text-anchor="middle">100</text><path d="M160.0 150 V154" class="tick"/><text x="160.0" y="166" class="tl" text-anchor="middle">200</text><path d="M220.0 150 V154" class="tick"/><text x="220.0" y="166" class="tl" text-anchor="middle">300</text><path d="M280.0 150 V154" class="tick"/><text x="280.0" y="166" class="tl" text-anchor="middle">400</text><path d="M340.0 150 V154" class="tick"/><text x="340.0" y="166" class="tl" text-anchor="middle">500</text><path d="M36 150.0 H40" class="tick"/><text x="33" y="154.0" class="tl" text-anchor="end">0</text><path d="M36 85.0 H40" class="tick"/><text x="33" y="89.0" class="tl" text-anchor="end">0,5</text><path d="M36 20.0 H40" class="tick"/><text x="33" y="24.0" class="tl" text-anchor="end">1</text><path d="M40 85.0 H345" style="fill:none;stroke:var(--pencil);stroke-width:1.5;stroke-dasharray:6 5"/><polyline points="40.6,20.0 41.2,20.0 41.8,20.0 42.4,20.0 43.0,20.0 43.6,41.7 44.2,38.6 44.8,36.2 45.4,34.4 46.0,33.0 46.6,31.8 47.2,41.7 47.8,40.0 48.4,38.6 49.0,37.3 49.6,44.4 50.2,50.6 50.8,48.9 51.4,47.4 52.0,46.0 52.6,44.8 53.2,49.5 53.8,53.9 54.4,52.5 55.0,56.4 55.6,55.0 56.2,58.5 56.8,57.1 57.4,60.3 58.0,63.3 58.6,61.9 59.2,64.7 59.8,63.3 60.4,62.1 61.0,60.9 61.6,59.7 62.2,62.2 62.8,64.5 63.4,66.7 64.0,68.8 64.6,67.6 65.2,66.4 65.8,65.3 66.4,64.3 67.0,63.3 67.6,65.2 68.2,64.3 68.8,66.0 69.4,67.8 70.0,66.8 70.6,68.4 71.2,70.0 71.8,69.1 72.4,70.6 73.0,72.0 73.6,73.4 74.2,72.5 74.8,73.8 75.4,72.9 76.0,72.0 76.6,71.1 77.2,70.3 77.8,69.5 78.4,70.8 79.0,72.0 79.6,73.2 80.2,74.3 80.8,75.4 81.4,74.6 82.0,73.9 82.6,73.1 83.2,72.4 83.8,71.6 84.4,70.9 85.0,70.3 85.6,69.6 86.2,70.6 86.8,70.0 87.4,71.0 88.0,72.0 88.6,73.0 89.2,72.3 89.8,73.3 90.4,72.6 91.0,73.5 91.6,74.4 92.2,75.3 92.8,76.1 93.4,75.5 94.0,74.9 94.6,75.7 95.2,76.5 95.8,75.9 96.4,76.7 97.0,76.1 97.6,75.5 98.2,74.9 98.8,75.7 99.4,75.2 100.0,75.9 100.6,75.3 101.2,76.1 101.8,76.8 102.4,77.5 103.0,77.0 103.6,76.4 104.2,75.9 104.8,75.4 105.4,76.1 106.0,76.7 106.6,77.4 107.2,76.9 107.8,77.5 108.4,77.0 109.0,76.5 109.6,76.0 110.2,76.7 110.8,77.3 111.4,77.9 112.0,78.5 112.6,78.0 113.2,77.5 113.8,78.1 114.4,78.7 115.0,78.2 115.6,78.8 116.2,79.4 116.8,79.9 117.4,80.5 118.0,80.0 118.6,79.5 119.2,79.1 119.8,79.6 120.4,79.2 121.0,78.7 121.6,78.3 122.2,78.8 122.8,79.3 123.4,79.9 124.0,80.4 124.6,80.9 125.2,80.4 125.8,80.9 126.4,80.5 127.0,81.0 127.6,80.5 128.2,80.1 128.8,79.7 129.4,79.3 130.0,79.8 130.6,80.3 131.2,79.9 131.8,79.5 132.4,79.9 133.0,80.4 133.6,80.0 134.2,80.4 134.8,80.9 135.4,80.5 136.0,80.9 136.6,80.6 137.2,80.2 137.8,80.6 138.4,80.2 139.0,79.9 139.6,80.3 140.2,79.9 140.8,80.4 141.4,80.8 142.0,81.2 142.6,81.6 143.2,81.2 143.8,80.9 144.4,80.5 145.0,80.2 145.6,79.8 146.2,80.2 146.8,80.6 147.4,80.3 148.0,79.9 148.6,79.6 149.2,80.0 149.8,79.7 150.4,79.3 151.0,79.0 151.6,79.4 152.2,79.1 152.8,78.8 153.4,79.2 154.0,79.5 154.6,79.2 155.2,78.9 155.8,79.3 156.4,79.6 157.0,80.0 157.6,80.4 158.2,80.1 158.8,80.4 159.4,80.1 160.0,79.8 160.6,80.1 161.2,79.9 161.8,79.6 162.4,79.9 163.0,79.6 163.6,80.0 164.2,80.3 164.8,80.6 165.4,81.0 166.0,81.3 166.6,81.6 167.2,81.3 167.8,81.6 168.4,82.0 169.0,81.7 169.6,81.4 170.2,81.7 170.8,82.0 171.4,82.3 172.0,82.0 172.6,82.4 173.2,82.7 173.8,83.0 174.4,83.3 175.0,83.6 175.6,83.8 176.2,83.6 176.8,83.9 177.4,83.6 178.0,83.3 178.6,83.6 179.2,83.3 179.8,83.6 180.4,83.9 181.0,84.2 181.6,83.9 182.2,83.6 182.8,83.9 183.4,83.6 184.0,83.9 184.6,84.2 185.2,83.9 185.8,84.2 186.4,84.5 187.0,84.7 187.6,84.5 188.2,84.2 188.8,84.0 189.4,83.7 190.0,84.0 190.6,83.7 191.2,84.0 191.8,84.2 192.4,84.0 193.0,83.7 193.6,84.0 194.2,83.7 194.8,83.5 195.4,83.7 196.0,83.5 196.6,83.8 197.2,84.0 197.8,83.8 198.4,83.5 199.0,83.3 199.6,83.0 200.2,83.3 200.8,83.1 201.4,82.8 202.0,82.6 202.6,82.8 203.2,82.6 203.8,82.9 204.4,83.1 205.0,82.9 205.6,82.6 206.2,82.4 206.8,82.7 207.4,82.9 208.0,83.1 208.6,83.4 209.2,83.2 209.8,82.9 210.4,82.7 211.0,82.9 211.6,82.7 212.2,83.0 212.8,82.7 213.4,82.5 214.0,82.8 214.6,82.5 215.2,82.8 215.8,83.0 216.4,82.8 217.0,83.0 217.6,82.8 218.2,82.6 218.8,82.4 219.4,82.6 220.0,82.4 220.6,82.2 221.2,82.4 221.8,82.2 222.4,82.4 223.0,82.2 223.6,82.0 224.2,82.2 224.8,82.5 225.4,82.7 226.0,82.9 226.6,82.7 227.2,82.5 227.8,82.7 228.4,82.5 229.0,82.3 229.6,82.5 230.2,82.7 230.8,83.0 231.4,83.2 232.0,83.4 232.6,83.2 233.2,83.4 233.8,83.6 234.4,83.8 235.0,84.0 235.6,84.2 236.2,84.0 236.8,84.2 237.4,84.0 238.0,84.2 238.6,84.0 239.2,83.8 239.8,83.6 240.4,83.8 241.0,84.0 241.6,84.2 242.2,84.0 242.8,83.8 243.4,83.7 244.0,83.9 244.6,83.7 245.2,83.9 245.8,83.7 246.4,83.9 247.0,83.7 247.6,83.9 248.2,84.1 248.8,84.3 249.4,84.4 250.0,84.6 250.6,84.4 251.2,84.6 251.8,84.4 252.4,84.3 253.0,84.1 253.6,84.3 254.2,84.5 254.8,84.6 255.4,84.8 256.0,84.6 256.6,84.5 257.2,84.6 257.8,84.5 258.4,84.6 259.0,84.5 259.6,84.3 260.2,84.5 260.8,84.6 261.4,84.8 262.0,85.0 262.6,84.8 263.2,85.0 263.8,85.2 264.4,85.3 265.0,85.2 265.6,85.3 266.2,85.2 266.8,85.0 267.4,84.8 268.0,84.7 268.6,84.8 269.2,85.0 269.8,85.2 270.4,85.0 271.0,84.8 271.6,84.7 272.2,84.5 272.8,84.7 273.4,84.8 274.0,84.7 274.6,84.8 275.2,85.0 275.8,84.8 276.4,85.0 277.0,84.8 277.6,84.7 278.2,84.5 278.8,84.3 279.4,84.2 280.0,84.0 280.6,84.2 281.2,84.4 281.8,84.2 282.4,84.4 283.0,84.2 283.6,84.4 284.2,84.5 284.8,84.4 285.4,84.5 286.0,84.7 286.6,84.5 287.2,84.4 287.8,84.5 288.4,84.4 289.0,84.5 289.6,84.4 290.2,84.2 290.8,84.1 291.4,84.2 292.0,84.4 292.6,84.5 293.2,84.7 293.8,84.8 294.4,85.0 295.0,84.8 295.6,85.0 296.2,85.2 296.8,85.3 297.4,85.5 298.0,85.6 298.6,85.8 299.2,85.6 299.8,85.5 300.4,85.6 301.0,85.7 301.6,85.6 302.2,85.7 302.8,85.9 303.4,86.0 304.0,86.2 304.6,86.3 305.2,86.2 305.8,86.0 306.4,86.2 307.0,86.3 307.6,86.2 308.2,86.0 308.8,85.9 309.4,85.7 310.0,85.6 310.6,85.4 311.2,85.3 311.8,85.4 312.4,85.3 313.0,85.1 313.6,85.0 314.2,84.9 314.8,84.7 315.4,84.9 316.0,85.0 316.6,85.1 317.2,85.0 317.8,85.1 318.4,85.3 319.0,85.1 319.6,85.3 320.2,85.1 320.8,85.3 321.4,85.1 322.0,85.0 322.6,85.1 323.2,85.3 323.8,85.1 324.4,85.3 325.0,85.1 325.6,85.0 326.2,84.9 326.8,85.0 327.4,85.1 328.0,85.3 328.6,85.1 329.2,85.0 329.8,85.1 330.4,85.3 331.0,85.4 331.6,85.5 332.2,85.7 332.8,85.8 333.4,85.7 334.0,85.5 334.6,85.4 335.2,85.5 335.8,85.7 336.4,85.5 337.0,85.7 337.6,85.5 338.2,85.7 338.8,85.8 339.4,85.7 340.0,85.5" style="fill:none;stroke:var(--violet);stroke-width:2;stroke-linejoin:round"/><text x="342" y="61.0" class="tl2" text-anchor="end">P(cara) = 0,5</text><text x="342" y="178" class="tl" text-anchor="end">nº de lanzamientos</text></svg><figcaption>frecuencia relativa de «cara» en 500 lanzamientos simulados</figcaption></figure>
+    <p style="flex:1 1 240px">Al principio la frecuencia relativa de «cara» sube y baja mucho; con cientos de lanzamientos se queda cerca de 0,5. En esta simulación salieron 248 caras en 500 lanzamientos: f<sub>r</sub> = 0,496.<br><span class="m">lím<sub>n→∞</sub> f<sub>r</sub>(A) = P(A)</span></p>
+  </div></div>
+  <h3 class="v">Regla de Laplace</h3>
+<div class="row">
+    <div class="box red"><span class="t">Regla de Laplace</span><span class="m big">P(A) = <span class="f"><i>casos favorables</i><i>casos posibles</i></span></span><br><span class="note">solo si todos los resultados son igual de probables</span></div>
+    <ul class="pen" style="flex:1 1 260px">
+      <li><b>Clásica</b>: la de Laplace.</li>
+      <li><b>Frecuentista</b>: la frecuencia relativa cuando se repite el experimento muchas veces.</li>
+      <li><b>Subjetiva</b>: grado de confianza de una persona (apuestas, expertos).</li>
+    </ul>
+  </div>
+<div>
+  <p><b>Ejemplo.</b> Con el dado, <span class="m">P(A ∪ B) = <span class="f"><i>4</i><i>6</i></span> = <span class="f"><i>2</i><i>3</i></span></span>, porque A ∪ B = {2, 4, 5, 6} tiene 4 de los 6 resultados.</p></div>
+  <h3 class="r">Axiomas y propiedades de la probabilidad</h3>
+<div>
+  <div class="row">
+    <div class="box ink"><span class="t">Axiomas</span>Son las tres reglas que cumple cualquier probabilidad (las mismas que las frecuencias):<br>
+      ① <span class="m">0 ≤ P(A) ≤ 1</span><br>② <span class="m">P(E) = 1</span><br>③ si A y B son incompatibles, <span class="m">P(A ∪ B) = P(A) + P(B)</span></div>
+    <div style="flex:1 1 320px"><p><b>Todo lo demás sale de ellos:</b></p>
+    <ul class="pen">
+      <li><span class="m">P(Ā) = 1 − P(A)</span>: A y Ā son incompatibles y juntos forman E → P(A) + P(Ā) = P(E) = 1.</li>
+      <li><span class="m">P(∅) = 0</span>: ∅ es el contrario de E → 1 − 1 = 0.</li>
+      <li>Si <span class="m">A ⊆ B</span>, <span class="m">P(A) ≤ P(B)</span>: B = A ∪ (B − A), incompatibles → P(B) = P(A) + P(B − A) ≥ P(A).</li>
+      <li><span class="m">P(A − B) = P(A) − P(A ∩ B)</span>: A se parte en «solo A» y A ∩ B.</li>
+      <li><span class="m">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span>: al sumar P(A) + P(B), la zona A ∩ B se cuenta dos veces; se resta una.</li>
+    </ul></div>
+  </div>
+  <p><b>Con el dado:</b> P(A ∪ B) = <span class="f"><i>3</i><i>6</i></span> + <span class="f"><i>3</i><i>6</i></span> − <span class="f"><i>2</i><i>6</i></span> = <span class="f"><i>4</i><i>6</i></span>, lo mismo que contando con Laplace.</p></div>
   <p><b>Técnica: escribe las probabilidades dentro de cada zona del diagrama de Venn.</b> Datos: <span class="m">P(Ā) =</span> <span class="m">0,4, P(A ∩ B̄) =</span> <span class="m">0,25, P(B) =</span> <span class="m">0,5.</span></p>
   <ul class="pen"><li>P(A) = 0,6 → «solo A» = 0,25 → zona A ∩ B = 0,6 − 0,25 = 0,35</li>
   <li>«solo B» = 0,5 − 0,35 = 0,15 → fuera de los dos: 1 − (0,25 + 0,35 + 0,15) = 0,25</li>
@@ -546,13 +601,19 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
 
   <h3 class="v">Probabilidad condicionada</h3>
   <div class="row">
-    <div class="box vio"><span class="t">A sabiendo que ha ocurrido B</span><span class="m big">P(A | B) = <span class="f"><i>P(A ∩ B)</i><i>P(B)</i></span></span><br><span class="note">el «total» pasa a ser B</span></div>
-    <div class="box ink"><span class="t">Regla del producto</span><span class="m">P(A ∩ B) = P(A)·P(B | A)</span><br><span class="note">es lo que se hace al multiplicar por las ramas de un árbol</span></div>
+    <div class="box vio"><span class="t">A sabiendo que ha ocurrido B</span><span class="m big">P(A | B) = <span class="f"><i>P(A ∩ B)</i><i>P(B)</i></span></span><br><span class="note">el «total» pasa a ser B · siempre que P(B) ≠ 0</span></div>
+    <div class="box ink"><span class="t">Regla del producto</span><span class="m">P(A ∩ B) = P(A)·P(B | A) = P(B)·P(A | B)</span><br><span class="note">es lo que se hace al multiplicar por las ramas de un árbol</span></div>
   </div>
 
+<div>
+  <p><b>¿De dónde sale?</b> Si sabemos que ha ocurrido B, los casos posibles ya no son todos los de E, solo los de B, y de ellos son favorables los de A ∩ B. Con el dado: sabiendo que ha salido más de 3, ¿probabilidad de par? De {4, 5, 6} son pares {4, 6}: <span class="m">P(A | B) = <span class="f"><i>2</i><i>3</i></span> = <span class="f"><i>2/6</i><i>3/6</i></span> = <span class="f"><i>P(A ∩ B)</i><i>P(B)</i></span></span>.</p>
+  <div class="row">
+    <div class="box grn"><span class="t">Con tres sucesos</span><span class="m">P(A ∩ B ∩ C) = P(A)·P(B | A)·P(C | A ∩ B)</span><br><span class="note">cada factor «sabe» lo que ha pasado antes</span></div>
+    <p style="flex:1 1 280px">Sacar tres ases seguidos, sin devolverlos, de una baraja española (40 cartas, 4 ases):<br><span class="m"><span class="f"><i>4</i><i>40</i></span>·<span class="f"><i>3</i><i>39</i></span>·<span class="f"><i>2</i><i>38</i></span> = <span class="f"><i>24</i><i>59280</i></span> = <span class="f"><i>1</i><i>2470</i></span> ≈ 0,0004</span></p>
+  </div></div>
   <h3 class="r">Sucesos independientes</h3>
   <div class="row">
-    <div class="box red"><span class="t">A y B son independientes si…</span><span class="m">P(A ∩ B) = P(A)·P(B)</span> &nbsp;⇔&nbsp; <span class="m">P(A | B) = P(A)</span><br><span class="note">saber que ha pasado B no cambia la probabilidad de A</span></div>
+    <div class="box red"><span class="t">A y B son independientes si…</span><span class="m">P(B | A) = P(B)</span> &nbsp;⇔&nbsp; <span class="m">P(A ∩ B) = P(A)·P(B)</span><br><span class="note">saber que ha pasado B no cambia la probabilidad de A</span></div>
     <div class="warn"><span class="ojo"><span>¡OJO!</span></span><p><b>Incompatibles ≠ independientes.</b> Si A y B son incompatibles (y tienen probabilidad positiva), saber que ha pasado B hace que A sea imposible: son <b>dependientes</b>.</p></div>
   </div>
   <p>Para responder «¿hay relación entre A y B?» se compara <span class="m">P(A | B)</span> con <span class="m">P(A)</span>, o <span class="m">P(A ∩ B)</span> con <span class="m">P(A)·P(B)</span>. Si no coinciden, son dependientes.</p>
@@ -565,12 +626,18 @@ svg .gridl{stroke:var(--pencil);stroke-width:1.2;fill:none}
     <div class="postit"><b>Curioso</b>Sin reemplazamiento, la probabilidad de que la 2ª bola sea azul también es <span class="f"><i>7</i><i>10</i></span>: <span class="m"><span class="f"><i>7</i><i>10</i></span>·<span class="f"><i>6</i><i>9</i></span> + <span class="f"><i>3</i><i>10</i></span>·<span class="f"><i>7</i><i>9</i></span> =</span> <span class="m"><span class="f"><i>63</i><i>90</i></span> =</span> <span class="m"><span class="f"><i>7</i><i>10</i></span></span>. Lo que cambia es la condicionada.</div>
   </div></div>
 
-  <h3 class="g keepnext">Árboles, probabilidad total y Bayes</h3>
+  <h3 class="g keepnext">Probabilidad total y teorema de Bayes</h3>
+<div>
   <div class="row">
-    <div class="box grn"><span class="t">Probabilidad total</span>Si A<sub>1</sub>, A<sub>2</sub>, … forman un sistema completo (no se solapan y lo cubren todo):<br>
-      <span class="m">P(B) = P(A<sub>1</sub>)P(B | A<sub>1</sub>) + P(A<sub>2</sub>)P(B | A<sub>2</sub>) + …</span><br><span class="note">suma de todas las ramas que acaban en B</span></div>
-    <div class="box vio"><span class="t">Teorema de Bayes</span><span class="m big">P(A<sub>i</sub> | B) = <span class="f"><i>P(A<sub>i</sub>)·P(B | A<sub>i</sub>)</i><i>P(B)</i></span></span><br><span class="note">mi rama entre todas las que acaban en B</span></div>
+    <div style="flex:1 1 300px"><p><b>Sistema completo de sucesos</b>: A<sub>1</sub>, A<sub>2</sub>, …, A<sub>n</sub> incompatibles dos a dos y que juntos forman E (<span class="m">A<sub>1</sub> ∪ A<sub>2</sub> ∪ … ∪ A<sub>n</sub> = E</span>). Cada resultado está en uno y solo uno.</p>
+      <p>Cualquier suceso S queda partido en trozos que no se solapan:<br><span class="m">S = (A<sub>1</sub> ∩ S) ∪ (A<sub>2</sub> ∩ S) ∪ … ∪ (A<sub>n</sub> ∩ S)</span></p></div>
+    <figure class="fig"><svg viewBox="0 0 300 130" width="300" role="img" aria-label="Sistema completo de sucesos y un suceso S"><rect x="6" y="10" width="288" height="110" rx="14" class="vbox"/><ellipse cx="150" cy="66" rx="95" ry="38" class="vs"/><path d="M80 10 L68 120 M150 10 L162 120 M230 10 L218 120" class="tr"/><text x="36" y="112" class="tn">A₁</text><text x="104" y="112" class="tn">A₂</text><text x="185" y="112" class="tn">A₃</text><text x="252" y="112" class="tn">A₄</text><text x="146" y="70" class="al">S</text><text x="12" y="26" class="tl">E</text></svg><figcaption>S queda partido en S ∩ A₁, S ∩ A₂…</figcaption></figure>
   </div>
+  <div class="row">
+    <div class="box grn"><span class="t">Teorema de la probabilidad total</span><span class="m">P(S) = P(A<sub>1</sub> ∩ S) + … + P(A<sub>n</sub> ∩ S)</span><br><span class="m">= P(A<sub>1</sub>)·P(S | A<sub>1</sub>) + … + P(A<sub>n</sub>)·P(S | A<sub>n</sub>)</span><br><span class="note">suma de todas las ramas que acaban en S</span></div>
+    <div class="box vio"><span class="t">Teorema de Bayes</span><span class="m big">P(A<sub>i</sub> | S) = <span class="f"><i>P(A<sub>i</sub>)·P(S | A<sub>i</sub>)</i><i>P(S)</i></span></span><br><span class="note">mi rama entre todas las que acaban en S</span></div>
+  </div>
+  <p class="note">Bayes no es una fórmula nueva: es la condicionada, <span class="f"><i>P(A<sub>i</sub> ∩ S)</i><i>P(S)</i></span>, con el numerador calculado por la regla del producto y el denominador por la probabilidad total.</p></div>
   <p><b>Ejemplo.</b> En una academia, el 60 % del alumnado va por la mañana (M) y el resto por la tarde (T). Aprueba (A) el 80 % de los de mañana y el 70 % de los de tarde.</p>
   <div class="row">
     <figure class="fig"><svg viewBox="0 0 360 170" width="360" role="img" aria-label="Diagrama de árbol"><path d="M10 85.0 L116 42.5" class="tr"/><text x="62.0" y="58.75" class="tp" text-anchor="middle">0,6</text><text x="122" y="47.5" class="tn">M</text><path d="M146 42.5 L236 21.25" class="tr"/><text x="194.0" y="26.875" class="tp" text-anchor="middle">0,8</text><text x="242" y="26.25" class="tn">A</text><path d="M146 42.5 L236 63.75" class="tr"/><text x="194.0" y="48.125" class="tp" text-anchor="middle">0,2</text><text x="242" y="68.75" class="tn">Ā</text><path d="M10 85.0 L116 127.5" class="tr"/><text x="62.0" y="101.25" class="tp" text-anchor="middle">0,4</text><text x="122" y="132.5" class="tn">T</text><path d="M146 127.5 L236 106.25" class="tr"/><text x="194.0" y="111.875" class="tp" text-anchor="middle">0,7</text><text x="242" y="111.25" class="tn">A</text><path d="M146 127.5 L236 148.75" class="tr"/><text x="194.0" y="133.125" class="tp" text-anchor="middle">0,3</text><text x="242" y="153.75" class="tn">Ā</text></svg></figure>
