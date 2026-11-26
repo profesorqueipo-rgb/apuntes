@@ -1112,19 +1112,21 @@ html .toc.c3{grid-template-columns:repeat(3,1fr)!important}
       <li><b>Clásica</b>: la de Laplace.</li>
       <li><b>Frecuentista</b>: la frecuencia relativa cuando se repite el experimento muchas veces.</li>
       <li><b>Subjetiva</b>: grado de confianza de una persona (apuestas, expertos).</li>
+      <li><b>Axiomática</b> (Kolmogórov): no dice cómo se calcula, sino qué reglas tiene que cumplir cualquier probabilidad. Las tres anteriores las cumplen.</li>
     </ul>
   </div>
 <div>
   <p><b>Ejemplo.</b> Con el dado, <span class="m">P(A ∪ B) = <span class="f"><i>4</i><i>6</i></span> = <span class="f"><i>2</i><i>3</i></span></span>, porque A ∪ B = {2, 4, 5, 6} tiene 4 de los 6 resultados.</p></div>
-  <h3 class="r">Axiomas y propiedades de la probabilidad</h3>
+  <h3 class="r">Axiomas de Kolmogórov y propiedades</h3>
 <div>
   <div class="row">
-    <div class="box ink"><span class="t">Axiomas</span>Son las tres reglas que cumple cualquier probabilidad (las mismas que las frecuencias):<br>
-      ① <span class="m">0 ≤ P(A) ≤ 1</span><br>② <span class="m">P(E) = 1</span><br>③ si A y B son incompatibles, <span class="m">P(A ∪ B) = P(A) + P(B)</span></div>
+    <div><div class="box ink" style="margin:4px 0"><span class="t">Axiomas de Kolmogórov</span>En 1933, el matemático ruso Andréi Kolmogórov definió la probabilidad con solo tres reglas, los <b>axiomas</b>. Cualquier forma de asignar probabilidades (Laplace, frecuencias…) los cumple:<br>
+      ① <span class="m">P(A) ≥ 0</span> para cualquier suceso A<br>② <span class="m">P(E) = 1</span><br>③ si A y B son incompatibles, <span class="m">P(A ∪ B) = P(A) + P(B)</span><br><span class="note">Que P(A) ≤ 1 no hace falta pedirlo: se deduce de ellos (mira la lista).</span></div></div>
     <div style="flex:1 1 320px"><p><b>Todo lo demás sale de ellos:</b></p>
     <ul class="pen">
       <li><span class="m">P(Ā) = 1 − P(A)</span>: A y Ā son incompatibles y juntos forman E → P(A) + P(Ā) = P(E) = 1.</li>
       <li><span class="m">P(∅) = 0</span>: ∅ es el contrario de E → 1 − 1 = 0.</li>
+      <li><span class="m">P(A) ≤ 1</span>: P(A) = 1 − P(Ā) y, por ①, P(Ā) ≥ 0. Así, <span class="m">0 ≤ P(A) ≤ 1</span>.</li>
       <li>Si <span class="m">A ⊆ B</span>, <span class="m">P(A) ≤ P(B)</span>: B = A ∪ (B − A), incompatibles → P(B) = P(A) + P(B − A) ≥ P(A).</li>
       <li><span class="m">P(A − B) = P(A) − P(A ∩ B)</span>: A se parte en «solo A» y A ∩ B.</li>
       <li><span class="m">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</span>: al sumar P(A) + P(B), la zona A ∩ B se cuenta dos veces; se resta una.</li>
