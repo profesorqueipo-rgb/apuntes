@@ -19,7 +19,7 @@
 @font-face{font-family:"BarFix";src:local("Arial"),local("Helvetica"),local("Roboto"),local("DejaVu Sans");unicode-range:U+007C}
 :root{
   --desk:#e6ebef; --paper:#fbfcf8; --grid:#d5e4ee; --grid2:#bfd3e1; --margin:#ef9a9a;
-  --ink:#24429c; --red:#cf3535; --green:#1d8655; --violet:#7a46b8; --pencil:#5a5f68;
+  --ink:#24429c; --teal:#0e7c86; --red:#cf3535; --green:#1d8655; --violet:#7a46b8; --pencil:#5a5f68;
   --hl:#fff07a; --postit:#fff4a3; --shadow:rgba(30,40,60,.16);
   --f-body:"BarFix","Patrick Hand","Comic Sans MS","Segoe Print",cursive;
   --f-head:"Kalam","Patrick Hand","Comic Sans MS",cursive;
@@ -27,11 +27,11 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --desk:#10141c; --paper:#1b2130; --grid:#262f42; --grid2:#303c54; --margin:#7c3a46;
-  --ink:#9fc2ff; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
+  --ink:#9fc2ff; --teal:#6fd3dc; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
   --hl:rgba(255,226,70,.30); --postit:#4a4424; --shadow:rgba(0,0,0,.5); color-scheme:dark }}
 :root[data-theme="dark"]{
   --desk:#10141c; --paper:#1b2130; --grid:#262f42; --grid2:#303c54; --margin:#7c3a46;
-  --ink:#9fc2ff; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
+  --ink:#9fc2ff; --teal:#6fd3dc; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
   --hl:rgba(255,226,70,.30); --postit:#4a4424; --shadow:rgba(0,0,0,.5); color-scheme:dark }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -40,7 +40,7 @@ body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-body);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
 a{color:inherit}
 a:focus-visible,input:focus-visible{outline:3px dashed var(--red);outline-offset:3px}
-.c-violet{--acc:var(--violet)} .c-red{--acc:var(--red)} .c-green{--acc:var(--green)} .c-ink{--acc:var(--ink)}
+.c-violet{--acc:var(--violet)} .c-red{--acc:var(--red)} .c-green{--acc:var(--green)} .c-ink{--acc:var(--ink)} .c-teal{--acc:var(--teal)}
 
 .tabs{position:sticky;top:0;z-index:5;background:var(--desk);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding-block:10px 8px;max-width:940px;margin:0 auto}
 .tabs a{font-family:var(--f-head);font-weight:700;font-size:16px;text-decoration:none;color:var(--acc,var(--ink));background:var(--paper);
@@ -110,6 +110,7 @@ p{margin:8px 0;max-width:68ch}
   <a href="#inicio">Inicio</a>
   <a href="#eso1" class="c-ink">Mat. · 1º ESO</a>
   <a href="#eso4" class="c-violet">Mat. B · 4º ESO</a>
+  <a href="#mat1" class="c-teal">Mat. I · 1º Bach</a>
   <a href="#mat2" class="c-red">Mat. II · 2º Bach</a>
   <a href="#ccss2" class="c-green">CCSS II · 2º Bach</a>
 </nav>
@@ -151,6 +152,17 @@ p{margin:8px 0;max-width:68ch}
   </div>
   <div class="partes"><div class="parte"><div class="parte-cab"><a class="parte-tit" href="4eso-matematicas-b-1eval.html">1ª evaluación</a><span class="chips"><a class="chip" href="4eso-matematicas-b-1eval.html">web</a></span></div><ul class="temas"><li><a href="4eso-matematicas-b-curso-completo.html#t11" data-buscar="la realidad en números">La realidad en números</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t31" data-buscar="un lenguaje universal">Un lenguaje universal</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t32" data-buscar="la igualdad es la clave">La igualdad es la clave</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t33" data-buscar="no me da igual">No me da igual</a></li></ul></div><div class="parte"><div class="parte-cab"><a class="parte-tit" href="4eso-matematicas-b-2eval.html">2ª evaluación</a><span class="chips"><a class="chip" href="4eso-matematicas-b-2eval.html">web</a></span></div><ul class="temas"><li><a href="4eso-matematicas-b-curso-completo.html#t21a" data-buscar="semejanza">Semejanza</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t21b" data-buscar="trigonometría">Trigonometría</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t21c" data-buscar="resolución de triángulos">Resolución de triángulos</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t22" data-buscar="orientando el plano">Orientando el plano</a></li></ul></div><div class="parte"><div class="parte-cab"><a class="parte-tit" href="4eso-matematicas-b-3eval.html">3ª evaluación</a><span class="chips"><a class="chip" href="4eso-matematicas-b-3eval.html">web</a></span></div><ul class="temas"><li><a href="4eso-matematicas-b-curso-completo.html#t34a" data-buscar="características de las funciones">Características de las funciones</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t34b" data-buscar="funciones elementales">Funciones elementales</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t41" data-buscar="correlaciones">Correlaciones</a></li><li><a href="4eso-matematicas-b-curso-completo.html#t42" data-buscar="las leyes del azar">Las leyes del azar</a></li></ul></div></div>
   <h3 class="r">Ejercicios para practicar</h3><ul class="extras"><li><a class="extra-tit" href="4eso-matematicas-b-coleccion.html">Colección de ejercicios por tema</a><span class="chips"><a class="chip" href="4eso-matematicas-b-coleccion.html">web</a><a class="chip pdf" href="4eso-matematicas-b-coleccion.pdf">PDF</a><a class="chip pdf sol" href="4eso-matematicas-b-coleccion-soluciones.pdf">PDF con soluciones</a></span></li><li><a class="extra-tit" href="4eso-matematicas-b-cuadernillo-up1.html">Cuadernillo UP1</a><span class="chips"><a class="chip" href="4eso-matematicas-b-cuadernillo-up1.html">web</a><a class="chip pdf" href="4eso-matematicas-b-cuadernillo-up1.pdf">PDF</a><a class="chip pdf sol" href="4eso-matematicas-b-cuadernillo-up1-soluciones.pdf">PDF con soluciones</a></span></li></ul>
+</section>
+
+<section class="sheet asignatura c-teal" id="mat1">
+  <span class="kicker">1º Bachillerato · 13 temas</span>
+  <h2>Matemáticas I</h2>
+  <div class="completo">
+    <a class="boton" href="1bach-matematicas-i-curso-completo.html">Abrir el curso completo</a>
+    <span class="chips"><a class="chip pdf" href="1bach-matematicas-i-curso-completo.pdf">PDF para imprimir</a><a class="chip pdf sol" href="1bach-matematicas-i-curso-completo-soluciones.pdf">PDF con soluciones</a></span>
+  </div>
+  <div class="partes"><div class="parte"><div class="parte-cab"><a class="parte-tit" href="1bach-matematicas-i-up1.html">UP1 · Álgebra y trigonometría</a><span class="chips"><a class="chip" href="1bach-matematicas-i-up1.html">web</a><a class="chip pdf" href="1bach-matematicas-i-up1.pdf">PDF</a><a class="chip pdf sol" href="1bach-matematicas-i-up1-soluciones.pdf">PDF con soluciones</a></span></div><ul class="temas"><li><a href="1bach-matematicas-i-curso-completo.html#t1" data-buscar="números reales">Números reales</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t2" data-buscar="álgebra">Álgebra</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t3" data-buscar="trigonometría">Trigonometría</a></li></ul></div><div class="parte"><div class="parte-cab"><a class="parte-tit" href="1bach-matematicas-i-up2.html">UP2 · Geometría</a><span class="chips"><a class="chip" href="1bach-matematicas-i-up2.html">web</a><a class="chip pdf" href="1bach-matematicas-i-up2.pdf">PDF</a><a class="chip pdf sol" href="1bach-matematicas-i-up2-soluciones.pdf">PDF con soluciones</a></span></div><ul class="temas"><li><a href="1bach-matematicas-i-curso-completo.html#t4" data-buscar="números complejos">Números complejos</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t5" data-buscar="geometría analítica">Geometría analítica</a></li><li><a href="1bach-matematicas-i-curso-completo.html#cn" data-buscar="anexo: cónicas">Anexo: cónicas</a></li></ul></div><div class="parte"><div class="parte-cab"><a class="parte-tit" href="1bach-matematicas-i-up3.html">UP3 · Funciones</a><span class="chips"><a class="chip" href="1bach-matematicas-i-up3.html">web</a><a class="chip pdf" href="1bach-matematicas-i-up3.pdf">PDF</a><a class="chip pdf sol" href="1bach-matematicas-i-up3-soluciones.pdf">PDF con soluciones</a></span></div><ul class="temas"><li><a href="1bach-matematicas-i-curso-completo.html#t6" data-buscar="funciones">Funciones</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t7" data-buscar="sucesiones">Sucesiones</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t8" data-buscar="límites y continuidad">Límites y continuidad</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t9" data-buscar="derivadas">Derivadas</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t10" data-buscar="aplicaciones de las derivadas">Aplicaciones de las derivadas</a></li></ul></div><div class="parte"><div class="parte-cab"><a class="parte-tit" href="1bach-matematicas-i-up4.html">UP4 · Estadística y probabilidad</a><span class="chips"><a class="chip" href="1bach-matematicas-i-up4.html">web</a><a class="chip pdf" href="1bach-matematicas-i-up4.pdf">PDF</a><a class="chip pdf sol" href="1bach-matematicas-i-up4-soluciones.pdf">PDF con soluciones</a></span></div><ul class="temas"><li><a href="1bach-matematicas-i-curso-completo.html#t11" data-buscar="estadística bidimensional">Estadística bidimensional</a></li><li><a href="1bach-matematicas-i-curso-completo.html#t12" data-buscar="probabilidad">Probabilidad</a></li></ul></div></div>
+  
 </section>
 
 <section class="sheet asignatura c-red" id="mat2">

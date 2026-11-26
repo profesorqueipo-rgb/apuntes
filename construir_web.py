@@ -97,6 +97,34 @@ ASIGNATURAS = [
         ],
     },
     {
+        "id": "mat1",
+        "corto": "Mat. I · 1º Bach",
+        "carpeta": "1bach-matematicas-i",
+        "origen": "1º Bachillerato Matemáticas I",
+        "nivel": "1º Bachillerato",
+        "nombre": "Matemáticas I",
+        "color": "teal",
+        "completo": {
+            "html": "Apuntes/apuntes-1bach-matI-curso-completo.html",
+            "pdf_sin": "Apuntes/Apuntes 1Bach Mat I - curso completo (sin soluciones).pdf",
+            "pdf_con": "Apuntes/Apuntes 1Bach Mat I - curso completo (con soluciones).pdf",
+        },
+        "partes": [
+            {"titulo": f"UP{k} · {u}", "slug": f"up{k}", "html": f"Apuntes/apuntes-1bach-matI-up{k}.html",
+             "pdf_sin": f"Apuntes/Apuntes 1Bach Mat I - UP{k} {u} (sin soluciones).pdf",
+             "pdf_con": f"Apuntes/Apuntes 1Bach Mat I - UP{k} {u} (con soluciones).pdf",
+             "temas": temas}
+            for k, u, temas in [
+                (1, "Álgebra y trigonometría", [("t1", "Números reales"), ("t2", "Álgebra"), ("t3", "Trigonometría")]),
+                (2, "Geometría", [("t4", "Números complejos"), ("t5", "Geometría analítica"), ("cn", "Anexo: cónicas")]),
+                (3, "Funciones", [("t6", "Funciones"), ("t7", "Sucesiones"), ("t8", "Límites y continuidad"),
+                                  ("t9", "Derivadas"), ("t10", "Aplicaciones de las derivadas")]),
+                (4, "Estadística y probabilidad", [("t11", "Estadística bidimensional"), ("t12", "Probabilidad")]),
+            ]
+        ],
+        "extras": [],
+    },
+    {
         "id": "mat2",
         "corto": "Mat. II · 2º Bach",
         "carpeta": "2bach-matematicas-ii",
@@ -327,7 +355,7 @@ PORTADA = """<!doctype html>
 @font-face{{font-family:"BarFix";src:local("Arial"),local("Helvetica"),local("Roboto"),local("DejaVu Sans");unicode-range:U+007C}}
 :root{{
   --desk:#e6ebef; --paper:#fbfcf8; --grid:#d5e4ee; --grid2:#bfd3e1; --margin:#ef9a9a;
-  --ink:#24429c; --red:#cf3535; --green:#1d8655; --violet:#7a46b8; --pencil:#5a5f68;
+  --ink:#24429c; --teal:#0e7c86; --red:#cf3535; --green:#1d8655; --violet:#7a46b8; --pencil:#5a5f68;
   --hl:#fff07a; --postit:#fff4a3; --shadow:rgba(30,40,60,.16);
   --f-body:"BarFix","Patrick Hand","Comic Sans MS","Segoe Print",cursive;
   --f-head:"Kalam","Patrick Hand","Comic Sans MS",cursive;
@@ -335,11 +363,11 @@ PORTADA = """<!doctype html>
 }}
 @media (prefers-color-scheme: dark){{:root:not([data-theme="light"]){{
   --desk:#10141c; --paper:#1b2130; --grid:#262f42; --grid2:#303c54; --margin:#7c3a46;
-  --ink:#9fc2ff; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
+  --ink:#9fc2ff; --teal:#6fd3dc; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
   --hl:rgba(255,226,70,.30); --postit:#4a4424; --shadow:rgba(0,0,0,.5); color-scheme:dark }}}}
 :root[data-theme="dark"]{{
   --desk:#10141c; --paper:#1b2130; --grid:#262f42; --grid2:#303c54; --margin:#7c3a46;
-  --ink:#9fc2ff; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
+  --ink:#9fc2ff; --teal:#6fd3dc; --red:#ff8d88; --green:#79dba6; --violet:#c9a7ff; --pencil:#aeb6c4;
   --hl:rgba(255,226,70,.30); --postit:#4a4424; --shadow:rgba(0,0,0,.5); color-scheme:dark }}
 *{{box-sizing:border-box}}
 html{{scroll-behavior:smooth}}
@@ -348,7 +376,7 @@ body{{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-body)
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}}
 a{{color:inherit}}
 a:focus-visible,input:focus-visible{{outline:3px dashed var(--red);outline-offset:3px}}
-.c-violet{{--acc:var(--violet)}} .c-red{{--acc:var(--red)}} .c-green{{--acc:var(--green)}} .c-ink{{--acc:var(--ink)}}
+.c-violet{{--acc:var(--violet)}} .c-red{{--acc:var(--red)}} .c-green{{--acc:var(--green)}} .c-ink{{--acc:var(--ink)}} .c-teal{{--acc:var(--teal)}}
 
 .tabs{{position:sticky;top:0;z-index:5;background:var(--desk);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding-block:10px 8px;max-width:940px;margin:0 auto}}
 .tabs a{{font-family:var(--f-head);font-weight:700;font-size:16px;text-decoration:none;color:var(--acc,var(--ink));background:var(--paper);
